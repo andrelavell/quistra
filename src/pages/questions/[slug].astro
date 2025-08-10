@@ -61,6 +61,8 @@ const qaJsonLd: any = {
   }
 };
 const jsonLd = JSON.stringify(qaJsonLd);
+const encodedUrl = encodeURIComponent(pageUrl.toString());
+const encodedText = encodeURIComponent(question.title);
 ---
 
 <BaseLayout 
@@ -92,7 +94,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
     </div>
   </nav>
 
-  <main class="container mx-auto px-4 py-8" data-slug="{question.slug}">
+  <main class="container mx-auto px-4 py-8" data-slug={question.slug}>
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Question Content -->
       <div class="flex-1">
@@ -101,13 +103,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
           <div class="flex items-start gap-4">
             <!-- Vote Column -->
             <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-              <button class="vote-button upvote-btn" data-type="question" data-id="{question.id}">
+              <button class="vote-button upvote-btn" data-type="question" data-id={question.id}>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                 </svg>
               </button>
-              <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{question.votes}">{question.votes}</span>
-              <button class="vote-button downvote-btn" data-type="question" data-id="{question.id}">
+              <span class="text-lg font-semibold text-gray-700 vote-count" data-original={question.votes}>{question.votes}</span>
+              <button class="vote-button downvote-btn" data-type="question" data-id={question.id}>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -137,7 +139,38 @@ const jsonLd = JSON.stringify(qaJsonLd);
                   </a>
                 ))}
               </div>
-              
+              <!-- Share Toolbar -->
+              <div class="flex flex-wrap items-center gap-2 mb-6">
+                <button id="web-share-btn" class="px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 hover:bg-gray-50">
+                  Share
+                </button>
+                <a 
+                  href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`}
+                  target="_blank" rel="noopener" 
+                  class="px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 hover:bg-gray-50"
+                >
+                  X
+                </a>
+                <a 
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+                  target="_blank" rel="noopener" 
+                  class="px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 hover:bg-gray-50"
+                >
+                  Facebook
+                </a>
+                <a 
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
+                  target="_blank" rel="noopener" 
+                  class="px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 hover:bg-gray-50"
+                >
+                  LinkedIn
+                </a>
+                <button id="copy-link-btn" class="px-3 py-1.5 border border-gray-200 rounded-md text-sm text-gray-700 hover:bg-gray-50">
+                  Copy link
+                </button>
+                <span id="copy-link-confirm" class="text-xs text-gray-500 hidden">Copied!</span>
+              </div>
+
               <!-- Question Meta -->
               <div class="flex items-center justify-end pt-4 border-t border-gray-200">
                 <div class="flex items-center space-x-3">
@@ -145,7 +178,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                     <div class="text-sm font-medium text-gray-900">{question.author.name}</div>
                   </div>
                   <div class="text-right">
-                    <div class="text-xs text-gray-700 ts-el" data-ts="question" data-id="{question.id}">{formatDate(question.createdAt)}</div>
+                    <div class="text-xs text-gray-700 ts-el" data-ts="question" data-id={question.id}>{formatDate(question.createdAt)}</div>
                   </div>
                 </div>
               </div>
@@ -181,13 +214,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
                   <div class="flex gap-4">
                     <!-- Vote Column -->
                     <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-                      <button class="vote-button upvote-btn" data-type="answer" data-id="{answer.id}">
+                      <button class="vote-button upvote-btn" data-type="answer" data-id={answer.id}>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                         </svg>
                       </button>
-                      <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{answer.votes}">{answer.votes}</span>
-                      <button class="vote-button downvote-btn" data-type="answer" data-id="{answer.id}">
+                      <span class="text-lg font-semibold text-gray-700 vote-count" data-original={answer.votes}>{answer.votes}</span>
+                      <button class="vote-button downvote-btn" data-type="answer" data-id={answer.id}>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -219,7 +252,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                             <div class="text-sm font-medium text-gray-900">{answer.author.name}</div>
                           </div>
                           <div class="text-right">
-                            <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{answer.id}">{formatDate(answer.createdAt)}</div>
+                            <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id={answer.id}>{formatDate(answer.createdAt)}</div>
                           </div>
                         </div>
                       </div>
@@ -230,19 +263,21 @@ const jsonLd = JSON.stringify(qaJsonLd);
                       {childrenByParent.get(answer.id)!.map(child => (
                         <article class="bg-gray-50 rounded-lg border border-gray-200 p-4">
                           <div class="flex gap-4">
+                            <!-- Vote Column -->
                             <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-                              <button class="vote-button upvote-btn" data-type="answer" data-id="{child.id}">
+                              <button class="vote-button upvote-btn" data-type="answer" data-id={child.id}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                                 </svg>
                               </button>
-                              <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{child.votes}">{child.votes}</span>
-                              <button class="vote-button downvote-btn" data-type="answer" data-id="{child.id}">
+                              <span class="text-lg font-semibold text-gray-700 vote-count" data-original={child.votes}>{child.votes}</span>
+                              <button class="vote-button downvote-btn" data-type="answer" data-id={child.id}>
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                               </button>
                             </div>
+                            <!-- Answer Content -->
                             <div class="flex-1">
                               <div class="prose max-w-none mb-4">
                                 <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">{child.content}</p>
@@ -255,7 +290,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                                   </div>
                                   <div class="text-right">
                                     <div class="text-xs text-gray-500">replied</div>
-                                    <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{child.id}">{formatDate(child.createdAt)}</div>
+                                    <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id={child.id}>{formatDate(child.createdAt)}</div>
                                   </div>
                                 </div>
                               </div>
@@ -268,7 +303,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                 </article>
                 ))}
               </div>
-              
+               
               <!-- Hidden answers for pagination -->
               <div id="hidden-answers" class="hidden space-y-6">
                 {rootAnswers.slice(5).map(answer => (
@@ -276,13 +311,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
                   <div class="flex gap-4">
                     <!-- Vote Column -->
                     <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-                      <button class="vote-button upvote-btn" data-type="answer" data-id="{answer.id}">
+                      <button class="vote-button upvote-btn" data-type="answer" data-id={answer.id}>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                         </svg>
                       </button>
-                      <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{answer.votes}">{answer.votes}</span>
-                      <button class="vote-button downvote-btn" data-type="answer" data-id="{answer.id}">
+                      <span class="text-lg font-semibold text-gray-700 vote-count" data-original={answer.votes}>{answer.votes}</span>
+                      <button class="vote-button downvote-btn" data-type="answer" data-id={answer.id}>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -316,7 +351,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                             )}
                           </div>
                           <div class="text-right">
-                            <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{answer.id}">{formatDate(answer.createdAt)}</div>
+                            <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id={answer.id}>{formatDate(answer.createdAt)}</div>
                           </div>
                         </div>
                       </div>
@@ -354,7 +389,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                                   </div>
                                   <div class="text-right">
                                     <div class="text-xs text-gray-500">replied</div>
-                                    <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{child.id}">{formatDate(child.createdAt)}</div>
+                                    <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id={child.id}>{formatDate(child.createdAt)}</div>
                                   </div>
                                 </div>
                               </div>
@@ -486,6 +521,58 @@ const jsonLd = JSON.stringify(qaJsonLd);
               inline: 'nearest'
             });
           }, 100);
+        }
+      });
+    }
+    
+    // Share: Web Share API with fallback + Copy Link
+    const shareBtn = document.getElementById('web-share-btn');
+    const copyBtn = document.getElementById('copy-link-btn');
+    
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const data = {
+          title: document.title,
+          text: document.title,
+          url: window.location.href
+        };
+        if (navigator.share) {
+          try {
+            await navigator.share(data);
+          } catch (err) {
+            // If user cancels or share fails, do nothing
+          }
+        } else {
+          // Fallback: open X share intent
+          const url = encodeURIComponent(window.location.href);
+          const text = encodeURIComponent(document.title);
+          window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'noopener');
+        }
+      });
+    }
+    
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const pageUrl = window.location.href;
+        let copied = false;
+        try {
+          await navigator.clipboard.writeText(pageUrl);
+          copied = true;
+        } catch (e) {
+          // Fallback for older browsers
+          const ta = document.createElement('textarea');
+          ta.value = pageUrl;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); copied = true; } catch (_) {}
+          document.body.removeChild(ta);
+        }
+        if (copied) {
+          const orig = copyBtn.textContent;
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => { if (copyBtn) copyBtn.textContent = orig || 'Copy link'; }, 1500);
         }
       });
     }
