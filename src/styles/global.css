@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-coral-500 hover:bg-coral-600 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 hover:border-gray-400 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+  
+  .question-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .vote-button {
+    @apply flex items-center justify-center w-8 h-8 rounded-full border border-gray-300 hover:border-gray-400 transition-colors duration-200;
+  }
+  
+  .vote-count {
+    @apply text-sm font-medium text-gray-600 mx-2;
+  }
+  
+  .tag {
+    @apply inline-block bg-gray-100 text-gray-700 text-xs font-medium px-2 py-1 rounded-md mr-2 mb-2;
+  }
+  
+  .tag-primary {
+    @apply bg-coral-100 text-coral-800;
+  }
+}

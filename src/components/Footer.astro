@@ -1,0 +1,92 @@
+---
+// Footer component
+import { questions, answers } from "../data/questions";
+
+// Popular questions: top 3 by votes
+const popular = [...questions]
+  .sort((a, b) => b.votes - a.votes)
+  .slice(0, 3);
+
+// Latest answers: latest 2 with links to their question
+const byId = new Map(questions.map((q) => [q.id, q]));
+const latestAnswers = [...answers]
+  .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+  .slice(0, 2)
+  .map((ans) => ({
+    ...ans,
+    question: byId.get(ans.questionId),
+  }))
+  .filter((a) => a.question);
+---
+
+<footer class="bg-gray-800 text-white mt-16">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- About section -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Who We Are ?</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          A knowledge-sharing platform where people ask questions and get helpful answers on a wide range of topics. From technology and lifestyle to career advice and personal development—find the answers you need.
+        </p>
+        <div class="mt-4">
+          <p class="text-sm text-gray-400">Address:</p>
+          <p class="text-sm text-gray-300">San Francisco, CA</p>
+        </div>
+        <div class="mt-2">
+          <p class="text-sm text-gray-400">Support Email Address:</p>
+          <p class="text-sm text-gray-300">support@qasite.dev</p>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="text-gray-300 hover:text-coral-300 transition-colors">Home</a></li>
+          <li><a href="/about" class="text-gray-300 hover:text-coral-300 transition-colors">About</a></li>
+          <li><a href="/contact" class="text-gray-300 hover:text-coral-300 transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <!-- Popular Questions -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Popular Questions</h3>
+        <ul class="space-y-2 text-sm">
+          {popular.map((q) => (
+            <li class="flex items-center justify-between">
+              <a href={`/questions/${q.slug}`} class="text-gray-300 hover:text-coral-300 transition-colors">{q.title}</a>
+              <span class="text-xs bg-gray-700 text-gray-200 px-2 py-0.5 rounded">{q.votes} votes</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Latest Answers -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Latest Answers</h3>
+        <div class="space-y-4">
+          {latestAnswers.map((a) => (
+            <div class="text-sm">
+              <p class="text-gray-300">
+                <span class="font-medium">{a.author.name}</span> answered 
+                <a href={`/questions/${a.question.slug}`} class="text-coral-300 hover:text-coral-200">{a.question.title}</a>
+              </p>
+              <p class="text-gray-400 text-xs mt-1">{new Date(a.createdAt).toLocaleString()}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm text-gray-400">
+        Copyright 2025 Quistra | All Rights Reserved
+      </p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="/privacy" class="text-sm text-gray-400 hover:text-coral-300 transition-colors">Privacy Policy</a>
+        <a href="/terms" class="text-sm text-gray-400 hover:text-coral-300 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

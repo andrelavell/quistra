@@ -1,0 +1,91 @@
+---
+// Sidebar component
+import { questions, categories } from "../data/questions";
+
+// Build category counts from questions
+const categoryCounts = categories.map((c) => ({
+  ...c,
+  count: questions.filter((q) => q.category === c.slug).length,
+})).filter((c) => c.count > 0);
+
+// Recent questions: latest 3 by createdAt
+const recent = [...questions]
+  .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+  .slice(0, 3);
+---
+
+<aside class="w-full lg:w-80 space-y-6">
+  <!-- Categories -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
+    <ul class="space-y-2">
+      {categoryCounts.map((cat) => (
+        <li>
+          <a href={`/category/${cat.slug}`} class="text-gray-600 hover:text-coral-600 transition-colors">{cat.name}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- RSS Feed -->
+  <div class="bg-coral-500 rounded-lg p-6 text-white">
+    <div class="flex items-center space-x-3 mb-3">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M3.429 2.571A8.571 8.571 0 0112 11.143V8.571a6 6 0 00-6-6H3.429zM3.429 5.714A5.714 5.714 0 019.143 11.429H6.571a3.143 3.143 0 00-3.142-3.143V5.714zM6.571 14.571a1.714 1.714 0 11-3.428 0 1.714 1.714 0 013.428 0z"/>
+      </svg>
+      <h3 class="font-semibold">RSS Feed</h3>
+    </div>
+    <p class="text-sm text-coral-100 mb-4">Subscribe to our RSS feed to get the latest questions and answers.</p>
+    <button class="bg-white text-coral-500 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors">
+      Subscribe
+    </button>
+  </div>
+
+  <!-- Login Form -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Login</h3>
+    <form class="space-y-4">
+      <div>
+        <input 
+          type="text" 
+          placeholder="Username" 
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coral-500 focus:border-transparent"
+        >
+      </div>
+      <div>
+        <input 
+          type="password" 
+          placeholder="Password" 
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coral-500 focus:border-transparent"
+        >
+      </div>
+      <div class="flex items-center">
+        <input type="checkbox" id="remember" class="rounded border-gray-300 text-coral-500 focus:ring-coral-500">
+        <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+      </div>
+      <button type="submit" class="w-full btn-primary">
+        Login
+      </button>
+      <div class="text-center">
+        <a href="/forgot-password" class="text-sm text-coral-600 hover:text-coral-700">Forgot Password?</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Recent Questions -->
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Questions</h3>
+    <div class="space-y-3">
+      {recent.map((q) => (
+        <div>
+          <h4 class="text-sm font-medium text-gray-900 mb-1">
+            <a href={`/questions/${q.slug}`} class="hover:text-coral-600 transition-colors">
+              {q.title}
+            </a>
+          </h4>
+          <p class="text-xs text-gray-500">{new Date(q.createdAt).toLocaleDateString()}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</aside>

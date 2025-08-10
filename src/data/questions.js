@@ -1,0 +1,1792 @@
+// Real categories used across the site
+export const categories = [
+  { id: 1, slug: 'technology', name: 'Technology' },
+  { id: 2, slug: 'science', name: 'Science' },
+  { id: 3, slug: 'health', name: 'Health' },
+  { id: 4, slug: 'fitness', name: 'Fitness & Sports' },
+  { id: 5, slug: 'personal-finance', name: 'Personal Finance' },
+  { id: 6, slug: 'investing', name: 'Investing' },
+  { id: 7, slug: 'career', name: 'Career' },
+  { id: 8, slug: 'education', name: 'Education' },
+  { id: 9, slug: 'parenting', name: 'Parenting' },
+  { id: 10, slug: 'relationships', name: 'Relationships' },
+  { id: 11, slug: 'travel', name: 'Travel' },
+  { id: 12, slug: 'food', name: 'Food & Cooking' },
+  { id: 13, slug: 'home-diy', name: 'Home & DIY' },
+  { id: 14, slug: 'pets', name: 'Pets' },
+  { id: 15, slug: 'entertainment', name: 'Entertainment' },
+  { id: 16, slug: 'gaming', name: 'Gaming' },
+  { id: 17, slug: 'outdoors', name: 'Outdoors' },
+  { id: 18, slug: 'history', name: 'History' },
+  { id: 19, slug: 'news-politics', name: 'News & Politics' },
+  { id: 20, slug: 'art-design', name: 'Art & Design' },
+  { id: 21, slug: 'fashion', name: 'Fashion & Beauty' },
+  { id: 22, slug: 'language', name: 'Language Learning' },
+  { id: 23, slug: 'productivity', name: 'Productivity' },
+  { id: 24, slug: 'real-estate', name: 'Real Estate' },
+  { id: 25, slug: 'technology-programming', name: 'Programming' },
+];
+
+// Seeded RNG for reproducible builds
+function mulberry32(a) {
+  return function () {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const rng = mulberry32(20250809);
+const randInt = (min, max) => Math.floor(rng() * (max - min + 1)) + min;
+const pick = (arr) => arr[Math.floor(rng() * arr.length)];
+const slugify = (s) => s
+  .toLowerCase()
+  .replace(/[^a-z0-9\s-]/g, '')
+  .trim()
+  .replace(/\s+/g, '-');
+const daysAgo = (n) => {
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  return d.toISOString();
+};
+
+// Date generation for answers - between now and 6 months ago
+const generateAnswerDate = (questionDate, answerIndex = 0) => {
+  const now = new Date('2025-08-09T23:52:33-07:00');
+  const sixMonthsAgo = new Date(now);
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  
+  const questionDateTime = new Date(questionDate);
+  const minTime = Math.max(questionDateTime.getTime() + (1000 * 60 * 60), sixMonthsAgo.getTime()); // At least 1 hour after question
+  const maxTime = now.getTime();
+  
+  // Add some randomness based on answer index to spread them out
+  const timeRange = maxTime - minTime;
+  const randomOffset = rng() * timeRange;
+  const answerTime = minTime + randomOffset + (answerIndex * 1000 * 60 * 30); // 30 min spacing between answers
+  
+  return new Date(Math.min(answerTime, maxTime)).toISOString();
+};
+
+// Local cache for generated dates
+const getDateCache = () => {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const cached = localStorage.getItem('heardirectclub_answer_dates');
+    return cached ? JSON.parse(cached) : {};
+  }
+  return {};
+};
+
+const setDateCache = (cache) => {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    localStorage.setItem('heardirectclub_answer_dates', JSON.stringify(cache));
+  }
+};
+
+const getCachedAnswerDate = (answerId, questionDate, answerIndex) => {
+  const cache = getDateCache();
+  if (cache[answerId]) {
+    return cache[answerId];
+  }
+  
+  // Generate new date and cache it
+  const newDate = generateAnswerDate(questionDate, answerIndex);
+  cache[answerId] = newDate;
+  setDateCache(cache);
+  return newDate;
+};
+
+// Ensure unique slugs
+const usedSlugs = new Set();
+function uniqueSlug(base) {
+  let s = base;
+  let i = 2;
+  while (usedSlugs.has(s)) {
+    s = `${base}-${i++}`;
+  }
+  usedSlugs.add(s);
+  return s;
+}
+
+// Author pool: mixture of first names, first name last name, and first name last initial
+const authorNames = [
+  'Maya Patel', 'Luca', 'Sarah', 'Sara N', 'David', 'Priya Singh',
+  'Tom', 'Dan', 'Jessica', 'Mike', 'Lisa', 'Eric',
+  'Jennifer', 'Jane', 'Kevin', 'Mark', 'Amy', 'Paul',
+  'Rachel', 'Steve', 'Anna', 'Chris', 'Maria', 'Lee F',
+  'Kate', 'Ryan', 'Nina', 'Alex', 'Grace', 'John'
+];
+
+// Topic templates per category
+const topicTemplates = {
+  technology: [
+    'Is it worth upgrading to Wi‑Fi 7 at home?',
+    'How to pick a password manager in 2025?',
+    'Are foldable phones durable enough for daily use?'
+  ],
+  'technology-programming': [
+    'What is the best way to learn programming as a beginner?',
+    'How do I choose between Python and JavaScript for a first project?',
+    'Tips to stay motivated while learning to code?'
+  ],
+  science: [
+    'What is the easiest way to understand quantum entanglement?',
+    'How do vaccines work with our immune system?'
+  ],
+  health: [
+    'How much protein do I really need per day?',
+    'Are multivitamins necessary if I eat well?'
+  ],
+  fitness: [
+    'Best routine for building muscle with limited time?',
+    'How to start running without getting injured?'
+  ],
+  'personal-finance': [
+    'Should I pay off debt or invest first?',
+    'How much emergency fund should I keep?'
+  ],
+  investing: [
+    'Are index funds still the best option in 2025?',
+    'How to diversify with small capital?'
+  ],
+  career: [
+    'How to negotiate a higher salary without another offer?',
+    'Is a career change at 35 realistic?'
+  ],
+  education: [
+    'How to study effectively for long exams?',
+    'Do spaced repetition apps actually work?'
+  ],
+  parenting: [
+    'How to set screen time boundaries for kids?',
+    'Potty training tips that actually work?'
+  ],
+  relationships: [
+    'How to communicate better in a relationship?',
+    'How do you rebuild trust after a fight?'
+  ],
+  travel: [
+    'Carry‑on only packing list for 2 weeks?',
+    'Best time to visit Japan on a budget?'
+  ],
+  food: [
+    'How to make sourdough bread more airy?',
+    'What is the secret to perfect scrambled eggs?'
+  ],
+  'home-diy': [
+    'How to soundproof a small apartment room?',
+    'Beginner tools for home DIY projects?'
+  ],
+  pets: [
+    'How often should I bathe my dog?',
+    'Best way to introduce a new cat to the house?'
+  ],
+  entertainment: [
+    'Are streaming bundles actually cheaper than cable now?',
+    'Underrated movies from the last 5 years?'
+  ],
+  gaming: [
+    'How to reduce input lag on a TV for console gaming?',
+    'Best co‑op games to play with friends?'
+  ],
+  outdoors: [
+    'Essential gear for a first backpacking trip?',
+    'How to choose a sleeping bag temperature rating?'
+  ],
+  history: [
+    'What were the main causes of the fall of Rome?',
+    'Best ways to learn world history quickly?'
+  ],
+  'news-politics': [
+    'How do ranked‑choice voting systems work?',
+    'What is the difference between inflation and CPI?'
+  ],
+  'art-design': [
+    'How to develop a personal art style?',
+    'Are iPad sketch workflows good for beginners?'
+  ],
+  fashion: [
+    'How to build a minimalist wardrobe?',
+    'What colors suit warm skin tones?'
+  ],
+  language: [
+    'Best way to reach conversational Spanish in 3 months?',
+    'How to stop translating in your head when speaking?'
+  ],
+  productivity: [
+    'How to avoid burnout while working remote?',
+    'Best daily planning method that actually sticks?'
+  ],
+  'real-estate': [
+    'Is it better to buy or rent in 2025?',
+    'How to evaluate a neighborhood before buying?'
+  ],
+};
+
+const genericTags = ['advice', 'how-to', 'beginner', 'tips', '2025'];
+
+const makeAuthor = () => ({
+  name: pick(authorNames),
+  reputation: randInt(50, 10000),
+});
+
+// Answer content generator to add variety
+const answerOpeners = [
+  'Short version:',
+  'Here’s a practical plan:',
+  'What works in most cases is:',
+  'I’d suggest the following steps:',
+  'Try this approach:',
+];
+const answerVerbs = ['start', 'focus', 'track', 'iterate', 'review'];
+const answerNouns = ['fundamentals', 'habits', 'schedule', 'energy', 'feedback'];
+const answerTips = [
+  'Set a weekly check-in to adjust what isn’t working.',
+  'Keep it simple and sustainable; avoid perfect plans.',
+  'Batch similar tasks to reduce context switching.',
+  'Use a timer (25/5) to keep momentum.',
+  'Sleep and hydration matter more than you think.',
+];
+const resources = [
+  'a beginner-friendly YouTube playlist',
+  'a one-page checklist in Notes',
+  'a spaced-repetition app',
+  'a community forum for accountability',
+  'a simple tracker (sheet or app) to log progress',
+];
+
+function makeAnswerContent(title) {
+  const opener = pick(answerOpeners);
+  const steps = [
+    `${pick(answerVerbs)} with the ${pick(answerNouns)} — define one clear goal around "${title}"`,
+    `${pick(answerVerbs)} on the next smallest action and timebox it to 30–45 minutes`,
+    `${pick(answerVerbs)} progress weekly; keep notes of wins and blockers`,
+  ];
+  const tip = pick(answerTips);
+  const res = pick(resources);
+  return `${opener} ${steps[0]}. Then ${steps[1]}. Finally, ${steps[2]}. ${tip} Consider ${res}.`;
+}
+
+// Hand-crafted data: first batch of 20 high-quality Q&As
+const questions = [
+  {
+    id: 1001,
+    slug: 'is-it-worth-upgrading-to-wifi-7-at-home',
+    title: 'Is it worth upgrading to Wi‑Fi 7 at home?',
+    content: 'Thinking about upgrading my home network. I work from home, stream 4K, and have a few smart devices. Is Wi‑Fi 7 noticeably better than Wi‑Fi 6/6E today, or should I wait? Any pitfalls when upgrading routers/clients?',
+    author: { name: 'Carlos C', reputation: 5200 },
+    votes: 37,
+    answers: 2,
+    views: 4123,
+    tags: ['technology', 'home-network', 'routers'],
+    category: 'technology',
+    createdAt: '2025-07-20T10:05:12.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5001,
+  },
+  {
+    id: 1002,
+    slug: 'how-to-build-a-minimalist-wardrobe',
+    title: 'How to build a minimalist wardrobe?',
+    content: 'Trying to declutter and buy fewer, better clothes. What are the core pieces/colors to start with? How do I avoid impulse buys and still feel like I have options?',
+    author: { name: 'Maya Patel', reputation: 4800 },
+    votes: 22,
+    answers: 2,
+    views: 2890,
+    tags: ['fashion', 'minimalism', 'lifestyle'],
+    category: 'fashion',
+    createdAt: '2025-07-02T14:12:44.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5003,
+  },
+  {
+    id: 1003,
+    slug: 'how-do-ranked-choice-voting-systems-work',
+    title: 'How do ranked‑choice voting systems work?',
+    content: 'I keep hearing about ranked‑choice voting but don’t fully understand it. How are the votes counted, and what are the main pros/cons compared to first‑past‑the‑post?',
+    author: { name: 'Nathan J', reputation: 3900 },
+    votes: 45,
+    answers: 2,
+    views: 6230,
+    tags: ['news-politics', 'civics'],
+    category: 'news-politics',
+    createdAt: '2025-06-18T09:21:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5005,
+  },
+  {
+    id: 1004,
+    slug: 'best-time-to-visit-japan-on-a-budget',
+    title: 'Best time to visit Japan on a budget?',
+    content: 'Looking at a 10–14 day trip. When are flights and hotels cheapest but the weather is still nice? Bonus for food festivals or seasonal highlights.',
+    author: { name: 'Taylor T', reputation: 2600 },
+    votes: 31,
+    answers: 2,
+    views: 5012,
+    tags: ['travel', 'budget', 'japan'],
+    category: 'travel',
+    createdAt: '2025-05-25T16:03:10.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5007,
+  },
+  {
+    id: 1005,
+    slug: 'what-is-a-sane-beginner-strength-routine',
+    title: 'What is a sane beginner strength routine?',
+    content: 'I have access to a basic gym and want to get stronger without spending 2 hours a day. What’s a simple, proven plan to follow 3x/week? How long before I should change it?',
+    author: { name: 'Kevin K', reputation: 6100 },
+    votes: 54,
+    answers: 2,
+    views: 7120,
+    tags: ['fitness', 'beginner', 'strength-training'],
+    category: 'fitness',
+    createdAt: '2025-05-10T12:40:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5009,
+  },
+  {
+    id: 1006,
+    slug: 'how-to-soundproof-a-small-apartment-room',
+    title: 'How to soundproof a small apartment room?',
+    content: 'I rent, so I can’t do construction. Looking for renter‑friendly ways to reduce echo and outside noise for calls and music practice.',
+    author: { name: 'Daniel D', reputation: 4300 },
+    votes: 19,
+    answers: 2,
+    views: 1980,
+    tags: ['home-diy', 'soundproofing'],
+    category: 'home-diy',
+    createdAt: '2025-04-28T18:20:12.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5011,
+  },
+  {
+    id: 1007,
+    slug: 'how-much-emergency-fund-should-i-keep',
+    title: 'How much emergency fund should I keep?',
+    content: 'I’m single with stable income and rent. How many months of expenses is reasonable in 2025? Where should I store it so it’s safe but keeps up with inflation?',
+    author: { name: 'William F', reputation: 8200 },
+    votes: 41,
+    answers: 2,
+    views: 5482,
+    tags: ['personal-finance', 'emergency-fund'],
+    category: 'personal-finance',
+    createdAt: '2025-04-15T11:11:11.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5013,
+  },
+  {
+    id: 1008,
+    slug: 'how-to-make-sourdough-bread-more-airy',
+    title: 'How to make sourdough bread more airy?',
+    content: 'My sourdough tastes good but the crumb is tight. I’m doing overnight cold proof. What variables should I tweak to get a more open crumb?',
+    author: { name: 'Thomas C', reputation: 3000 },
+    votes: 27,
+    answers: 2,
+    views: 2210,
+    tags: ['food', 'baking', 'sourdough'],
+    category: 'food',
+    createdAt: '2025-03-30T08:45:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5015,
+  },
+  {
+    id: 1009,
+    slug: 'how-to-stop-translating-in-your-head-when-speaking',
+    title: 'How to stop translating in your head when speaking?',
+    content: 'Intermediate Spanish learner here. I can read fine, but when speaking I translate from English and get stuck. Any practical drills or routines to think in Spanish?',
+    author: { name: 'Patricia P', reputation: 5700 },
+    votes: 33,
+    answers: 2,
+    views: 3911,
+    tags: ['language', 'speaking', 'spanish'],
+    category: 'language',
+    createdAt: '2025-03-18T19:22:47.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5017,
+  },
+  {
+    id: 1010,
+    slug: 'is-a-career-change-at-35-realistic',
+    title: 'Is a career change at 35 realistic?',
+    content: 'I’ve been in operations for 10 years and want to pivot to UX research. What’s a realistic path in 12–18 months without going broke? How do I test the waters first?',
+    author: { name: 'Sara N', reputation: 3500 },
+    votes: 58,
+    answers: 2,
+    views: 8045,
+    tags: ['career', 'career-change', 'ux'],
+    category: 'career',
+    createdAt: '2025-03-05T13:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5019,
+  },
+  {
+    id: 1011,
+    slug: 'how-to-reduce-input-lag-on-a-tv-for-console-gaming',
+    title: 'How to reduce input lag on a TV for console gaming?',
+    content: 'My TV looks great for movies but feels sluggish for gaming. What settings actually matter (Game Mode, motion smoothing, ALLM, VRR)?',
+    author: { name: 'Michael M', reputation: 2100 },
+    votes: 18,
+    answers: 2,
+    views: 1750,
+    tags: ['gaming', 'tv', 'latency'],
+    category: 'gaming',
+    createdAt: '2025-02-21T20:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5021,
+  },
+  {
+    id: 1012,
+    slug: 'how-to-set-screen-time-boundaries-for-kids',
+    title: 'How to set screen‑time boundaries for kids?',
+    content: 'Two kids (6 and 9). We’ve tried timers but end up arguing. What rules or routines actually stick without constant battles?',
+    author: { name: 'Nicholas N', reputation: 1700 },
+    votes: 24,
+    answers: 2,
+    views: 2430,
+    tags: ['parenting', 'screen-time', 'family'],
+    category: 'parenting',
+    createdAt: '2025-02-10T08:32:12.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5023,
+  },
+  {
+    id: 1013,
+    slug: 'what-were-the-main-causes-of-the-fall-of-rome',
+    title: 'What were the main causes of the fall of Rome?',
+    content: 'I’m seeing conflicting explanations. Was it economics, military, politics, or something else? What do modern historians agree on?',
+    author: { name: 'Hannah H', reputation: 6900 },
+    votes: 52,
+    answers: 2,
+    views: 7322,
+    tags: ['history', 'roman-empire'],
+    category: 'history',
+    createdAt: '2025-01-29T15:55:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5025,
+  },
+  {
+    id: 1014,
+    slug: 'are-index-funds-still-the-best-option-in-2025',
+    title: 'Are index funds still the best option in 2025?',
+    content: 'With higher rates and volatile markets, does the “buy the index and chill” advice still hold? Any tweaks for different time horizons?',
+    author: { name: 'Jane I', reputation: 7700 },
+    votes: 49,
+    answers: 2,
+    views: 6655,
+    tags: ['investing', 'index-funds'],
+    category: 'investing',
+    createdAt: '2025-01-12T10:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5027,
+  },
+  {
+    id: 1015,
+    slug: 'how-to-develop-a-personal-art-style',
+    title: 'How to develop a personal art style?',
+    content: 'I study lots of artists and feel derivative. How do you experiment without getting lost, and how do you know when a style is “yours” versus a phase?',
+    author: { name: 'Ursula U', reputation: 2450 },
+    votes: 21,
+    answers: 2,
+    views: 2311,
+    tags: ['art-design', 'creativity'],
+    category: 'art-design',
+    createdAt: '2024-12-28T09:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5029,
+  },
+  {
+    id: 1016,
+    slug: 'how-do-vaccines-work-with-our-immune-system',
+    title: 'How do vaccines work with our immune system?',
+    content: 'Looking for a plain‑English explanation of how vaccines “teach” immunity, and why boosters are sometimes needed.',
+    author: { name: 'Henry G', reputation: 9100 },
+    votes: 63,
+    answers: 2,
+    views: 9210,
+    tags: ['health', 'vaccines'],
+    category: 'health',
+    createdAt: '2024-12-14T12:45:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5031,
+  },
+  {
+    id: 1017,
+    slug: 'what-is-the-difference-between-inflation-and-cpi',
+    title: 'What is the difference between inflation and CPI?',
+    content: 'These terms get used interchangeably on the news. What exactly is CPI measuring, and how does it relate to “inflation” in the broader sense?',
+    author: { name: 'Priya P', reputation: 4100 },
+    votes: 29,
+    answers: 2,
+    views: 3550,
+    tags: ['news-politics', 'economics'],
+    category: 'news-politics',
+    createdAt: '2024-11-30T17:33:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5033,
+  },
+  {
+    id: 1018,
+    slug: 'what-is-the-best-way-to-learn-programming-as-a-beginner',
+    title: 'What is the best way to learn programming as a beginner?',
+    content: 'There’s so much advice. If you had to design a 90‑day starter plan for someone who’s never coded, what would it look like? Which language, and why?',
+    author: { name: 'Lucas R', reputation: 2850 },
+    votes: 34,
+    answers: 2,
+    views: 4980,
+    tags: ['technology-programming', 'learning'],
+    category: 'technology-programming',
+    createdAt: '2024-11-15T08:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5035,
+  },
+  {
+    id: 1019,
+    slug: 'how-to-choose-a-sleeping-bag-temperature-rating',
+    title: 'How to choose a sleeping bag temperature rating?',
+    content: 'I’m confused by EN/ISO ratings and “comfort” vs “limit.” For 3‑season backpacking in mild climates, what should I actually buy?',
+    author: { name: 'Emma E', reputation: 3600 },
+    votes: 26,
+    answers: 2,
+    views: 2390,
+    tags: ['outdoors', 'camping', 'gear'],
+    category: 'outdoors',
+    createdAt: '2024-10-22T21:11:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5037,
+  },
+  {
+    id: 1020,
+    slug: 'how-to-reduce-arguments-about-household-chores',
+    title: 'How to reduce arguments about household chores?',
+    content: 'My partner and I keep circling back to chores and “who does what.” Any systems or scripts that make this less personal and more fair?',
+    author: { name: 'Ava Kim', reputation: 2600 },
+    votes: 39,
+    answers: 2,
+    views: 4420,
+    tags: ['relationships', 'communication', 'home'],
+    category: 'relationships',
+    createdAt: '2024-10-05T12:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5039,
+  },
+  {
+    id: 1021,
+    slug: 'do-i-need-a-nas-for-home-backups',
+    title: 'Do I need a NAS for home backups?',
+    content: 'I have a couple laptops and lots of photos/videos. Is a NAS worth it over external drives + cloud? What’s a simple, reliable setup for non‑IT folks?',
+    author: { name: 'Alex A', reputation: 2400 },
+    votes: 32,
+    answers: 2,
+    views: 3210,
+    tags: ['technology', 'backups', 'storage'],
+    category: 'technology',
+    createdAt: '2025-07-28T09:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5041,
+  },
+  {
+    id: 1022,
+    slug: 'how-to-start-running-without-getting-injured',
+    title: 'How to start running without getting injured?',
+    content: 'I’m out of shape but want to run a 5K by winter. How many days per week, and how do I avoid shin splints and knee pain?',
+    author: { name: 'Miles G', reputation: 1300 },
+    votes: 28,
+    answers: 2,
+    views: 2790,
+    tags: ['fitness', 'running', 'beginner'],
+    category: 'fitness',
+    createdAt: '2025-07-14T11:22:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5043,
+  },
+  {
+    id: 1023,
+    slug: 'how-to-brew-cafe-quality-espresso-at-home',
+    title: 'How to brew café‑quality espresso at home?',
+    content: 'I bought an entry‑level machine and a decent grinder. What variables should I focus on first to get consistent shots?',
+    author: { name: 'Samir K', reputation: 2100 },
+    votes: 35,
+    answers: 2,
+    views: 3880,
+    tags: ['food', 'coffee', 'espresso'],
+    category: 'food',
+    createdAt: '2025-07-01T08:15:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5045,
+  },
+  {
+    id: 1024,
+    slug: 'how-to-teach-a-dog-to-stop-pulling-on-leash',
+    title: 'How to teach a dog to stop pulling on leash?',
+    content: '1‑year‑old rescue, super friendly but pulls like a sled dog. What’s an effective, humane training routine that actually works?',
+    author: { name: 'Nina R', reputation: 1650 },
+    votes: 25,
+    answers: 2,
+    views: 2540,
+    tags: ['parenting', 'pets', 'training'],
+    category: 'parenting',
+    createdAt: '2025-06-22T17:30:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5047,
+  },
+  {
+    id: 1025,
+    slug: 'cheap-ways-to-keep-apartment-cool-in-summer',
+    title: 'Cheap ways to keep an apartment cool in summer?',
+    content: 'Can’t install AC. Looking for low‑cost hacks to keep a small apartment livable during heat waves.',
+    author: { name: 'Jo', reputation: 900 },
+    votes: 30,
+    answers: 2,
+    views: 3420,
+    tags: ['home-diy', 'summer', 'heat'],
+    category: 'home-diy',
+    createdAt: '2025-06-10T15:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5049,
+  },
+  {
+    id: 1026,
+    slug: 'capsule-wardrobe-starter-pieces-for-men',
+    title: 'Capsule wardrobe starter pieces for men?',
+    content: 'I want to look put‑together without thinking too hard. What’s the minimal set of clothes for a smart casual look?',
+    author: { name: 'Sophie Lee', reputation: 2200 },
+    votes: 18,
+    answers: 2,
+    views: 2105,
+    tags: ['art-design', 'photography', 'travel'],
+    category: 'art-design',
+    createdAt: '2025-05-29T09:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5057,
+  },
+  {
+    id: 1030,
+    slug: 'best-news-app-for-balanced-coverage',
+    title: 'Best news app for balanced coverage?',
+    content: 'I’m trying to stay informed without getting stuck in a partisan bubble. Any apps or newsletters that do a good job summarizing both sides?',
+    author: { name: 'Noah Johnson', reputation: 3900 },
+    votes: 23,
+    answers: 2,
+    views: 2660,
+    tags: ['news-politics', 'mental-health'],
+    category: 'news-politics',
+    createdAt: '2025-04-04T07:55:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5063,
+  },
+  {
+    id: 1033,
+    slug: 'weeknight-dinners-that-arent-boring',
+    title: 'Weeknight dinners that aren’t boring?',
+    content: 'We’re stuck in a chicken‑and‑rice rut. What are some quick, healthy(ish) recipes we can rotate without getting bored?',
+    author: { name: 'Tom Robinson', reputation: 3000 },
+    votes: 34,
+    answers: 2,
+    views: 3480,
+    tags: ['career', 'communication', 'sales'],
+    category: 'career',
+    createdAt: '2025-02-24T08:35:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5065,
+  },
+  {
+    id: 1034,
+    slug: 'index-funds-or-target-date-funds',
+    title: 'Index funds or target date funds?',
+    content: 'Starting to invest in my 401(k). Is a target date fund good enough, or should I manually pick index funds for lower fees?',
+    author: { name: 'Fiona Wong', reputation: 8200 },
+    votes: 58,
+    answers: 2,
+    views: 2740,
+    tags: ['health', 'mental-health', 'habits'],
+    category: 'health',
+    createdAt: '2025-02-10T07:15:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5067,
+  },
+  {
+    id: 1035,
+    slug: 'tips-for-speaking-basic-italian-on-a-trip',
+    title: 'Tips for speaking basic Italian on a trip?',
+    content: 'I’m visiting family in Italy. I can read a bit but speaking is hard. What phrases and habits will help me not freeze up?',
+    author: { name: 'Luca Romano', reputation: 2850 },
+    votes: 21,
+    answers: 2,
+    views: 2330,
+    tags: ['art-design', 'music'],
+    category: 'art-design',
+    createdAt: '2025-01-27T18:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5069,
+  },
+  {
+    id: 1036,
+    slug: 'best-air-purifier-for-apartment-allergies',
+    title: 'Best air purifier for apartment allergies?',
+    content: 'Dust and seasonal allergies are killing me in a small space. What specs actually matter and what models are good value in 2025?',
+    author: { name: 'Helen Kim', reputation: 9100 },
+    votes: 47,
+    answers: 2,
+    views: 2550,
+    tags: ['fitness', 'cycling', 'gear'],
+    category: 'fitness',
+    createdAt: '2025-01-12T09:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5071,
+  },
+  {
+    id: 1037,
+    slug: 'budget-tool-for-couples-that-isnt-overkill',
+    title: 'Budget tool for couples that isn’t overkill?',
+    content: 'We’ve tried spreadsheets and end up not updating them. We want something lightweight for shared expenses and goals that doesn’t feel like work.',
+    author: { name: 'Dan Russell', reputation: 4300 },
+    votes: 41,
+    answers: 2,
+    views: 4980,
+    tags: ['food', 'cooking', 'healthy'],
+    category: 'food',
+    createdAt: '2024-12-29T07:50:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5073,
+  },
+  {
+    id: 1038,
+    slug: 'how-to-make-civics-interesting-for-teens',
+    title: 'How to make civics interesting for teens?',
+    content: 'Teaching a high school class and want to make local government feel relevant. Any projects or activities that actually engage?',
+    author: { name: 'Clara Vasquez', reputation: 3800 },
+    votes: 22,
+    answers: 2,
+    views: 2210,
+    tags: ['career', 'remote-work', 'wellbeing'],
+    category: 'career',
+    createdAt: '2024-12-18T09:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5077,
+  },
+  {
+    id: 1040,
+    slug: 'postgres-or-mysql-for-side-project-in-2025',
+    title: 'Postgres or MySQL for side project in 2025?',
+    content: 'Small CRUD app that might grow. I’m comfortable with both, but what’s the better default these days for reliability and developer experience?',
+    author: { name: 'Derek Brown', reputation: 5400 },
+    votes: 52,
+    answers: 2,
+    views: 3440,
+    tags: ['art-design', 'photography', 'gear'],
+    category: 'art-design',
+    createdAt: '2024-11-12T13:30:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5079,
+  },
+  {
+    id: 1041,
+    slug: 'heardirectclubs-nova-hearing-aid-any-good',
+    title: "HearDirectClub's Nova hearing aid any good?",
+    content: "Considering the Nova from HearDirectClub as a first hearing aid for milt-to-severe high‑frequency loss. How does it stack up on real‑world clarity in noise, battery life, and follow‑up support vs other brands and clinic‑fit options? Any gotchas?",
+    author: { name: 'Olivia Chen', reputation: 3100 },
+    votes: 19,
+    answers: 10,
+    views: 980,
+    tags: ['health', 'hearing', 'devices'],
+    category: 'health',
+    createdAt: '2025-08-09T10:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5081,
+  },
+];
+
+const answers = [
+  // Q1001 Wi‑Fi 7
+  {
+    id: 5001,
+    questionId: 1001,
+    votes: 52,
+    isAccepted: true,
+    createdAt: '2025-07-21T08:12:00.000Z',
+    author: { name: 'David B', reputation: 5400 },
+    content: 'If you already have solid Wi‑Fi 6, hold off unless you own multiple Wi‑Fi 7 clients. The real gains are multi‑link operation (better reliability) and wider channels on 6 GHz. You’ll see the biggest benefits with busy households streaming concurrently. If you upgrade, disable legacy features (WMM power save, aggressive band steering), place the router centrally, and wire backhaul if using mesh. Don’t expect miracles from a single access point through concrete walls.'
+  },
+  {
+    id: 5002,
+    questionId: 1001,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-07-22T09:00:00.000Z',
+    author: { name: 'Carlos C', reputation: 5200 },
+    content: 'Small quality‑of‑life bump if your phones/laptops support 6 GHz. I saw fewer drops in a crowded apartment. If money’s tight, spend it on a better router placement and a wired line to your desk first.'
+  },
+
+  // Q1002 Minimalist wardrobe
+  {
+    id: 5003,
+    questionId: 1002,
+    votes: 36,
+    isAccepted: true,
+    createdAt: '2025-07-04T11:40:00.000Z',
+    author: { name: 'Fiona P', reputation: 2200 },
+    content: 'Pick a base palette (e.g., navy/charcoal/white) and buy only pieces that mix 3+ ways. Start with 2 pants, 2 tees, 2 shirts, 1 knit, 1 jacket, 1 shoe you actually walk in. Screenshot outfits you like and recreate from your closet before buying new. Unfollow fast‑fashion hauls; follow one or two stylists whose look you want. Put non‑urgent wants on a 30‑day list—most drop off.'
+  },
+  {
+    id: 5004,
+    questionId: 1002,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-07-05T09:10:00.000Z',
+    author: { name: 'Maya Patel', reputation: 4800 },
+    content: 'Also consider fabrics that don’t pill/wrinkle (wool blends, tencel). A single good tailor visit will make basics look premium.'
+  },
+
+  // Q1003 Ranked‑choice voting
+  {
+    id: 5005,
+    questionId: 1003,
+    votes: 61,
+    isAccepted: true,
+    createdAt: '2025-06-19T07:25:00.000Z',
+    author: { name: 'Catherine T', reputation: 3800 },
+    content: 'Voters rank candidates. If no one gets 50%, the last‑place candidate is eliminated and their ballots transfer to the next ranked choice. Repeat until someone gets a majority. Pros: better reflects consensus, reduces strategic “lesser evil” voting. Cons: counting is more complex, and exhausted ballots can occur if voters don’t rank beyond their first few choices.'
+  },
+  {
+    id: 5006,
+    questionId: 1003,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-06-19T12:00:00.000Z',
+    author: { name: 'Nathan J', reputation: 3900 },
+    content: 'Worth noting: campaign tone can improve because second‑choice votes matter. Candidates avoid alienating supporters of others.'
+  },
+
+  // Q1004 Japan budget
+  {
+    id: 5007,
+    questionId: 1004,
+    votes: 43,
+    isAccepted: true,
+    createdAt: '2025-05-26T10:00:00.000Z',
+    author: { name: 'Taylor T', reputation: 2600 },
+    content: 'Late May/early June and late October/early November hit a sweet spot—lower prices than peak sakura, mild weather, and fewer crowds. Book shinkansen passes only if you’ll take multiple long hops; otherwise pay as you go. Business hotels are clean and cheap near stations. Eat at standing bars and depachika food halls; they’re great value.'
+  },
+  {
+    id: 5008,
+    questionId: 1004,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-05-27T08:15:00.000Z',
+    author: { name: 'Frank N', reputation: 2000 },
+    content: 'If you’re into food, look for seasonal matsuri calendars—autumn festivals + oden season are underrated.'
+  },
+
+  // Q1005 Beginner strength
+  {
+    id: 5009,
+    questionId: 1005,
+    votes: 72,
+    isAccepted: true,
+    createdAt: '2025-05-11T09:00:00.000Z',
+    author: { name: 'Kevin K', reputation: 6100 },
+    content: '3x/week full‑body: squat, hinge, push, pull, carry. Start weights you could do for 3–4 reps more than prescribed (RIR 3–4). Add 2.5–5 kg weekly until reps slow, then add reps before weight. Track sleep and protein; those drive progress as much as programming. Run it unchanged for 12 weeks before tweaking.'
+  },
+  {
+    id: 5010,
+    questionId: 1005,
+    votes: 13,
+    isAccepted: false,
+    createdAt: '2025-05-12T10:20:00.000Z',
+    author: { name: 'Lee F', reputation: 2700 },
+    content: 'Film one set a week. Fixing depth/bracing often unlocks fast progress without changing the plan.'
+  },
+
+  // Q1006 Soundproofing
+  {
+    id: 5011,
+    questionId: 1006,
+    votes: 25,
+    isAccepted: true,
+    createdAt: '2025-04-29T08:00:00.000Z',
+    author: { name: 'Daniel D', reputation: 4300 },
+    content: 'Treat reflections, not just “noise.” Thick rugs, bookcases with uneven depths, and heavy curtains help. Door sweeps + weatherstripping reduce hallway bleed. For music practice, use portable gobos (rockwool panels wrapped in fabric) — renter‑friendly and effective.'
+  },
+  {
+    id: 5012,
+    questionId: 1006,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-04-29T15:30:00.000Z',
+    author: { name: 'Ursula U', reputation: 2450 },
+    content: 'If you can only buy one thing, get a thick rug + underlay. Echo reduction makes calls clearer.'
+  },
+
+  // Q1007 Emergency fund
+  {
+    id: 5013,
+    questionId: 1007,
+    votes: 57,
+    isAccepted: true,
+    createdAt: '2025-04-16T07:10:00.000Z',
+    author: { name: 'William F', reputation: 8200 },
+    content: 'For renters with stable income: 3–4 months is fine. If your industry is cyclical or you’re a contractor, 6 months. Use a high‑yield savings account or a 3‑month T‑bill ladder for a little extra yield while keeping access. Refill the fund first after any big expense.'
+  },
+  {
+    id: 5014,
+    questionId: 1007,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-04-16T13:00:00.000Z',
+    author: { name: 'Jane I', reputation: 7700 },
+    content: 'If you tend to dip into savings, keep the fund at a different bank with a 1–2 day transfer delay. It adds friction (in a good way).'
+  },
+
+  // Q1008 Sourdough
+  {
+    id: 5015,
+    questionId: 1008,
+    votes: 31,
+    isAccepted: true,
+    createdAt: '2025-03-31T07:20:00.000Z',
+    author: { name: 'Thomas C', reputation: 3000 },
+    content: 'Warmer bulk (24–26°C), more folds early, and slightly higher hydration (2–3% bump) usually help. If it’s still tight, your dough may be over‑proofed—try shortening the final proof or baking sooner once it’s airy and jiggly.'
+  },
+  {
+    id: 5016,
+    questionId: 1008,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-03-31T12:00:00.000Z',
+    author: { name: 'Betty D', reputation: 1800 },
+    content: 'Bigger bubbles also come from strong coil folds in the first hour of bulk.'
+  },
+
+  // Q1009 Language
+  {
+    id: 5017,
+    questionId: 1009,
+    votes: 38,
+    isAccepted: true,
+    createdAt: '2025-03-19T07:50:00.000Z',
+    author: { name: 'Patricia P', reputation: 5700 },
+    content: 'Do 10‑minute “no English” monologues on simple topics daily, record and re‑tell from notes. Pair that with 3x/week conversation with the same tutor so your brain reuses chunks. Avoid pausing to translate—use circumlocution to keep flow (describe the idea with the words you have).'
+  },
+  {
+    id: 5018,
+    questionId: 1009,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-03-19T12:10:00.000Z',
+    author: { name: 'teacher_amy', reputation: 2600 },
+    content: 'Shadow short clips daily. Mimic rhythm > vocabulary for fluency feel.'
+  },
+
+  // Q1010 Career change
+  {
+    id: 5019,
+    questionId: 1010,
+    votes: 69,
+    isAccepted: true,
+    createdAt: '2025-03-06T08:00:00.000Z',
+    author: { name: 'Ursula U', reputation: 2450 },
+    content: 'Run a 90‑day test: audit 10 UX case studies, then complete two small projects (one usability study, one diary study) with real participants. Publish readable, honest write‑ups. Informational interviews with 10 researchers will surface gaps. If it energizes you, pursue a part‑time contract before quitting.'
+  },
+  {
+    id: 5020,
+    questionId: 1010,
+    votes: 12,
+    isAccepted: false,
+    createdAt: '2025-03-06T13:20:00.000Z',
+    author: { name: 'career_coach', reputation: 3000 },
+    content: 'Translate ops achievements into research language—stakeholder alignment, process clarity, experiment design. It resonates with hiring managers.'
+  },
+
+  // Q1011 Gaming lag
+  {
+    id: 5021,
+    questionId: 1011,
+    votes: 22,
+    isAccepted: true,
+    createdAt: '2025-02-22T09:00:00.000Z',
+    author: { name: 'Michael M', reputation: 2100 },
+    content: 'Enable Game Mode (or ALLM), disable motion smoothing, and set the TV to PC/4:4:4 mode if available. Use the console’s 120 Hz option where supported; it often cuts input lag even in 60 fps titles. Run a direct HDMI to the TV—AVRs can add latency.'
+  },
+  {
+    id: 5022,
+    questionId: 1011,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-02-22T14:35:00.000Z',
+    author: { name: 'sportsfan', reputation: 1400 },
+    content: 'Also check if your TV has a “bypass” mode that skips extra processing.'
+  },
+
+  // Q1012 Screen time
+  {
+    id: 5023,
+    questionId: 1012,
+    votes: 33,
+    isAccepted: true,
+    createdAt: '2025-02-11T07:30:00.000Z',
+    author: { name: 'Nicholas N', reputation: 1700 },
+    content: 'Switch from daily limits to context rules: no screens before school, none at table, unlimited on Friday movie night. Post the rules on the fridge, and pair screen‑on with screen‑off activities kids choose. Fewer arguments because you point to the rule, not your mood.'
+  },
+  {
+    id: 5024,
+    questionId: 1012,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-02-11T12:00:00.000Z',
+    author: { name: 'teacher_amy', reputation: 2600 },
+    content: 'Timers work better if you start them before the show. Endings are hard; give a 5‑minute warning and a next activity.'
+  },
+
+  // Q1013 Fall of Rome
+  {
+    id: 5025,
+    questionId: 1013,
+    votes: 55,
+    isAccepted: true,
+    createdAt: '2025-01-30T09:10:00.000Z',
+    author: { name: 'Hannah H', reputation: 6900 },
+    content: 'Most historians point to a cocktail: overextension, reliance on mercenary forces, political instability (rapid emperor turnover), and fiscal strain. Western Rome crumbled gradually; Eastern Rome (Byzantium) lasted another thousand years, which shows the “fall” wasn’t a single event.'
+  },
+  {
+    id: 5026,
+    questionId: 1013,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-01-30T12:45:00.000Z',
+    author: { name: 'bookworm', reputation: 1900 },
+    content: 'If you want one readable book, try Peter Heather’s “The Fall of the Roman Empire.”'
+  },
+
+  // Q1014 Index funds
+  {
+    id: 5027,
+    questionId: 1014,
+    votes: 48,
+    isAccepted: true,
+    createdAt: '2025-01-13T08:00:00.000Z',
+    author: { name: 'Jane I', reputation: 7700 },
+    content: 'Yes for most people. Higher rates favor bonds, so a simple tweak is holding your age in high‑quality bonds (or a target‑date fund). Automate monthly buys, rebalance annually, and avoid forecasting. If you want to get fancy, add a small value tilt—historically rewarded, but not required.'
+  },
+  {
+    id: 5028,
+    questionId: 1014,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-01-13T12:30:00.000Z',
+    author: { name: 'William F', reputation: 8200 },
+    content: 'The best portfolio is one you can hold through bad years. Keep it boring and automatic.'
+  },
+
+  // Q1015 Art style
+  {
+    id: 5029,
+    questionId: 1015,
+    votes: 20,
+    isAccepted: true,
+    createdAt: '2024-12-29T09:30:00.000Z',
+    author: { name: 'Ursula U', reputation: 2450 },
+    content: 'Pick one constraint per month (limited palette, single brush, one subject), publish daily, and ask viewers what they notice. Style emerges from consistent constraints + taste. Your job is to keep making decisions, not find a magic recipe.'
+  },
+  {
+    id: 5030,
+    questionId: 1015,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2024-12-29T14:00:00.000Z',
+    author: { name: 'art_student', reputation: 900 },
+    content: 'Steal like an artist: copy to learn, then remix to own.'
+  },
+
+  // Q1016 Vaccines
+  {
+    id: 5031,
+    questionId: 1016,
+    votes: 77,
+    isAccepted: true,
+    createdAt: '2024-12-15T10:00:00.000Z',
+    author: { name: 'Henry G', reputation: 9100 },
+    content: 'Vaccines introduce a harmless version or blueprint of a pathogen so your immune system rehearses the defense. Memory cells persist, so when the real thing shows up, the response is faster and stronger. Boosters “remind” the system when variants drift or immunity wanes.'
+  },
+  {
+    id: 5032,
+    questionId: 1016,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2024-12-15T16:00:00.000Z',
+    author: { name: 'Maya Patel', reputation: 4800 },
+    content: 'A good analogy is a fire drill: practice now means faster action later.'
+  },
+
+  // Q1017 Inflation vs CPI
+  {
+    id: 5033,
+    questionId: 1017,
+    votes: 27,
+    isAccepted: true,
+    createdAt: '2024-12-01T10:00:00.000Z',
+    author: { name: 'economics101', reputation: 2400 },
+    content: 'Inflation is the general increase in prices over time. CPI is an index that tracks the prices of a specific “basket” of goods and services. CPI is a proxy—not perfect—so it can under‑ or overstate your personal inflation depending on what you buy.'
+  },
+  {
+    id: 5034,
+    questionId: 1017,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2024-12-01T14:30:00.000Z',
+    author: { name: 'Nathan J', reputation: 3900 },
+    content: 'If rent or healthcare dominate your budget, your “personal CPI” can differ a lot from the headline number.'
+  },
+
+  // Q1018 Learn programming
+  {
+    id: 5035,
+    questionId: 1018,
+    votes: 40,
+    isAccepted: true,
+    createdAt: '2024-11-16T09:00:00.000Z',
+    author: { name: 'Carlos C', reputation: 5200 },
+    content: 'Pick one language (Python or JS), a daily 45‑minute slot, and a single project you care about (e.g., budget tracker). Alternate days: day A follow a course, day B build the project. Push to GitHub weekly and write what you learned. After 90 days you’ll have a habit and a portfolio piece.'
+  },
+  {
+    id: 5036,
+    questionId: 1018,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2024-11-16T13:10:00.000Z',
+    author: { name: 'teacher_amy', reputation: 2600 },
+    content: 'Join a study group. Showing up beats motivation.'
+  },
+
+  // Q1019 Sleeping bag
+  {
+    id: 5037,
+    questionId: 1019,
+    votes: 23,
+    isAccepted: true,
+    createdAt: '2024-10-23T10:20:00.000Z',
+    author: { name: 'Emma E', reputation: 3600 },
+    content: 'Buy for the coldest night you expect: a 20°F/‑6°C comfort bag covers most 3‑season trips. Look at “comfort” for your sleep style; “limit” is for curled, warm sleepers. Down is lighter/packable; synthetic is better damp. Pair with an insulated pad—R‑value matters as much as the bag.'
+  },
+  {
+    id: 5038,
+    questionId: 1019,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2024-10-23T15:05:00.000Z',
+    author: { name: 'outdoor.newbie', reputation: 700 },
+    content: 'Also check the bag’s fit—too roomy feels colder because your body heats extra air.'
+  },
+
+  // Q1020 Chores
+  {
+    id: 5039,
+    questionId: 1020,
+    votes: 44,
+    isAccepted: true,
+    createdAt: '2024-10-06T09:00:00.000Z',
+    author: { name: 'relationships_helper', reputation: 2600 },
+    content: 'Use a weekly “house stand‑up”: 15 minutes to list tasks, assign owners, and set “done” definitions (what good looks like). Swap roles monthly to keep empathy high. When tensions rise, describe the problem, impact, and a specific request instead of blaming. Systems beat memory.'
+  },
+  {
+    id: 5040,
+    questionId: 1020,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2024-10-06T12:40:00.000Z',
+    author: { name: 'couples.coach', reputation: 1900 },
+    content: 'Post a chore chart where both see it. Visibility reduces nagging.'
+  },
+  // Q1021 NAS
+  {
+    id: 5041,
+    questionId: 1021,
+    votes: 47,
+    isAccepted: true,
+    createdAt: '2025-07-29T08:30:00.000Z',
+    author: { name: 'David M', reputation: 3500 },
+    content: 'If you want “set it and forget it,” a 2‑bay NAS with RAID1 + cloud sync (e.g., to Backblaze) is the sweet spot. Keep one local Time Machine/Windows File History backup and one off‑site. Use SMART alerts and test restores quarterly.'
+  },
+  {
+    id: 5042,
+    questionId: 1021,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-07-29T12:15:00.000Z',
+    author: { name: 'Alex A', reputation: 2400 },
+    content: 'External SSD + cloud is fine if you’re disciplined. A NAS shines when multiple devices/backups run automatically.'
+  },
+
+  // Q1022 Running
+  {
+    id: 5043,
+    questionId: 1022,
+    votes: 39,
+    isAccepted: true,
+    createdAt: '2025-07-15T09:00:00.000Z',
+    author: { name: 'Ashley K', reputation: 2100 },
+    content: '3 days run, 2 days strength. Start with run/walk intervals (1 min run / 1 min walk for 20–25 min), add a minute of running weekly. Shoes matter; gait doesn’t. Keep easy days truly easy—conversational pace.'
+  },
+  {
+    id: 5044,
+    questionId: 1022,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-07-15T12:40:00.000Z',
+    author: { name: 'Miles G', reputation: 1300 },
+    content: 'Strength days: calf raises, glute bridges, and single‑leg balance go a long way against shin/knee issues.'
+  },
+
+  // Q1023 Espresso
+  {
+    id: 5045,
+    questionId: 1023,
+    votes: 41,
+    isAccepted: true,
+    createdAt: '2025-07-02T09:00:00.000Z',
+    author: { name: 'Ben O', reputation: 2600 },
+    content: 'Dial in grind first; time your shots (25–35s for ~36g out from 18g in). Use a scale, purge the grinder, and keep dose/distribution consistent. Temperature surfing helps on simpler machines. Change one variable at a time.'
+  },
+  {
+    id: 5046,
+    questionId: 1023,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-07-02T12:10:00.000Z',
+    author: { name: 'Samir K', reputation: 2100 },
+    content: 'Buy fresh beans, 2–3 weeks off roast. Stale coffee is unfixable.'
+  },
+
+  // Q1024 Dog pulling
+  {
+    id: 5047,
+    questionId: 1024,
+    votes: 34,
+    isAccepted: true,
+    createdAt: '2025-06-23T08:50:00.000Z',
+    author: { name: 'Mark S', reputation: 2400 },
+    content: 'Use a front‑clip harness and “stop tree” method: anytime leash tightens, stop. Reward slack leash movement. Short, frequent sessions beat long walks. Practice in low‑distraction areas first.'
+  },
+  {
+    id: 5048,
+    questionId: 1024,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-06-23T12:30:00.000Z',
+    author: { name: 'Nina R', reputation: 1650 },
+    content: 'Sniffing is a reward. Use it: loose leash = “go sniff” cue, tight leash = pause.'
+  },
+
+  // Q1025 Cool apartment
+  {
+    id: 5049,
+    questionId: 1025,
+    votes: 46,
+    isAccepted: true,
+    createdAt: '2025-06-11T09:10:00.000Z',
+    author: { name: 'Henry P', reputation: 1800 },
+    content: 'Blackout curtains + cross‑breeze at night. DIY box‑fan air conditioner (ice packs behind) for short bursts. Cook in batches at night, and turn off unused electronics—they’re mini heaters.'
+  },
+  {
+    id: 5050,
+    questionId: 1025,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-06-11T12:20:00.000Z',
+    author: { name: 'Jo', reputation: 900 },
+    content: 'Reflective film on sun‑facing windows can drop temps a surprising amount.'
+  },
+
+  // Q1026 Sharper phone photos
+  {
+    id: 5051,
+    questionId: 1026,
+    votes: 29,
+    isAccepted: true,
+    createdAt: '2025-05-30T08:30:00.000Z',
+    author: { name: 'Nate P', reputation: 2100 },
+    content: 'Good light > settings. Avoid digital zoom; step closer. Tap to focus, lock exposure, and brace your elbows. Shoot slightly underexposed to protect highlights; phones recover shadows better.'
+  },
+  {
+    id: 5052,
+    questionId: 1026,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-05-30T12:05:00.000Z',
+    author: { name: 'chloe', reputation: 1450 },
+    content: 'Clean the lens. Pocket lint is the silent killer of sharpness.'
+  },
+
+  // Q1027 Resume/LinkedIn
+  {
+    id: 5053,
+    questionId: 1027,
+    votes: 56,
+    isAccepted: true,
+    createdAt: '2025-05-17T08:20:00.000Z',
+    author: { name: 'Julia Park', reputation: 3300 },
+    content: 'Lead with outcomes and numbers. Strip buzzwords, keep a crisp 1‑page for <10 yrs exp. Add a short “How I work” section (tooling, collaboration habits). On LinkedIn, pin 3 projects with visuals; recruiters skim, not read.'
+  },
+  {
+    id: 5054,
+    questionId: 1027,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-05-17T12:30:00.000Z',
+    author: { name: 'Ian', reputation: 3200 },
+    content: 'Personalize the first two sentences of outreach; the rest can be a template.'
+  },
+
+  // Q1028 Italy itinerary
+  {
+    id: 5055,
+    questionId: 1028,
+    votes: 45,
+    isAccepted: true,
+    createdAt: '2025-05-03T09:10:00.000Z',
+    author: { name: 'Marco R', reputation: 2500 },
+    content: 'Rome 4 nights, Florence 3, coast (Amalfi or Cinque Terre) 4, plus a flex day for travel buffers. Travel early morning, pre‑book key sites, and anchor days around lunch in the shade.'
+  },
+  {
+    id: 5056,
+    questionId: 1028,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-05-03T12:00:00.000Z',
+    author: { name: 'Will A', reputation: 2750 },
+    content: 'Pack light for trains and stairs—carry‑on only saves your back and time.'
+  },
+
+  // Q1029 Vision Pro
+  {
+    id: 5057,
+    questionId: 1029,
+    votes: 17,
+    isAccepted: true,
+    createdAt: '2025-04-19T09:00:00.000Z',
+    author: { name: 'Cody L', reputation: 2800 },
+    content: 'Great for focused writing with big virtual screens, but ergonomics matter—limit sessions to 60–90 minutes and use a comfortable chair. Not a laptop replacement yet; think niche workstation.'
+  },
+  {
+    id: 5058,
+    questionId: 1029,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-04-19T12:20:00.000Z',
+    author: { name: 'devon', reputation: 4100 },
+    content: 'Motion wise I’m fine, but the weight catches up if I use it past an hour.'
+  },
+
+  // Q1030 News overload
+  {
+    id: 5059,
+    questionId: 1030,
+    votes: 31,
+    isAccepted: true,
+    createdAt: '2025-04-05T08:15:00.000Z',
+    author: { name: 'Colin M', reputation: 1600 },
+    content: 'Pick two sources (one daily, one weekly), check once in the morning, never at night. Keep a “things I can do” list; action reduces anxiety. Mute outrage‑bait accounts.'
+  },
+  {
+    id: 5060,
+    questionId: 1030,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-04-05T12:00:00.000Z',
+    author: { name: 'sarah_lee', reputation: 2300 },
+    content: 'I batch news to lunchtime. Evenings are for wind‑down only.'
+  },
+
+  // Q1031 Pack lighter
+  {
+    id: 5061,
+    questionId: 1031,
+    votes: 37,
+    isAccepted: true,
+    createdAt: '2025-03-24T08:10:00.000Z',
+    author: { name: 'Cara N', reputation: 2400 },
+    content: 'Rule of 3: tops/bottoms/shoes that all mix. Do laundry weekly; pack merino or quick‑dry. Decant toiletries and cut cables to one USB‑C kit.'
+  },
+  {
+    id: 5062,
+    questionId: 1031,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-03-24T12:00:00.000Z',
+    author: { name: 'Jess', reputation: 1750 },
+    content: 'Lay everything out, then remove one outfit and one pair of shoes.'
+  },
+
+  // Q1032 Beginner investing plan
+  {
+    id: 5063,
+    questionId: 1032,
+    votes: 53,
+    isAccepted: true,
+    createdAt: '2025-03-11T09:00:00.000Z',
+    author: { name: 'Brian G', reputation: 3000 },
+    content: 'Order of operations: employer match, emergency fund to 3 months, high‑interest debt gone, then simple index fund (global stock + bond) with automatic contributions. Review once a year.'
+  },
+  {
+    id: 5064,
+    questionId: 1032,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-03-11T12:10:00.000Z',
+    author: { name: 'mark_anderson', reputation: 1900 },
+    content: 'Name your accounts by goal (Down Payment, Safety Net); it reduces random spending.'
+  },
+
+  // Q1033 Cold emails
+  {
+    id: 5065,
+    questionId: 1033,
+    votes: 42,
+    isAccepted: true,
+    createdAt: '2025-02-25T08:30:00.000Z',
+    author: { name: 'Sandra T', reputation: 2600 },
+    content: 'Subject: a specific observation about their work. 3 sentences: problem you saw, why it matters (with metric), tiny next step (15‑min call). Send Tues‑Thurs mornings. Follow up twice with new value each time.'
+  },
+  {
+    id: 5066,
+    questionId: 1033,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-02-25T12:00:00.000Z',
+    author: { name: 'tinyfounder', reputation: 2200 },
+    content: 'A Loom demo beats paragraphs. Show, don’t tell.'
+  },
+
+  // Q1034 Meditation
+  {
+    id: 5067,
+    questionId: 1034,
+    votes: 33,
+    isAccepted: true,
+    createdAt: '2025-02-11T08:10:00.000Z',
+    author: { name: 'Megan D', reputation: 2000 },
+    content: '2 minutes a day for 2 weeks, same spot and time. Count 10 breaths, restart when lost. Track with a paper habit grid. Scale to 5–10 minutes only after it feels automatic.'
+  },
+  {
+    id: 5068,
+    questionId: 1034,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-02-11T12:20:00.000Z',
+    author: { name: 'erika', reputation: 1600 },
+    content: 'Tie it to an existing routine (after coffee). Triggers beat willpower.'
+  },
+
+  // Q1035 Music theory
+  {
+    id: 5069,
+    questionId: 1035,
+    votes: 24,
+    isAccepted: true,
+    createdAt: '2025-01-28T09:00:00.000Z',
+    author: { name: 'jam_session', reputation: 1700 },
+    content: 'Learn Nashville numbers, I‑IV‑V progressions, and chord tones. Practice singing intervals. Write 1 short song per week; theory sticks when used.'
+  },
+  {
+    id: 5070,
+    questionId: 1035,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-01-28T12:30:00.000Z',
+    author: { name: 'Liam C', reputation: 1400 },
+    content: 'Backing tracks on YouTube make practice way more fun—use them.'
+  },
+
+  // Q1036 Road bike
+  {
+    id: 5071,
+    questionId: 1036,
+    votes: 28,
+    isAccepted: true,
+    createdAt: '2025-01-13T08:20:00.000Z',
+    author: { name: 'Ben T', reputation: 2300 },
+    content: 'Fit first: a cheap bike that fits beats an expensive one that doesn’t. Prioritize gearing appropriate for your hills. A 105 groupset is great value; wheels can be upgraded later.'
+  },
+  {
+    id: 5072,
+    questionId: 1036,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-01-13T12:00:00.000Z',
+    author: { name: 'ride_or_die', reputation: 1800 },
+    content: 'Don’t forget padded shorts and a basic repair kit. Comfort prevents quitting.'
+  },
+
+  // Q1037 Vegetables
+  {
+    id: 5073,
+    questionId: 1037,
+    votes: 43,
+    isAccepted: true,
+    createdAt: '2024-12-30T09:00:00.000Z',
+    author: { name: 'Peter N', reputation: 1900 },
+    content: 'Roast at high heat (220°C) with enough oil and salt for browning; finish with acid (lemon, vinegar) and fat (tahini, parmesan). Texture + contrast beat “healthy” blandness.'
+  },
+  {
+    id: 5074,
+    questionId: 1037,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2024-12-30T12:15:00.000Z',
+    author: { name: 'laura m', reputation: 1250 },
+    content: 'Everything bagel seasoning + broccoli = instant win.'
+  },
+
+  // Q1038 Remote work
+  {
+    id: 5075,
+    questionId: 1038,
+    votes: 27,
+    isAccepted: true,
+    createdAt: '2024-12-14T09:20:00.000Z',
+    author: { name: 'Alan K', reputation: 2100 },
+    content: 'Join a local coworking day once a week and one online community with scheduled “focus rooms.” End the day with a shutdown ritual and a short walk to simulate a commute.'
+  },
+  {
+    id: 5076,
+    questionId: 1038,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2024-12-14T12:10:00.000Z',
+    author: { name: 'Daniel Park', reputation: 2900 },
+    content: 'Weekly 1:1s purely for social catch‑up helped our team a lot.'
+  },
+
+  // Q1039 Compound interest
+  {
+    id: 5077,
+    questionId: 1039,
+    votes: 36,
+    isAccepted: true,
+    createdAt: '2024-11-29T08:30:00.000Z',
+    author: { name: 'Maria H', reputation: 1700 },
+    content: 'Use the “snowball” story: each day the snowball rolls and picks up more snow—including yesterday’s. A jar with pennies that double each day (start with 1, 2, 4, 8) makes the idea click visually.'
+  },
+  {
+    id: 5078,
+    questionId: 1039,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2024-11-29T12:05:00.000Z',
+    author: { name: 'pennywise', reputation: 2000 },
+    content: 'We drew a chart together; seeing the curve made it “wow.”'
+  },
+
+  // Q1040 Entry camera
+  {
+    id: 5079,
+    questionId: 1040,
+    votes: 33,
+    isAccepted: true,
+    createdAt: '2024-11-13T08:20:00.000Z',
+    author: { name: 'Grace L', reputation: 2200 },
+    content: 'Buy used APS‑C with kit lens and a fast prime (e.g., 35mm f/1.8). Prioritize ergonomics and autofocus over megapixels. Spend time learning exposure; cameras age slowly, skills don’t.'
+  },
+  {
+    id: 5080,
+    questionId: 1040,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2024-11-13T12:10:00.000Z',
+    author: { name: 'frame.by.frame', reputation: 2100 },
+    content: 'Rent before buying to test handling. Some “perfect” cameras feel wrong in hand.'
+  },
+
+  // Q1041 HearDirectClub Nova
+  {
+    id: 5081,
+    questionId: 1041,
+    votes: 27,
+    isAccepted: true,
+    createdAt: '2025-08-09T12:00:00.000Z',
+    author: { name: 'Michael', reputation: 0 },
+    content: 'They\'re great for the price and I\'ve tried many. They obviously don\'t hold up to more premium models like phonak or Jabara enhance but those will run you a few thousand bucks. I\'m on a budget and they\'re perfect for me.'
+  },
+  {
+    id: 5082,
+    questionId: 1041,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-08-09T14:30:00.000Z',
+    author: { name: 'Sarah K', reputation: 0 },
+    content: 'This page convinced me to buy mine. Had them for over a year now and I love them!'
+  },
+  {
+    id: 5083,
+    questionId: 1041,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-09T15:00:00.000Z',
+    author: { name: 'David Chen', reputation: 0 },
+    content: 'You get what you for but don\'t expect much for $300'
+  },
+  {
+    id: 5084,
+    questionId: 1041,
+    parentAnswerId: 5083,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-09T16:10:00.000Z',
+    author: { name: 'Linda M', reputation: 0 },
+    content: 'I\'ve been wearing aids for 15 years and have had MANY brands. For $300, they\'re actually pretty good'
+  },
+  {
+    id: 5085,
+    questionId: 1041,
+    votes: 12,
+    isAccepted: false,
+    createdAt: '2025-08-09T17:00:00.000Z',
+    author: { name: 'James', reputation: 0 },
+    content: 'I have mild hearing loss with constant tinnitus and have been using the atom pro 2 for a while now. It makes voices sound clearer and helps me follow convos without asking people to repeat themselves. My tinnitus feels less noticeable when I\'m wearing it which has been a nice bonus. For something simple and affordable it\'s honestly worked better than I expected.'
+  },
+  {
+    id: 5086,
+    questionId: 1041,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-09T18:00:00.000Z',
+    author: { name: 'Karen R', reputation: 0 },
+    content: 'I\'ve been pretty satisfied. I didn\'t realize my hearing was slipping as much as it was, but I was definitely missing bits in group conversations or when there was background noise. These have made a noticeable difference. They\'re comfortable, recharge easily, and are low-profile, which I like. For the price, they\'re a good choice if you just need some extra help without dropping $$$$$$'
+  },
+  {
+    id: 5087,
+    questionId: 1041,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-09T19:00:00.000Z',
+    author: { name: 'Tom', reputation: 0 },
+    content: 'I\'m following. I have mild hearing loss and am wondering if these might be a good first pair to try out, as needed. Did you get them? If so, how are they working out?'
+  },
+  {
+    id: 5088,
+    questionId: 1041,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-09T20:00:00.000Z',
+    author: { name: 'Jennifer L', reputation: 0 },
+    content: 'My first pair were defective so I sent them back. My current pair has lasted so far for a year. Very happy with them.'
+  },
+  {
+    id: 5089,
+    questionId: 1041,
+    votes: 14,
+    isAccepted: false,
+    createdAt: '2025-08-09T21:00:00.000Z',
+    author: { name: 'Robert', reputation: 0 },
+    content: 'I have used prescription hearing aids for a while and when the batteries started losing charge faster I decided to try Nova. They work well. The sound quality is better with prescription but Audien still amplifies very well. For a first pair I would suggest trying Nova. If you notice you are missing the finer details you might want to go with prescription and get help from an audiologist for adjustments.'
+  },
+  {
+    id: 5090,
+    questionId: 1041,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-09T22:00:00.000Z',
+    author: { name: 'Amanda T', reputation: 0 },
+    content: 'If you can follow conversations fine one on one but struggle when things get loud these might be worth trying. My FIL has mild hearing loss and has been using the Nova for some time. It will not restore hearing but it has made a big difference for him in noisy places. They also cost far less than traditional hearing aids.'
+  },
+  {
+    id: 5091,
+    questionId: 1041,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:10:00.000Z',
+    author: { name: 'Alex', reputation: 0 },
+    content: 'I haven\'t tried them but they\'re really popular. A few of my coworkers have them and seem to like them'
+  },
+  {
+    id: 5092,
+    questionId: 1041,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:12:00.000Z',
+    author: { name: 'Patricia', reputation: 0 },
+    content: 'It doesn\'t stack up to clinical grade prescription hearing aids, obviously. But they certainly work and far better than other brands I\'ve tried under $500. Great sound, decent noise control, relatively comfortably to wear. Customer support is responsive and friendly. Don\'t expect the world but if you just want to hear better without a ton of bells and whistles then it\'s a good choice.'
+  },
+  {
+    id: 5093,
+    questionId: 1041,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:14:00.000Z',
+    author: { name: 'Carol', reputation: 0 },
+    content: 'My husband and I have a pair and we absolutely love them.'
+  },
+  {
+    id: 5094,
+    questionId: 1041,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:16:00.000Z',
+    author: { name: 'Mark T', reputation: 0 },
+    content: 'Didn\'t work for me for I\'m pretty much def. Needed something stronger. I didn\'t have a problem getting my money back so +1 for that.'
+  },
+  {
+    id: 5095,
+    questionId: 1041,
+    votes: 12,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:20:00.000Z',
+    author: { name: 'Jessica M', reputation: 0 },
+    content: 'Nova is a simple and effective hearing aid My grandfather had been using his old hearing aid for years, but it was getting worn out and barely worked. We had to shout to get his attention, and even then, he still had trouble hearing. It was tough on all of us, so I decided to get him this OTC hearing aid for seniors.\n\nThis new hearing aid is much smaller and more stylish than his old one. It\'s almost invisible when he wears it, and unless someone\'s really paying attention, they won\'t even notice he has it on. This is great for my grandfather, who cares a lot about looking good.\n\nThe hearing aid works well, too. It\'s lightweight and easy for him to put in his ear. Since he started using this new hearing aid, things have been so much easier for him.'
+  },
+  {
+    id: 5096,
+    questionId: 1041,
+    votes: 15,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:25:00.000Z',
+    author: { name: 'Richard K', reputation: 0 },
+    content: 'About ten years ago I had my hearing tested by an audiologist who told me I had moderate hearing loss. I lived with it for a long time and just got used to making adjustments. About six months ago I decided to get tested again. This time I went to a large national retail chain that is known for doing hearing tests and selling hearing aids along with thousands of other products. The results were the same as before. They had me try on their recommended hearing aids right there in the store. I walked around with them for about thirty minutes just to see what they were like but I could not bring myself to make the purchase right then.\n\nA few days ago I went to my doctor for my annual physical. When the subject of my hearing came up he told me that better hearing can actually lower the risk of dementia. That was the push I needed to finally take it seriously. After that appointment I spent a lot of time doing careful research, reading reviews, and comparing all the different options. In the end I decided these hearing aids were the best choice for my situation. I have now finished my first full day wearing them and so far they have been wonderful.'
+  },
+  {
+    id: 5097,
+    questionId: 1041,
+    votes: 18,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:29:00.000Z',
+    author: { name: 'Susan L', reputation: 0 },
+    content: 'Got these for my 88 year old dad who has hearing loss from age and Chemotherapy...unequal (more in one ear than the other). He has used them for over 1 year now. Here are the pros/cons:\n\nPROS\n- Very simple to use\n- Great sound quality\n- Battery charging easy (nice little case and magnetic dock)\n- Cleaning and maintenance pretty easy (order the little kit with brush, extra ear domes, wax guards)\n- Support is fast and friendly and seem to be US based\n\nCons\n- I wish there were an app to control the settings but can\'t complain for the price\n- It took some trial error to find the right ear domes that fit comfortably\n\nOverall they\'re great little hearing aids'
+  },
+];
+
+// Process answers with generated dates
+const processAnswersWithGeneratedDates = () => {
+  // Group answers by question ID
+  const answersByQuestion = {};
+  answers.forEach(answer => {
+    if (!answersByQuestion[answer.questionId]) {
+      answersByQuestion[answer.questionId] = [];
+    }
+    answersByQuestion[answer.questionId].push(answer);
+  });
+
+  // Process each answer with generated dates
+  return answers.map(answer => {
+    const question = questions.find(q => q.id === answer.questionId);
+    if (!question) return answer;
+
+    const questionAnswers = answersByQuestion[answer.questionId];
+    const answerIndex = questionAnswers.findIndex(a => a.id === answer.id);
+    
+    return {
+      ...answer,
+      createdAt: getCachedAnswerDate(answer.id, question.createdAt, answerIndex)
+    };
+  });
+};
+
+// Export processed answers with generated dates
+const processedAnswers = processAnswersWithGeneratedDates();
+
+// Optional users export (small sample)
+export const users = [
+  { id: 1, name: 'Henry G', reputation: 9100 },
+  { id: 2, name: 'Maya Patel', reputation: 4800 },
+  { id: 3, name: 'Taylor T', reputation: 2600 },
+];
+
+export { questions, processedAnswers as answers };
