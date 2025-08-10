@@ -47,13 +47,13 @@ function truncateContent(content: string, maxLength: number = 150) {
     <div class="flex flex-col items-center space-y-2 min-w-[80px]">
       <!-- Votes -->
       <div class="flex flex-col items-center">
-        <button class="vote-button">
+        <button class="vote-button upvote-btn" data-type="question" data-id="{question.id}">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
           </svg>
         </button>
-        <span class="vote-count">{question.votes}</span>
-        <button class="vote-button">
+        <span class="vote-count" data-original="{question.votes}">{question.votes}</span>
+        <button class="vote-button downvote-btn" data-type="question" data-id="{question.id}">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>

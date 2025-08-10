@@ -29,6 +29,14 @@
     @apply flex items-center justify-center w-8 h-8 rounded-full border border-gray-300 hover:border-gray-400 transition-colors duration-200;
   }
   
+  .vote-button.voted-up {
+    @apply bg-green-100 border-green-500 text-green-600;
+  }
+  
+  .vote-button.voted-down {
+    @apply bg-red-100 border-red-500 text-red-600;
+  }
+  
   .vote-count {
     @apply text-sm font-medium text-gray-600 mx-2;
   }

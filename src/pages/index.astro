@@ -133,3 +133,101 @@ const websiteJsonLd = JSON.stringify({
 
   <Footer />
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize voting functionality
+    initializeVoting();
+    
+    function initializeVoting() {
+      // Get all vote buttons
+      const upvoteButtons = document.querySelectorAll('.upvote-btn');
+      const downvoteButtons = document.querySelectorAll('.downvote-btn');
+      
+      // Load existing votes from localStorage
+      const votes = JSON.parse(localStorage.getItem('quistra_votes') || '{}');
+      
+      // Apply existing vote states
+      applyVoteStates(votes);
+      
+      // Add click handlers for upvote buttons
+      upvoteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const type = this.dataset.type;
+          const id = this.dataset.id;
+          const key = `${type}_${id}`;
+          
+          // Toggle upvote
+          if (votes[key] === 'up') {
+            delete votes[key];
+          } else {
+            votes[key] = 'up';
+          }
+          
+          // Save to localStorage
+          localStorage.setItem('quistra_votes', JSON.stringify(votes));
+          
+          // Update UI
+          applyVoteStates(votes);
+        });
+      });
+      
+      // Add click handlers for downvote buttons
+      downvoteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const type = this.dataset.type;
+          const id = this.dataset.id;
+          const key = `${type}_${id}`;
+          
+          // Toggle downvote
+          if (votes[key] === 'down') {
+            delete votes[key];
+          } else {
+            votes[key] = 'down';
+          }
+          
+          // Save to localStorage
+          localStorage.setItem('quistra_votes', JSON.stringify(votes));
+          
+          // Update UI
+          applyVoteStates(votes);
+        });
+      });
+    }
+    
+    function applyVoteStates(votes) {
+      // Reset all buttons first
+      document.querySelectorAll('.upvote-btn, .downvote-btn').forEach(btn => {
+        btn.classList.remove('voted-up', 'voted-down');
+      });
+      
+      // Apply vote states and update counts
+      Object.keys(votes).forEach(key => {
+        const [type, id] = key.split('_');
+        const voteType = votes[key];
+        
+        const upBtn = document.querySelector(`.upvote-btn[data-type="${type}"][data-id="${id}"]`);
+        const downBtn = document.querySelector(`.downvote-btn[data-type="${type}"][data-id="${id}"]`);
+        const countSpan = document.querySelector(`.vote-count[data-original][data-type="${type}"][data-id="${id}"]`) ||
+                         upBtn?.parentElement.querySelector('.vote-count[data-original]');
+        
+        if (countSpan) {
+          const originalCount = parseInt(countSpan.dataset.original);
+          let newCount = originalCount;
+          
+          if (voteType === 'up') {
+            newCount = originalCount + 1;
+            upBtn?.classList.add('voted-up');
+          } else if (voteType === 'down') {
+            newCount = originalCount - 1;
+            downBtn?.classList.add('voted-down');
+          }
+          
+          countSpan.textContent = newCount;
+        }
+      });
+    }
+  });
+</script>

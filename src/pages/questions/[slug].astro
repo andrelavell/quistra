@@ -92,7 +92,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
     </div>
   </nav>
 
-  <main class="container mx-auto px-4 py-8">
+  <main class="container mx-auto px-4 py-8" data-slug="{question.slug}">
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Question Content -->
       <div class="flex-1">
@@ -101,13 +101,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
           <div class="flex items-start gap-4">
             <!-- Vote Column -->
             <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-              <button class="vote-button">
+              <button class="vote-button upvote-btn" data-type="question" data-id="{question.id}">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                 </svg>
               </button>
-              <span class="text-lg font-semibold text-gray-700">{question.votes}</span>
-              <button class="vote-button">
+              <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{question.votes}">{question.votes}</span>
+              <button class="vote-button downvote-btn" data-type="question" data-id="{question.id}">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -151,7 +151,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                     <div class="text-sm font-medium text-gray-900">{question.author.name}</div>
                   </div>
                   <div class="text-right">
-                    <div class="text-xs text-gray-700">{formatDate(question.createdAt)}</div>
+                    <div class="text-xs text-gray-700 ts-el" data-ts="question" data-id="{question.id}">{formatDate(question.createdAt)}</div>
                   </div>
                 </div>
               </div>
@@ -177,13 +177,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
                   <div class="flex gap-4">
                     <!-- Vote Column -->
                     <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-                      <button class="vote-button">
+                      <button class="vote-button upvote-btn" data-type="answer" data-id="{answer.id}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                         </svg>
                       </button>
-                      <span class="text-lg font-semibold text-gray-700">{answer.votes}</span>
-                      <button class="vote-button">
+                      <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{answer.votes}">{answer.votes}</span>
+                      <button class="vote-button downvote-btn" data-type="answer" data-id="{answer.id}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -215,7 +215,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                             <div class="text-sm font-medium text-gray-900">{answer.author.name}</div>
                           </div>
                           <div class="text-right">
-                            <div class="text-xs text-gray-700">{formatDate(answer.createdAt)}</div>
+                            <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{answer.id}">{formatDate(answer.createdAt)}</div>
                           </div>
                         </div>
                       </div>
@@ -227,13 +227,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
                         <article class="bg-gray-50 rounded-lg border border-gray-200 p-4">
                           <div class="flex gap-4">
                             <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-                              <button class="vote-button">
+                              <button class="vote-button upvote-btn" data-type="answer" data-id="{child.id}">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                                 </svg>
                               </button>
-                              <span class="text-lg font-semibold text-gray-700">{child.votes}</span>
-                              <button class="vote-button">
+                              <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{child.votes}">{child.votes}</span>
+                              <button class="vote-button downvote-btn" data-type="answer" data-id="{child.id}">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
@@ -251,7 +251,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                                   </div>
                                   <div class="text-right">
                                     <div class="text-xs text-gray-500">replied</div>
-                                    <div class="text-xs text-gray-700">{formatDate(child.createdAt)}</div>
+                                    <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{child.id}">{formatDate(child.createdAt)}</div>
                                   </div>
                                 </div>
                               </div>
@@ -272,13 +272,13 @@ const jsonLd = JSON.stringify(qaJsonLd);
                   <div class="flex gap-4">
                     <!-- Vote Column -->
                     <div class="flex flex-col items-center space-y-2 min-w-[60px]">
-                      <button class="vote-button">
+                      <button class="vote-button upvote-btn" data-type="answer" data-id="{answer.id}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
                         </svg>
                       </button>
-                      <span class="text-lg font-semibold text-gray-700">{answer.votes}</span>
-                      <button class="vote-button">
+                      <span class="text-lg font-semibold text-gray-700 vote-count" data-original="{answer.votes}">{answer.votes}</span>
+                      <button class="vote-button downvote-btn" data-type="answer" data-id="{answer.id}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
@@ -312,7 +312,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                             )}
                           </div>
                           <div class="text-right">
-                            <div class="text-xs text-gray-700">{formatDate(answer.createdAt)}</div>
+                            <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{answer.id}">{formatDate(answer.createdAt)}</div>
                           </div>
                         </div>
                       </div>
@@ -350,7 +350,7 @@ const jsonLd = JSON.stringify(qaJsonLd);
                                   </div>
                                   <div class="text-right">
                                     <div class="text-xs text-gray-500">replied</div>
-                                    <div class="text-xs text-gray-700">{formatDate(child.createdAt)}</div>
+                                    <div class="text-xs text-gray-700 ts-el" data-ts="answer" data-id="{child.id}">{formatDate(child.createdAt)}</div>
                                   </div>
                                 </div>
                               </div>
@@ -426,6 +426,20 @@ const jsonLd = JSON.stringify(qaJsonLd);
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Voting functionality
+    initializeVoting();
+    
+    // Dynamic timestamp generation for a specific slug (Nova hearing aid page)
+    try {
+      const mainEl = document.querySelector('main[data-slug]');
+      const pageSlug = mainEl?.getAttribute('data-slug') || '';
+      if (pageSlug === 'heardirectclubs-nova-hearing-aid-any-good') {
+        initializeRandomTimestamps(pageSlug);
+      }
+    } catch (e) {
+      // noop
+    }
+    
     const loadMoreBtn = document.getElementById('load-more-btn');
     const hiddenAnswers = document.getElementById('hidden-answers');
     const answersContainer = document.getElementById('answers-container');
@@ -470,6 +484,163 @@ const jsonLd = JSON.stringify(qaJsonLd);
           }, 100);
         }
       });
+    }
+    
+    // Initialize voting functionality
+    function initializeVoting() {
+      // Get all vote buttons
+      const upvoteButtons = document.querySelectorAll('.upvote-btn');
+      const downvoteButtons = document.querySelectorAll('.downvote-btn');
+      
+      // Load existing votes from localStorage
+      const votes = JSON.parse(localStorage.getItem('quistra_votes') || '{}');
+      
+      // Apply existing vote states
+      applyVoteStates(votes);
+      
+      // Add click handlers for upvote buttons
+      upvoteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const type = this.dataset.type;
+          const id = this.dataset.id;
+          const key = `${type}_${id}`;
+          
+          // Toggle upvote
+          if (votes[key] === 'up') {
+            delete votes[key];
+          } else {
+            votes[key] = 'up';
+          }
+          
+          // Save to localStorage
+          localStorage.setItem('quistra_votes', JSON.stringify(votes));
+          
+          // Update UI
+          applyVoteStates(votes);
+        });
+      });
+      
+      // Add click handlers for downvote buttons
+      downvoteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const type = this.dataset.type;
+          const id = this.dataset.id;
+          const key = `${type}_${id}`;
+          
+          // Toggle downvote
+          if (votes[key] === 'down') {
+            delete votes[key];
+          } else {
+            votes[key] = 'down';
+          }
+          
+          // Save to localStorage
+          localStorage.setItem('quistra_votes', JSON.stringify(votes));
+          
+          // Update UI
+          applyVoteStates(votes);
+        });
+      });
+    }
+    
+    function applyVoteStates(votes) {
+      // Reset all buttons first
+      document.querySelectorAll('.upvote-btn, .downvote-btn').forEach(btn => {
+        btn.classList.remove('voted-up', 'voted-down');
+      });
+      
+      // Apply vote states and update counts
+      Object.keys(votes).forEach(key => {
+        const [type, id] = key.split('_');
+        const voteType = votes[key];
+        
+        const upBtn = document.querySelector(`.upvote-btn[data-type="${type}"][data-id="${id}"]`);
+        const downBtn = document.querySelector(`.downvote-btn[data-type="${type}"][data-id="${id}"]`);
+        const countSpan = document.querySelector(`.vote-count[data-original][data-type="${type}"][data-id="${id}"]`) ||
+                         upBtn?.parentElement.querySelector('.vote-count[data-original]');
+        
+        if (countSpan) {
+          const originalCount = parseInt(countSpan.dataset.original);
+          let newCount = originalCount;
+          
+          if (voteType === 'up') {
+            newCount = originalCount + 1;
+            upBtn?.classList.add('voted-up');
+          } else if (voteType === 'down') {
+            newCount = originalCount - 1;
+            downBtn?.classList.add('voted-down');
+          }
+          
+          countSpan.textContent = newCount;
+        }
+      });
+    }
+    
+    // Timestamp utilities and initializer
+    function initializeRandomTimestamps(slug) {
+      const storageKey = `quistra_ts_${slug}`;
+      const now = new Date();
+      const sixMonthsAgo = new Date(now);
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+      
+      // Load existing cache
+      const cache = safeParse(localStorage.getItem(storageKey)) || { question: null, answers: {} };
+      
+      // Collect DOM nodes
+      const questionNode = document.querySelector('.ts-el[data-ts="question"]');
+      const answerNodes = Array.from(document.querySelectorAll('.ts-el[data-ts="answer"][data-id]'));
+      
+      // Generate question timestamp if missing
+      if (!cache.question) {
+        cache.question = randomDateBetween(sixMonthsAgo, now).toISOString();
+      }
+      const questionDate = new Date(cache.question);
+      
+      // Ensure answers exist after question
+      answerNodes.forEach((node) => {
+        const id = node.getAttribute('data-id');
+        if (!id) return;
+        if (!cache.answers[id]) {
+          cache.answers[id] = randomDateBetween(questionDate, now).toISOString();
+        }
+      });
+      
+      // Persist
+      localStorage.setItem(storageKey, JSON.stringify(cache));
+      
+      // Apply to DOM with consistent formatting
+      if (questionNode && cache.question) {
+        questionNode.textContent = formatDateClient(cache.question);
+      }
+      answerNodes.forEach((node) => {
+        const id = node.getAttribute('data-id');
+        const ts = id ? cache.answers[id] : null;
+        if (ts) node.textContent = formatDateClient(ts);
+      });
+    }
+    
+    function randomDateBetween(start, end) {
+      const startMs = start.getTime();
+      const endMs = end.getTime();
+      const t = startMs + Math.random() * Math.max(0, endMs - startMs);
+      return new Date(t);
+    }
+    
+    function formatDateClient(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+    
+    function safeParse(str) {
+      try { return str ? JSON.parse(str) : null; } catch { return null; }
     }
   });
 </script>
