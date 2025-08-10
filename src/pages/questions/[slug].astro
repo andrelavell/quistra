@@ -172,8 +172,18 @@ const jsonLd = JSON.stringify(qaJsonLd);
           ) : (
             <div>
               <div id="answers-container" class="space-y-6">
-                {rootAnswers.slice(0, 5).map(answer => (
-                <article class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                {rootAnswers.slice(0, 5).map((answer, idx) => (
+                <article class={`bg-white rounded-lg shadow-sm border p-6 ${idx === 0 ? 'relative border-emerald-500 ring-1 ring-emerald-300' : 'border-gray-200'}`}>
+                  {idx === 0 && (
+                    <div class="absolute -top-3 left-4">
+                      <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-700 border border-emerald-300">
+                        <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path d="M9.049.927a1 1 0 011.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.036a1 1 0 00-.364 1.118l1.07 3.292c.3.922-.755 1.688-1.54 1.118l-2.802-2.036a1 1 0 00-1.176 0L6.715 14.28c-.785.57-1.84-.196-1.54-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.079 6.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69L9.049.927z"/>
+                        </svg>
+                        Top Answer
+                      </span>
+                    </div>
+                  )}
                   <div class="flex gap-4">
                     <!-- Vote Column -->
                     <div class="flex flex-col items-center space-y-2 min-w-[60px]">
