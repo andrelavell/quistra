@@ -92,7 +92,7 @@ function truncateContent(content: string, maxLength: number = 150) {
           <!-- Tags -->
           <div class="flex flex-wrap gap-1 mb-3">
             {question.tags.map(tag => (
-              <span class="tag">{tag}</span>
+              <a href={`/tags/${tag}`} class="tag hover:bg-gray-200 transition-colors">{tag}</a>
             ))}
           </div>
         </div>

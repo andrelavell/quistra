@@ -208,13 +208,13 @@ const websiteJsonLd = JSON.stringify({
         const [type, id] = key.split('_');
         const voteType = votes[key];
         
-        const upBtn = document.querySelector(`.upvote-btn[data-type="${type}"][data-id="${id}"]`);
-        const downBtn = document.querySelector(`.downvote-btn[data-type="${type}"][data-id="${id}"]`);
-        const countSpan = document.querySelector(`.vote-count[data-original][data-type="${type}"][data-id="${id}"]`) ||
-                         upBtn?.parentElement.querySelector('.vote-count[data-original]');
+        const upBtn = document.querySelector<HTMLElement>(`.upvote-btn[data-type="${type}"][data-id="${id}"]`);
+        const downBtn = document.querySelector<HTMLElement>(`.downvote-btn[data-type="${type}"][data-id="${id}"]`);
+        const countSpan = document.querySelector<HTMLElement>(`.vote-count[data-original][data-type="${type}"][data-id="${id}"]`) ||
+                         upBtn?.parentElement?.querySelector<HTMLElement>('.vote-count[data-original]');
         
         if (countSpan) {
-          const originalCount = parseInt(countSpan.dataset.original);
+          const originalCount = parseInt((countSpan as HTMLElement).dataset.original || '0', 10);
           let newCount = originalCount;
           
           if (voteType === 'up') {
@@ -225,7 +225,7 @@ const websiteJsonLd = JSON.stringify({
             downBtn?.classList.add('voted-down');
           }
           
-          countSpan.textContent = newCount;
+          (countSpan as HTMLElement).textContent = String(newCount);
         }
       });
     }

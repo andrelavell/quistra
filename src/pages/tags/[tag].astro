@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+
+import { questions } from '../../data/questions.js';
+
+export async function getStaticPaths() {
+  const tagSet = new Set();
+  for (const q of questions) {
+    (q.tags || []).forEach((t) => tagSet.add(t));
+  }
+  return Array.from(tagSet).map((t) => ({ params: { tag: t } }));
+}
+
+const { tag } = Astro.params as { tag: string };
+const taggedQuestions = questions.filter(q => (q.tags || []).includes(tag));
+const title = `Tag: ${tag}`;
+---
+
+<BaseLayout title={`${title} - Quistra`} description={`Questions tagged with ${tag}`} canonical={`/tags/${tag}/`}>
+  <Header />
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="flex-1 space-y-4">
+        <div class="mb-4">
+          <h1 class="text-2xl font-bold text-gray-900">{title}</h1>
+          <p class="text-gray-600">{taggedQuestions.length} question{taggedQuestions.length !== 1 ? 's' : ''} tagged with <span class="font-medium">{tag}</span></p>
+        </div>
+
+        {taggedQuestions.length === 0 ? (
+          <div class="bg-white rounded-lg border border-gray-200 p-8 text-center text-gray-600">
+            No questions found for this tag.
+          </div>
+        ) : (
+          <div class="space-y-4">
+            {taggedQuestions.map(q => (
+              <QuestionCard question={q} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <Sidebar />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
