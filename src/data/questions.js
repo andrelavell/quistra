@@ -944,6 +944,156 @@ const questions = [
     isAnswered: true,
     acceptedAnswer: 5152,
   },
+  {
+    id: 1052,
+    slug: 'ai-product-photos-on-a-budget-2025',
+    title: 'Are AI image tools good enough for product photos on a budget in 2025?',
+    content: 'Small online shop here. I can’t afford a full studio. Are AI upscalers/background tools + a cheap lightbox “good enough,” or will it look fake? Tips for making them passable?',
+    author: { name: 'Jae', reputation: 1900 },
+    votes: 17,
+    answers: 1,
+    views: 1280,
+    tags: ['technology', 'photography', 'ai'],
+    category: 'technology',
+    createdAt: '2025-08-10T09:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5154,
+  },
+  {
+    id: 1053,
+    slug: 'roth-vs-traditional-401k-with-variable-income',
+    title: 'Roth vs Traditional 401(k) when income varies year to year?',
+    content: 'Freelancer—some years high, some years lean. How do you decide between Roth vs pre‑tax contributions when MAGI and brackets swing? Any rules of thumb for 2025 tax year?',
+    author: { name: 'Xavier', reputation: 3500 },
+    votes: 33,
+    answers: 10,
+    views: 4020,
+    tags: ['investing', 'retirement', 'taxes'],
+    category: 'investing',
+    createdAt: '2025-08-09T16:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5163,
+  },
+  {
+    id: 1054,
+    slug: 'ultralight-vs-durable-tent-for-windy-desert',
+    title: 'Ultralight vs durable tent for windy desert trips?',
+    content: 'Doing a few desert loops (Moab/Anza) where wind kicks up sand. Is UL worth the grams if it flaps to death? Or should I bring a heavier, lower‑profile tent?',
+    author: { name: 'Hannah', reputation: 2200 },
+    votes: 21,
+    answers: 3,
+    views: 1890,
+    tags: ['outdoors', 'camping', 'gear'],
+    category: 'outdoors',
+    createdAt: '2025-08-08T08:45:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5167,
+  },
+  {
+    id: 1055,
+    slug: 'actually-remember-what-you-read-non-fiction',
+    title: 'How do you actually remember what you read in non‑fiction?',
+    content: 'I read a lot of business/psych books and forget them a week later. What workflow makes ideas stick without turning reading into a second job?',
+    author: { name: 'Rob', reputation: 2800 },
+    votes: 29,
+    answers: 7,
+    views: 3310,
+    tags: ['education', 'learning', 'note-taking'],
+    category: 'education',
+    createdAt: '2025-08-07T13:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5174,
+  },
+  {
+    id: 1056,
+    slug: 'bedtime-routine-for-toddlers-who-stall',
+    title: 'Bedtime routine for toddlers who stall endlessly?',
+    content: 'My 3‑year‑old is a master negotiator: “one more book, water, potty, hug, story, snack…” How do we keep it kind but firm so bedtime doesn’t take 90 minutes?',
+    author: { name: 'Alyssa', reputation: 1600 },
+    votes: 18,
+    answers: 2,
+    views: 2105,
+    tags: ['parenting', 'sleep', 'toddlers'],
+    category: 'parenting',
+    createdAt: '2025-08-06T19:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5176,
+  },
+  {
+    id: 1057,
+    slug: 'track-tv-shows-across-streaming-services-2025',
+    title: 'What’s the best way to track TV shows across streaming services?',
+    content: 'We bounce between Netflix/Max/Disney+/Hulu. I miss episodes and forget premieres. Looking for a simple tracker with notifications and where‑to‑watch info.',
+    author: { name: 'Omar', reputation: 1200 },
+    votes: 14,
+    answers: 12,
+    views: 1750,
+    tags: ['entertainment', 'tv', 'apps'],
+    category: 'entertainment',
+    createdAt: '2025-08-05T09:40:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5188,
+  },
+  {
+    id: 1058,
+    slug: 'what-causes-brain-freeze-and-how-to-stop-it-fast',
+    title: 'What causes “brain freeze,” and how do you stop it fast?',
+    content: 'Ice cream headache hits me hard. What’s actually happening biologically and is there a quick fix that works?',
+    author: { name: 'Marta', reputation: 3000 },
+    votes: 26,
+    answers: 4,
+    views: 2980,
+    tags: ['science', 'health', 'cold'],
+    category: 'science',
+    createdAt: '2025-08-04T11:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5192,
+  },
+  {
+    id: 1059,
+    slug: 'backsplash-peel-and-stick-vs-thinset-tile',
+    title: 'DIY backsplash: peel‑and‑stick vs thinset tile?',
+    content: 'Renting a small place and want a kitchen glow‑up. Are peel‑and‑stick tiles decent or a trap? Or should I thinset/mortar real tile and remove later?',
+    author: { name: 'Victor', reputation: 1450 },
+    votes: 23,
+    answers: 9,
+    views: 2540,
+    tags: ['home-diy', 'kitchen', 'tile'],
+    category: 'home-diy',
+    createdAt: '2025-08-03T18:55:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5201,
+  },
+  {
+    id: 1060,
+    slug: 'shadowing-vs-conversation-for-pronunciation',
+    title: 'Shadowing vs conversation: what actually improves pronunciation?',
+    content: 'Intermediate Spanish—my pronunciation lags. Is shadowing audio better than live conversation for fixing sounds and rhythm? How would you structure a week?',
+    author: { name: 'Elisa', reputation: 2100 },
+    votes: 20,
+    answers: 5,
+    views: 2400,
+    tags: ['language', 'speaking', 'pronunciation'],
+    category: 'language',
+    createdAt: '2025-08-02T10:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5206,
+  },
+  {
+    id: 1061,
+    slug: 'negotiate-rent-renewal-without-burning-bridges',
+    title: 'How to negotiate a rent renewal without burning bridges?',
+    content: 'Lease up next month. Landlord proposing +9%. I like the place and want to be fair. What’s a respectful way to counter that actually works?',
+    author: { name: 'Gavin', reputation: 3300 },
+    votes: 34,
+    answers: 6,
+    views: 3770,
+    tags: ['personal-finance', 'rent', 'negotiation'],
+    category: 'personal-finance',
+    createdAt: '2025-08-01T16:25:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5212,
+  },
 ];
 
 const answers = [
@@ -2423,6 +2573,557 @@ const answers = [
     createdAt: '2025-07-28T16:10:00.000Z',
     author: { name: 'Mike', reputation: 1800 },
     content: 'Watch for builder‑tied lenders. Compare APR apples‑to‑apples and don’t ignore prepayment penalties.'
+  },
+  
+  // Q1052 AI product photos
+  {
+    id: 5154,
+    questionId: 1052,
+    votes: 12,
+    isAccepted: true,
+    createdAt: '2025-08-10T09:50:00.000Z',
+    author: { name: 'L. Moreno', reputation: 2700 },
+    content: 'Yes—shoot in a cheap lightbox with two diffused lights, export RAW/HEIF if you can, then use background removal + AI relight conservatively. Keep shadows! Avoid plastic‑looking smoothing; add a tiny film grain to hide artifacts. Works fine for web‑scale images.'
+  },
+  
+  // Q1053 Roth vs Traditional 401k
+  {
+    id: 5155,
+    questionId: 1053,
+    votes: 29,
+    isAccepted: false,
+    createdAt: '2025-08-09T17:10:00.000Z',
+    author: { name: 'CPA_Jules', reputation: 5200 },
+    content: 'Tax arbitrage 101: contribute pre‑tax in high‑income years (marginal 32%+), switch to Roth in low years, and do Roth conversions in off years. Model with today’s brackets, not vibes.'
+  },
+  {
+    id: 5156,
+    questionId: 1053,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-09T17:20:00.000Z',
+    author: { name: 'Aria', reputation: 2400 },
+    content: 'Rule of thumb: if your present marginal > expected retirement marginal, go Traditional; otherwise Roth. Edge cases: ACA subsidies, QSBS, big one‑time deductions.'
+  },
+  {
+    id: 5157,
+    questionId: 1053,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-09T17:35:00.000Z',
+    author: { name: 'notlegaladvice', reputation: 1300 },
+    content: 'Make a simple year‑by‑year table: income, deductions, marginal bracket, target contribution type. You’ll see the pattern fast. It’s… boring, which is good.'
+  },
+  {
+    id: 5158,
+    questionId: 1053,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-08-09T17:45:00.000Z',
+    author: { name: 'Sven', reputation: 3100 },
+    content: 'Spreadsheet sim: assume two scenarios with 6% real returns, different tax rates now vs later. Look at after‑tax balances, not pre‑tax totals (they lie).'
+  },
+  {
+    id: 5159,
+    questionId: 1053,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-09T18:05:00.000Z',
+    author: { name: 'Mira', reputation: 1800 },
+    content: 'If income whipsaws, consider defaulting to Traditional through the year and flip to Roth in Q4 once you can estimate bracket more precisely.'
+  },
+  {
+    id: 5160,
+    questionId: 1053,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-09T18:20:00.000Z',
+    author: { name: 'Ken', reputation: 2100 },
+    content: 'Also watch state taxes. In a no‑tax state now but move later? Roth looks nicer. Opposite move? Pre‑tax wins.'
+  },
+  {
+    id: 5161,
+    questionId: 1053,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-09T18:45:00.000Z',
+    author: { name: 'Tess', reputation: 1500 },
+    content: 'I split 70/30 Roth/Traditional most years as a hedge. Not optimal mathematically, but it keeps me saving. Behavior matters.'
+  },
+  {
+    id: 5162,
+    questionId: 1053,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-08-09T19:05:00.000Z',
+    author: { name: 'Rajat', reputation: 2600 },
+    content: 'If you rely on ACA subsidies in lean years, be careful with Roth conversions—they can nuke your credit. Plan conversions outside subsidy windows.'
+  },
+  {
+    id: 5163,
+    questionId: 1053,
+    votes: 36,
+    isAccepted: true,
+    createdAt: '2025-08-09T19:20:00.000Z',
+    author: { name: 'Daria', reputation: 3700 },
+    content: 'Framework: (1) Estimate this year’s marginal. (2) If ≥ 32% fed, go Traditional; if ≤ 22%, go Roth; 24% is a toss‑up—mix. (3) Re‑evaluate in Q4. (4) Use off‑years for Roth conversions up to the top of your chosen bracket.'
+  },
+  {
+    id: 5164,
+    questionId: 1053,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-09T19:40:00.000Z',
+    author: { name: 'Mo', reputation: 900 },
+    content: 'Optionality > precision. The goal is saving enough; tax alpha is second order.'
+  },
+  
+  // Q1054 Desert tent
+  {
+    id: 5165,
+    questionId: 1054,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-08T10:00:00.000Z',
+    author: { name: 'Kai', reputation: 1700 },
+    content: 'UL fabrics + gusty sand = sad fly. Take a lower silhouette and more guy‑out points. Weight saved isn’t worth a shredded night.'
+  },
+  {
+    id: 5166,
+    questionId: 1054,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-08T10:20:00.000Z',
+    author: { name: 'Jess', reputation: 1400 },
+    content: 'Stake choice matters more than you think—Y‑stakes or sand stakes + deadmen. Pitch behind rocks/bushes when possible.'
+  },
+  {
+    id: 5167,
+    questionId: 1054,
+    votes: 19,
+    isAccepted: true,
+    createdAt: '2025-08-08T10:50:00.000Z',
+    author: { name: 'Hector', reputation: 2800 },
+    content: 'Go semi‑freestanding, low profile, solid inner to block spindrift. Guy everything. If UL, bring repair tape. Desert wind is relentless.'
+  },
+  
+  // Q1055 Remember non‑fiction
+  {
+    id: 5168,
+    questionId: 1055,
+    votes: 15,
+    isAccepted: false,
+    createdAt: '2025-08-07T13:20:00.000Z',
+    author: { name: 'Nora', reputation: 2300 },
+    content: 'Feynman technique: explain the chapter to a rubber duck (or friend) in plain words. If you can’t, you didn’t learn it.'
+  },
+  {
+    id: 5169,
+    questionId: 1055,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-07T13:40:00.000Z',
+    author: { name: 'audio_bookworm', reputation: 1200 },
+    content: 'Audiobooks? Switch to 1.2× and use chapter end notes: 3 bullets of what matters. No more.'
+  },
+  {
+    id: 5170,
+    questionId: 1055,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-08-07T14:00:00.000Z',
+    author: { name: 'Gina', reputation: 2600 },
+    content: 'Don’t highlight everything. Make one “distillation” page per book and link it to 3 problems you actually have.'
+  },
+  {
+    id: 5171,
+    questionId: 1055,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-07T14:20:00.000Z',
+    author: { name: 'Theo', reputation: 1500 },
+    content: 'Evergreen notes > book notes. Save ideas in your own words categorized by problem, not by book.'
+  },
+  {
+    id: 5172,
+    questionId: 1055,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-07T14:35:00.000Z',
+    author: { name: 'Jody', reputation: 900 },
+    content: 'TL;DR card per book: 3 sentences, 1 behavior change, 1 quote. Tape it somewhere.'
+  },
+  {
+    id: 5173,
+    questionId: 1055,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-07T14:55:00.000Z',
+    author: { name: 'Tim', reputation: 800 },
+    content: 'Weird tip: read fewer books. Reread the 2 that actually matter to you. Depth beats breadth.'
+  },
+  {
+    id: 5174,
+    questionId: 1055,
+    votes: 28,
+    isAccepted: true,
+    createdAt: '2025-08-07T15:10:00.000Z',
+    author: { name: 'Ada', reputation: 3400 },
+    content: 'System: (1) Pre‑read a ToC + skim. (2) While reading, write ONE question you’ll act on. (3) After: draft a 5‑bullet summary to future‑you and schedule a 2‑week review (calendar). (4) Apply one idea that week. Memory follows action.'
+  },
+  
+  // Q1056 Toddler bedtime
+  {
+    id: 5175,
+    questionId: 1056,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-06T19:50:00.000Z',
+    author: { name: 'Renee', reputation: 2000 },
+    content: 'Sticker chart + “bedtime pass.” They get one pass per night for a legit need; when it’s used, that’s it. Works shockingly well.'
+  },
+  {
+    id: 5176,
+    questionId: 1056,
+    votes: 18,
+    isAccepted: true,
+    createdAt: '2025-08-06T20:10:00.000Z',
+    author: { name: 'PediatricRN', reputation: 4800 },
+    content: 'Predictable steps posted on the wall, same order, 20–30 mins. Offer two bounded choices. Walk‑back method for jack‑in‑the‑box. Calm, boring, consistent.'
+  },
+  
+  // Q1057 TV tracking
+  {
+    id: 5177,
+    questionId: 1057,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:00:00.000Z',
+    author: { name: 'TraktFan', reputation: 2100 },
+    content: 'Trakt + a client app (e.g., SeriesGuide). Mark watched, get calendar and push alerts. Syncs across devices.'
+  },
+  {
+    id: 5178,
+    questionId: 1057,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:15:00.000Z',
+    author: { name: 'ReelgoodUser', reputation: 900 },
+    content: 'Reelgood shows where to watch + notifies new episodes. Not perfect data, but close enough.'
+  },
+  {
+    id: 5179,
+    questionId: 1057,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:25:00.000Z',
+    author: { name: 'OldSchool', reputation: 700 },
+    content: 'Use a spreadsheet lol. One tab per show. Works since 2014. Do not @ me.'
+  },
+  {
+    id: 5180,
+    questionId: 1057,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:40:00.000Z',
+    author: { name: 'Nina', reputation: 2300 },
+    content: 'Calendar sub from the network’s iCal + notifications. Stupid simple.'
+  },
+  {
+    id: 5181,
+    questionId: 1057,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:55:00.000Z',
+    author: { name: 'Hal', reputation: 1200 },
+    content: 'JustWatch for where‑to‑watch, Trakt for the rest. Combo is best imo.'
+  },
+  {
+    id: 5182,
+    questionId: 1057,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-05T11:10:00.000Z',
+    author: { name: 'Luca', reputation: 1250 },
+    content: 'Home Assistant + a notification when a show drops (RSS → webhook). Nerdy but tidy.'
+  },
+  {
+    id: 5183,
+    questionId: 1057,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-05T11:25:00.000Z',
+    author: { name: 'PlexIsLife', reputation: 2800 },
+    content: 'If you use Plex, there are plugins that track shows and alert you when new episodes appear on services you subscribe to.'
+  },
+  {
+    id: 5184,
+    questionId: 1057,
+    votes: 1,
+    isAccepted: false,
+    createdAt: '2025-08-05T11:45:00.000Z',
+    author: { name: 'Min', reputation: 600 },
+    content: 'Notion template with a DB + relations. Overkill? yes. Also fun.'
+  },
+  {
+    id: 5185,
+    questionId: 1057,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-05T12:00:00.000Z',
+    author: { name: 'Cam', reputation: 1400 },
+    content: 'SeriesGuide + Trakt on Android is smooth. iOS: TV Time is decent.'
+  },
+  {
+    id: 5186,
+    questionId: 1057,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-05T12:20:00.000Z',
+    author: { name: 'annie', reputation: 800 },
+    content: 'I just follow showrunners on Twitter… err X. It’s chaotic but fun.'
+  },
+  {
+    id: 5187,
+    questionId: 1057,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-05T12:40:00.000Z',
+    author: { name: 'Matt', reputation: 1900 },
+    content: 'If you miss episodes because of autoplay, disable autoplay. Sounds dumb, works.'
+  },
+  {
+    id: 5188,
+    questionId: 1057,
+    votes: 13,
+    isAccepted: true,
+    createdAt: '2025-08-05T13:00:00.000Z',
+    author: { name: 'Sam', reputation: 3100 },
+    content: 'Pick ONE: TV Time or Trakt + a client. Turn on notifications. Archive what you drop. Less friction = you’ll actually use it.'
+  },
+  
+  // Q1058 Brain freeze
+  {
+    id: 5189,
+    questionId: 1058,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-04T11:25:00.000Z',
+    author: { name: 'NeuroNick', reputation: 4200 },
+    content: 'It’s a sphenopalatine ganglion reflex: rapid cooling of the palate triggers vasodilation and referred pain to the forehead.'
+  },
+  {
+    id: 5190,
+    questionId: 1058,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-04T11:40:00.000Z',
+    author: { name: 'Zara', reputation: 1600 },
+    content: 'Fix: press your tongue to the roof of your mouth and drink something warm. Works in ~5–10s for me.'
+  },
+  {
+    id: 5191,
+    questionId: 1058,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-04T11:55:00.000Z',
+    author: { name: 'tommy', reputation: 700 },
+    content: 'Or just… stop eating it so fast 😂'
+  },
+  {
+    id: 5192,
+    questionId: 1058,
+    votes: 15,
+    isAccepted: true,
+    createdAt: '2025-08-04T12:10:00.000Z',
+    author: { name: 'Dr. Chen', reputation: 5100 },
+    content: 'Mechanism: trigeminal nerve reacting to rapid palatal cooling; counterwarm with tongue or warm liquid. Prevention: smaller sips, let cold items hit the tongue sides first.'
+  },
+  
+  // Q1059 Backsplash
+  {
+    id: 5193,
+    questionId: 1059,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-03T19:10:00.000Z',
+    author: { name: 'DIYD', reputation: 2000 },
+    content: 'Peel‑and‑stick looks decent for photos, but seams and heat near the range are pain points. Good for renters if you avoid the stove area.'
+  },
+  {
+    id: 5194,
+    questionId: 1059,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-03T19:25:00.000Z',
+    author: { name: 'Vic', reputation: 1450 },
+    content: 'Thinset tile is forever (ish). If you do it, use a light mortar, 1/4" trowel, and a ledger board so your first row is level.'
+  },
+  {
+    id: 5195,
+    questionId: 1059,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-03T19:45:00.000Z',
+    author: { name: 'Wendy', reputation: 1700 },
+    content: 'Renter‑friendly middle: high‑quality peel‑and‑stick everywhere except behind the stove (leave painted), add a steel splash guard there.'
+  },
+  {
+    id: 5196,
+    questionId: 1059,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-03T20:00:00.000Z',
+    author: { name: 'Alex P', reputation: 900 },
+    content: 'If walls are wavy, peel‑and‑stick will telegraph every bump. Skim coat first or skip.'
+  },
+  {
+    id: 5197,
+    questionId: 1059,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-03T20:15:00.000Z',
+    author: { name: 'Momo', reputation: 600 },
+    content: 'Grout choice matters more than tile in small kitchens. Light gray hides sins.'
+  },
+  {
+    id: 5198,
+    questionId: 1059,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-03T20:35:00.000Z',
+    author: { name: 'Evan', reputation: 1200 },
+    content: 'Measure outlet covers: you’ll be cutting a lot. Buy extra tiles or panels for mistakes. Dry‑fit first.'
+  },
+  {
+    id: 5199,
+    questionId: 1059,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-03T21:00:00.000Z',
+    author: { name: 'Tara', reputation: 1600 },
+    content: 'If you plan to remove later, Command strips + thin PVC panels can fake a backsplash with zero wall damage.'
+  },
+  {
+    id: 5200,
+    questionId: 1059,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-03T21:20:00.000Z',
+    author: { name: 'Ben', reputation: 800 },
+    content: 'Don’t run peel‑and‑stick tight to a kettle/coffee maker—steam is the enemy. Leave space.'
+  },
+  {
+    id: 5201,
+    questionId: 1059,
+    votes: 16,
+    isAccepted: true,
+    createdAt: '2025-08-03T21:40:00.000Z',
+    author: { name: 'Riley', reputation: 2600 },
+    content: 'Renter plan: peel‑and‑stick everywhere except heat zones; prep walls smooth; use caulk at edges; keep receipts to match later. Owner plan: thinset + ledger, grout next day, seal. Choose based on lease + time horizon.'
+  },
+  
+  // Q1060 Shadowing vs conversation
+  {
+    id: 5202,
+    questionId: 1060,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-02T10:30:00.000Z',
+    author: { name: 'Paula', reputation: 2100 },
+    content: 'Shadowing fixes rhythm and prosody fast. 10–15 mins/day with transcripts + mimic recording yourself.'
+  },
+  {
+    id: 5203,
+    questionId: 1060,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-02T10:45:00.000Z',
+    author: { name: 'Leo', reputation: 900 },
+    content: 'Conversation exposes the gaps. You won’t fix your /r/ in a vacuum—get corrected by humans.'
+  },
+  {
+    id: 5204,
+    questionId: 1060,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-02T11:00:00.000Z',
+    author: { name: 'Sofia', reputation: 1800 },
+    content: 'Week plan: M/W/F shadow 15m, Tu/Th 30m convo, Sat minimal pairs, Sun rest. Record once a week.'
+  },
+  {
+    id: 5205,
+    questionId: 1060,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-02T11:15:00.000Z',
+    author: { name: 'Ana', reputation: 1400 },
+    content: 'If shy, do voice messages (HelloTalk/WhatsApp) so you get time to think + feedback.'
+  },
+  {
+    id: 5206,
+    questionId: 1060,
+    votes: 11,
+    isAccepted: true,
+    createdAt: '2025-08-02T11:30:00.000Z',
+    author: { name: 'Coach', reputation: 3000 },
+    content: 'Both. Shadowing for cadence + muscle memory; weekly conversation to test transfer. Pick 3 sounds to target per week; measure with a short script you re‑record.'
+  },
+  
+  // Q1061 Rent renewal
+  {
+    id: 5207,
+    questionId: 1061,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-08-01T16:45:00.000Z',
+    author: { name: 'Kay', reputation: 2200 },
+    content: 'Time your ask 45–30 days out. Landlords hate vacancies. Be the easy renewal.'
+  },
+  {
+    id: 5208,
+    questionId: 1061,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-01T17:00:00.000Z',
+    author: { name: 'Lee', reputation: 1700 },
+    content: 'Bring comps: 3 listings with same beds/sqft within a mile. “Given market, can we do +3% instead of +9%?”'
+  },
+  {
+    id: 5209,
+    questionId: 1061,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-01T17:20:00.000Z',
+    author: { name: 'Janel', reputation: 900 },
+    content: 'Offer terms not just price: 15‑month lease, flexible maintenance window, auto‑pay. It’s value to them.'
+  },
+  {
+    id: 5210,
+    questionId: 1061,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-01T17:35:00.000Z',
+    author: { name: 'Moises', reputation: 1500 },
+    content: 'Email script: appreciative tone, mention zero late payments, no noise complaints, and propose a number with comps attached.'
+  },
+  {
+    id: 5211,
+    questionId: 1061,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-01T17:55:00.000Z',
+    author: { name: 'Abhi', reputation: 1100 },
+    content: 'If they won’t budge, ask for a smaller increase + small concession (free repaint, deep clean, parking spot).'
+  },
+  {
+    id: 5212,
+    questionId: 1061,
+    votes: 16,
+    isAccepted: true,
+    createdAt: '2025-08-01T18:10:00.000Z',
+    author: { name: 'Greta', reputation: 2800 },
+    content: 'Be kind, specific, and brief. Anchor with comps, propose a number, and give them an easy yes. The relationship is the win.'
   },
 ];
 
