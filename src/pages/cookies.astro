@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Cookie Policy - Quistra" description="Learn how Quistra uses cookies and similar technologies.">
+  <Header />
+
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+      <h1 class="text-2xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
+      <p class="text-sm text-gray-500 mb-8">Last updated: August 10, 2025</p>
+
+      <p class="text-gray-700 mb-6">
+        This Cookie Policy explains how Quistra uses cookies and similar technologies to recognize you when you visit our website.
+      </p>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What Are Cookies?</h2>
+      <p class="text-gray-700 mb-4">
+        Cookies are small text files placed on your device to store data that can be recalled by a web server in the domain that placed the cookie. They help us operate, improve, and personalize the Services.
+      </p>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Types of Cookies We Use</h2>
+      <ul class="list-disc pl-6 text-gray-700 space-y-2">
+        <li><span class="font-medium">Essential cookies:</span> required for site functionality and security.</li>
+        <li><span class="font-medium">Performance cookies:</span> help us understand how visitors use the site.</li>
+        <li><span class="font-medium">Preference cookies:</span> remember your settings and preferences.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Managing Cookies</h2>
+      <p class="text-gray-700 mb-4">
+        You can control cookies through your browser settings. Disabling cookies may affect certain features of the site.
+      </p>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Contact</h2>
+      <p class="text-gray-700">
+        For questions about this Cookie Policy, please <a href="/contact" class="text-coral-600 hover:text-coral-500">contact us</a>.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
