@@ -8,9 +8,37 @@ import { questions } from '../data/questions.js';
 
 // Get latest questions for homepage
 const latestQuestions = questions.slice(0, 8);
+// Featured: Nova hearing aid question for internal linking
+const novaQuestion = questions.find(q => q.slug === 'heardirectclubs-nova-hearing-aid-any-good');
+
+// Organization & Website JSON-LD for brand/entity signals
+const orgJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Quistra",
+  "url": "https://quistra.com",
+  "logo": "https://quistra.com/og-image.svg",
+  "sameAs": []
+});
+
+const websiteJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Quistra",
+  "url": "https://quistra.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://quistra.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+});
 ---
 
 <BaseLayout title="Quistra - Questions & Answers Community" description="Join our community-driven Q&A platform. Ask questions, share knowledge, and connect with experts in various fields.">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={orgJsonLd} />
+    <script type="application/ld+json" set:html={websiteJsonLd} />
+  </Fragment>
   <Header />
   
   <!-- Hero Section -->
@@ -56,6 +84,18 @@ const latestQuestions = questions.slice(0, 8);
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Questions List -->
       <div class="flex-1">
+        {novaQuestion && (
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+            <div class="text-xs uppercase tracking-wide text-coral-600 font-semibold mb-2">Featured in Health</div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+              <a href={`/questions/${novaQuestion.slug}`} class="hover:text-coral-600 transition-colors">
+                {novaQuestion.title}
+              </a>
+            </h2>
+            <p class="text-gray-700 mb-3 line-clamp-2">{novaQuestion.content}</p>
+            <a href={`/questions/${novaQuestion.slug}`} class="text-coral-600 font-medium hover:underline">Read the discussion →</a>
+          </div>
+        )}
         <!-- Filter Tabs -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
           <div class="flex border-b border-gray-200">

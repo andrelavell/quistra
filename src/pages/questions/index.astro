@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+import { questions } from '../../data/questions.js';
+
+const allQuestions = [...questions]
+  .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+---
+
+<BaseLayout 
+  title="All Questions - Quistra" 
+  description="Browse all recent questions and answers across categories on Quistra."
+  canonical="/questions/"
+>
+  <Header />
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="flex-1">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+            <h1 class="text-2xl font-bold text-gray-900">All Questions</h1>
+            <div class="text-sm text-gray-600">{allQuestions.length} total</div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          {allQuestions.map((q) => (
+            <QuestionCard question={q} />
+          ))}
+        </div>
+      </div>
+
+      <Sidebar />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

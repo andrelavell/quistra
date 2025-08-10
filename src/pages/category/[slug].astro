@@ -14,6 +14,8 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props;
 const categoryQuestions = questions.filter(q => q.category === category.slug);
+// Featured: Nova hearing aid question for Health category internal linking
+const novaQuestion = questions.find(q => q.slug === 'heardirectclubs-nova-hearing-aid-any-good');
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
@@ -66,6 +68,16 @@ function timeAgo(dateString: string) {
             {categoryQuestions.length} question{categoryQuestions.length !== 1 ? 's' : ''} in this category
           </p>
         </div>
+
+        {category.slug === 'health' && novaQuestion && (
+          <div class="bg-white rounded-lg shadow-sm border border-coral-200 p-5 mb-6">
+            <div class="text-xs uppercase tracking-wide text-coral-600 font-semibold mb-1">Featured</div>
+            <a href={`/questions/${novaQuestion.slug}`} class="block group">
+              <h2 class="text-xl font-semibold text-gray-900 group-hover:text-coral-600 transition-colors mb-1">{novaQuestion.title}</h2>
+              <p class="text-gray-700 line-clamp-2">{novaQuestion.content}</p>
+            </a>
+          </div>
+        )}
 
         <!-- Questions List -->
         {categoryQuestions.length === 0 ? (
