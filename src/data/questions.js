@@ -794,6 +794,156 @@ const questions = [
     isAnswered: true,
     acceptedAnswer: 5081,
   },
+  {
+    id: 1042,
+    slug: 'migrate-nextjs-12-to-14-app-router',
+    title: 'Best way to migrate a Next.js 12 app to 14 with the App Router?',
+    content: 'I’ve got a sizable Next.js 12 project on Pages Router (getServerSideProps, API routes, some custom webpack). What’s the safest path to Next 14 + App Router without breaking SEO or auth? Any gotchas around middleware, image loader, or dynamic routes?',
+    author: { name: 'Aisha K', reputation: 6200 },
+    votes: 44,
+    answers: 7,
+    views: 5120,
+    tags: ['programming', 'nextjs', 'react', 'migration'],
+    category: 'technology-programming',
+    createdAt: '2025-08-08T15:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5102,
+  },
+  {
+    id: 1043,
+    slug: 'hy-savings-vs-t-bills-emergency-fund-2025',
+    title: 'High‑yield savings vs short‑term T‑Bills for an emergency fund?',
+    content: 'I’m sitting on ~6 months of expenses. HYSA rates are decent, but 4–13 week T‑Bills look slightly higher after tax. For liquidity/risk, what makes sense in 2025? How are you handling rollover and access in a true emergency?',
+    author: { name: 'Paul S', reputation: 4100 },
+    votes: 38,
+    answers: 3,
+    views: 4210,
+    tags: ['personal-finance', 'savings', 'bonds'],
+    category: 'personal-finance',
+    createdAt: '2025-08-07T11:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5106,
+  },
+  {
+    id: 1044,
+    slug: 'how-to-stick-to-time-blocking',
+    title: 'How do you actually stick to time blocking?',
+    content: 'I can plan a week of time blocks but by Wednesday it’s chaos. Meetings slip, tasks spill over. What’s a realistic way to time‑block without it becoming a guilt machine? Tools/process welcome.',
+    author: { name: 'Nina', reputation: 2300 },
+    votes: 27,
+    answers: 9,
+    views: 3390,
+    tags: ['productivity', 'habits', 'planning'],
+    category: 'productivity',
+    createdAt: '2025-08-05T09:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5114,
+  },
+  {
+    id: 1045,
+    slug: 'sourdough-starter-stalling-in-summer-heat',
+    title: 'Sourdough starter keeps stalling in summer heat—what am I doing wrong?',
+    content: 'Starter was lively in spring, now it peaks fast then collapses. House is ~82°F in afternoons. Using 1:1:1 with AP flour. Should I change hydration/ratio, switch flour, or refrigerate part‑time?',
+    author: { name: 'Leo M', reputation: 1400 },
+    votes: 21,
+    answers: 5,
+    views: 1985,
+    tags: ['food', 'baking', 'sourdough'],
+    category: 'food',
+    createdAt: '2025-08-04T14:33:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5120,
+  },
+  {
+    id: 1046,
+    slug: 'is-global-entry-worth-it-2025',
+    title: 'Is Global Entry still worth it in 2025 with PreCheck delays?',
+    content: 'Flying 5–6 times a year domestically + 1 international. Heard Pre lines get long now. With interview backlog and fee, is Global Entry still a slam dunk? Any airport gotchas?',
+    author: { name: 'Rachel', reputation: 3700 },
+    votes: 32,
+    answers: 9,
+    views: 2875,
+    tags: ['travel', 'airports', 'tsa-precheck'],
+    category: 'travel',
+    createdAt: '2025-08-03T19:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5127,
+  },
+  {
+    id: 1047,
+    slug: '1440p-vs-4k-midrange-gpu-2025',
+    title: '1440p vs 4K for a midrange GPU in 2025?',
+    content: 'Considering a monitor upgrade. I’ve got a mid‑tier GPU. For mixed single‑player + competitive shooters, is a 1440p high‑refresh still the sweet spot, or is 4K finally practical?',
+    author: { name: 'Chris D', reputation: 5200 },
+    votes: 41,
+    answers: 2,
+    views: 3610,
+    tags: ['gaming', 'hardware', 'monitors'],
+    category: 'gaming',
+    createdAt: '2025-08-02T12:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5131,
+  },
+  {
+    id: 1048,
+    slug: 'paint-small-bathroom-satin-vs-semi-gloss',
+    title: 'Paint a small bathroom: satin vs semi‑gloss and primer tips?',
+    content: 'Moist bathroom, poor ventilation. Repainting after light mildew cleanup. Which sheen holds up but doesn’t look plasticky? One‑coat primers legit or marketing?',
+    author: { name: 'Elena', reputation: 1800 },
+    votes: 16,
+    answers: 4,
+    views: 1650,
+    tags: ['home-diy', 'paint', 'bathroom'],
+    category: 'home-diy',
+    createdAt: '2025-08-01T17:40:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5135,
+  },
+  {
+    id: 1049,
+    slug: 'stop-rescue-dog-resource-guarding',
+    title: 'How to stop a rescue dog from resource guarding?',
+    content: 'Newly adopted 2‑year‑old mix guards food and toys. We’re careful but slip‑ups happen. Looking for humane, step‑by‑step training that works and keeps everyone safe.',
+    author: { name: 'Janet', reputation: 900 },
+    votes: 29,
+    answers: 8,
+    views: 2210,
+    tags: ['pets', 'dogs', 'training'],
+    category: 'pets',
+    createdAt: '2025-07-31T08:22:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5141,
+  },
+  {
+    id: 1050,
+    slug: 'do-cold-plunges-help-recovery-science',
+    title: 'Are cold plunges actually evidence‑based for recovery?',
+    content: 'Seeing cold plunge tubs everywhere. Beyond anecdotes, what does current research say about benefits/risks for soreness, sleep, metabolism? Timing vs workouts?',
+    author: { name: 'Priya', reputation: 4500 },
+    votes: 36,
+    answers: 6,
+    views: 3090,
+    tags: ['science', 'health', 'recovery'],
+    category: 'science',
+    createdAt: '2025-07-29T10:15:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5146,
+  },
+  {
+    id: 1051,
+    slug: 'buying-mortgage-points-when-rates-may-drop',
+    title: 'Should I buy points on a mortgage when rates might drop?',
+    content: 'Builder offering a points buydown. Planning to keep the home 5–7 years. If the Fed cuts in 2025, is it smarter to keep cash and refi later? How do you model the breakeven correctly?',
+    author: { name: 'Marco R', reputation: 2700 },
+    votes: 24,
+    answers: 3,
+    views: 1990,
+    tags: ['real-estate', 'mortgage', 'rates'],
+    category: 'real-estate',
+    createdAt: '2025-07-28T14:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5152,
+  },
 ];
 
 const answers = [
@@ -1750,6 +1900,529 @@ const answers = [
     createdAt: '2025-08-09T23:29:00.000Z',
     author: { name: 'Susan L', reputation: 0 },
     content: 'Got these for my 88 year old dad who has hearing loss from age and Chemotherapy...unequal (more in one ear than the other). He has used them for over 1 year now. Here are the pros/cons:\n\nPROS\n- Very simple to use\n- Great sound quality\n- Battery charging easy (nice little case and magnetic dock)\n- Cleaning and maintenance pretty easy (order the little kit with brush, extra ear domes, wax guards)\n- Support is fast and friendly and seem to be US based\n\nCons\n- I wish there were an app to control the settings but can\'t complain for the price\n- It took some trial error to find the right ear domes that fit comfortably\n\nOverall they\'re great little hearing aids'
+  },
+  // Q1042 Next.js migration
+  {
+    id: 5098,
+    questionId: 1042,
+    votes: 57,
+    isAccepted: false,
+    createdAt: '2025-08-08T17:00:00.000Z',
+    author: { name: 'Dan', reputation: 4300 },
+    content: 'Treat it as two steps: (1) lift to 14 on Pages Router; (2) gradually migrate features to App Router. Keep your existing pages/SSR working while you carve out new segments in /app. Ship behind a feature flag. Move one surface at a time—auth, images, dynamic routes. Verify headers/caching in each. This avoids a flag day and preserves SEO.'
+  },
+  {
+    id: 5099,
+    questionId: 1042,
+    votes: 22,
+    isAccepted: false,
+    createdAt: '2025-08-08T18:10:00.000Z',
+    author: { name: 'Luca', reputation: 2850 },
+    content: 'Mind the breaking changes: next/image defaults changed, middleware now runs on the edge by default, and the new metadata API replaces next/head. Also check for unsupported webpack loaders—most move to custom config or SWC plugins.'
+  },
+  {
+    id: 5100,
+    questionId: 1042,
+    votes: 13,
+    isAccepted: false,
+    createdAt: '2025-08-08T19:00:00.000Z',
+    author: { name: 'Priya Singh', reputation: 4800 },
+    content: 'SEO: migrate critical pages first and keep slugs/params identical. Add server redirects (308) for any route changes. Validate with Search Console’s URL inspection. Don’t forget sitemap/robots updates.'
+  },
+  {
+    id: 5101,
+    questionId: 1042,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-08T19:45:00.000Z',
+    author: { name: 'Eric', reputation: 2100 },
+    content: 'Auth “just working” can hide issues: cookies vs JWT, edge/runtime differences, and headers in Route Handlers. Start with a single protected route before moving the rest.'
+  },
+  {
+    id: 5102,
+    questionId: 1042,
+    votes: 61,
+    isAccepted: true,
+    createdAt: '2025-08-08T20:20:00.000Z',
+    author: { name: 'Sarah', reputation: 3500 },
+    content: 'Playbook: \n1) Upgrade to 14, fix deps.\n2) Create /app for one leaf route.\n3) Shift data fetching to server components + Route Handlers.\n4) Replace next/head with metadata, next/image with the new props.\n5) Turn on static params for stable paths.\n6) Observe metrics (TTFB, errors).\nRepeat. This yields incremental wins without downtime.'
+  },
+  {
+    id: 5103,
+    questionId: 1042,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-08T21:00:00.000Z',
+    author: { name: 'Mike', reputation: 1800 },
+    content: 'Migrating API routes? Keep /pages/api for now and move to Route Handlers when you have test coverage. Edge runtime is great, but Node was simpler for some libs.'
+  },
+  {
+    id: 5104,
+    questionId: 1042,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-08T21:40:00.000Z',
+    author: { name: 'Jane', reputation: 1600 },
+    content: 'Tiny tip: name your segment configs consistently (layout.tsx, loading.tsx, error.tsx). Keeps mental overhead low during the transition.'
+  },
+
+  // Q1043 HYSA vs T‑Bills
+  {
+    id: 5105,
+    questionId: 1043,
+    votes: 28,
+    isAccepted: false,
+    createdAt: '2025-08-07T12:00:00.000Z',
+    author: { name: 'Mark', reputation: 6100 },
+    content: 'Emergency funds prioritize access, not yield. HYSA: instant, FDIC/NCUA, variable rate. T‑Bills: slightly higher, but settlement/roll risk and you might need to sell early (small price risk). I keep 3 months in HYSA, rest laddered bills.'
+  },
+  {
+    id: 5106,
+    questionId: 1043,
+    votes: 41,
+    isAccepted: true,
+    createdAt: '2025-08-07T13:30:00.000Z',
+    author: { name: 'Amy', reputation: 2000 },
+    content: 'Simple decision tree: If a true “tonight I need cash” scenario is plausible → HYSA. If your emergencies are usually a few days out (car repair scheduling, etc.) → ladder 4–13 week bills and keep a month in HYSA. Don’t chase an extra 10 bps and add friction.'
+  },
+  {
+    id: 5107,
+    questionId: 1043,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-07T14:15:00.000Z',
+    author: { name: 'Ryan', reputation: 2400 },
+    content: 'Taxes matter. In high‑tax states, T‑Bills may be state‑tax free. Run after‑tax yields before deciding.'
+  },
+
+  // Q1044 Time blocking
+  {
+    id: 5108,
+    questionId: 1044,
+    votes: 19,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:00:00.000Z',
+    author: { name: 'Kate', reputation: 1900 },
+    content: 'Shrink the unit. If you can’t honor 2‑hour blocks, try 25/5 Pomodoros inside a loose block. Blocks give direction; the timer gives momentum.'
+  },
+  {
+    id: 5109,
+    questionId: 1044,
+    votes: 15,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:45:00.000Z',
+    author: { name: 'Lee F', reputation: 1750 },
+    content: 'Add buffer blocks. I hold 2 × 30‑min overflow slots daily. Without buffers, one slip wrecks the whole plan.'
+  },
+  {
+    id: 5110,
+    questionId: 1044,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-08-05T11:30:00.000Z',
+    author: { name: 'Maria', reputation: 2200 },
+    content: 'Don’t over‑specify. Label a block “Deep work: project A” instead of “Write section 2.3.1”. Too granular → brittle.'
+  },
+  {
+    id: 5111,
+    questionId: 1044,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-05T12:00:00.000Z',
+    author: { name: 'Tom', reputation: 3000 },
+    content: 'Schedule your work energy, not your time. My brain’s best 9–12 → hard tasks. Afternoons → meetings and shallow tasks. Sounds obvious; changed everything.'
+  },
+  {
+    id: 5112,
+    questionId: 1044,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-05T12:45:00.000Z',
+    author: { name: 'Jessica', reputation: 2800 },
+    content: 'Audit your week first: where did blocks break? Causes: meetings, unclear scope, interruptions. Fix the cause before you redraw the calendar.'
+  },
+  {
+    id: 5113,
+    questionId: 1044,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-05T13:20:00.000Z',
+    author: { name: 'Alex', reputation: 3200 },
+    content: 'Tooling: any calendar + a task app with Today view. Fancy apps won’t fix overcommitting.'
+  },
+  {
+    id: 5114,
+    questionId: 1044,
+    votes: 33,
+    isAccepted: true,
+    createdAt: '2025-08-05T14:00:00.000Z',
+    author: { name: 'Grace', reputation: 2600 },
+    content: 'Weekly cadence: \n- Friday: Plan next week; cap at 60% load.\n- Daily: Move tasks into blocks in the morning.\n- Noon: 10‑min replanning.\n- Evening: Mark what slipped; schedule a buffer.\nHard rule: never “borrow” from sleep or workouts to pay calendar debt.'
+  },
+  {
+    id: 5115,
+    questionId: 1044,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-05T14:20:00.000Z',
+    author: { name: 'Ryan', reputation: 2400 },
+    content: 'Interruptions? Use a visible “focus on” status. People ping less when your status says “heads down – reviewing PRD until 11:30”.'
+  },
+  {
+    id: 5116,
+    questionId: 1044,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-05T15:00:00.000Z',
+    author: { name: 'John', reputation: 1500 },
+    content: 'Time blocking works only if you protect it. Close Slack. Seriously.'
+  },
+
+  // Q1045 Sourdough
+  {
+    id: 5117,
+    questionId: 1045,
+    votes: 18,
+    isAccepted: false,
+    createdAt: '2025-08-04T15:00:00.000Z',
+    author: { name: 'Anna', reputation: 2050 },
+    content: 'At 82°F you’re over‑fermenting. Switch to 1:3:3 feed (starter:water:flour) and use 50% bread flour for strength. Keep a small mother in the fridge; build levain same‑day.'
+  },
+  {
+    id: 5118,
+    questionId: 1045,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-08-04T16:10:00.000Z',
+    author: { name: 'Maya Patel', reputation: 4800 },
+    content: 'Hydration tweak: drop to ~65% until temps cool. Cover with a breathable cloth, not airtight lids—CO₂ buildup can suppress activity.'
+  },
+  {
+    id: 5119,
+    questionId: 1045,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-04T17:00:00.000Z',
+    author: { name: 'Steve', reputation: 1200 },
+    content: 'Try a rye kick‑start: 10% whole rye in feeds for a few cycles. The enzymes wake it up.'
+  },
+  {
+    id: 5120,
+    questionId: 1045,
+    votes: 26,
+    isAccepted: true,
+    createdAt: '2025-08-04T17:45:00.000Z',
+    author: { name: 'Rachel', reputation: 3900 },
+    content: 'Process: split your starter. Keep one cool in the fridge (backup). The working jar: 1:4:4 at morning, store near 75°F (cooler spot, even a wine cooler). Use when it doubles in 3–4h, not by the clock. Heat ≠ better.'
+  },
+  {
+    id: 5121,
+    questionId: 1045,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-04T18:20:00.000Z',
+    author: { name: 'Dan', reputation: 4300 },
+    content: 'Or just bake more frequently. A fed, active culture hates long summer sits.'
+  },
+
+  // Q1046 Global Entry
+  {
+    id: 5122,
+    questionId: 1046,
+    votes: 24,
+    isAccepted: false,
+    createdAt: '2025-08-03T20:00:00.000Z',
+    author: { name: 'Noah', reputation: 3900 },
+    content: 'Worth it if you do even one international return each year. GE gets you PreCheck plus kiosk re‑entry; worst case it’s still faster than the main line. Interview backlog exists but Enrollment on Arrival works.'
+  },
+  {
+    id: 5123,
+    questionId: 1046,
+    votes: 12,
+    isAccepted: false,
+    createdAt: '2025-08-03T20:40:00.000Z',
+    author: { name: 'Jane', reputation: 1600 },
+    content: 'Some airports have Pre lines as long as regular at peak. The difference is consistency and shoes/laptop staying in the bag. Still worth it for me.'
+  },
+  {
+    id: 5124,
+    questionId: 1046,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-03T21:10:00.000Z',
+    author: { name: 'Alex', reputation: 3200 },
+    content: 'Check credit cards: many reimburse GE/Pre fee every 4–5 years. That makes the math easy.'
+  },
+  {
+    id: 5125,
+    questionId: 1046,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-03T21:50:00.000Z',
+    author: { name: 'Chris', reputation: 5200 },
+    content: 'Gotcha: name mismatch across reservations, passport, and GE will cause manual review. Make them identical (middle names too).'
+  },
+  {
+    id: 5126,
+    questionId: 1046,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-03T22:20:00.000Z',
+    author: { name: 'Maya', reputation: 4800 },
+    content: 'If you never travel internationally, Pre only is fine. But GE kiosks saved me an hour at SFO last month.'
+  },
+  {
+    id: 5127,
+    questionId: 1046,
+    votes: 29,
+    isAccepted: true,
+    createdAt: '2025-08-03T22:50:00.000Z',
+    author: { name: 'Fiona', reputation: 2200 },
+    content: 'Enrollment on Arrival tip: land early, follow the signs before baggage claim. Took 12 minutes, no appointment. That alone made GE “worth it”.'
+  },
+  {
+    id: 5128,
+    questionId: 1046,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-03T23:10:00.000Z',
+    author: { name: 'Nina', reputation: 2300 },
+    content: 'International kids? Check age rules; sometimes you’ll want NEXUS if near Canada—cheaper, covers GE.'
+  },
+  {
+    id: 5129,
+    questionId: 1046,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-03T23:35:00.000Z',
+    author: { name: 'Paul', reputation: 4100 },
+    content: 'If interviews are jammed, keep checking portals at 12:00 local. Drops happen.'
+  },
+  {
+    id: 5130,
+    questionId: 1046,
+    votes: 2,
+    isAccepted: false,
+    createdAt: '2025-08-04T00:05:00.000Z',
+    author: { name: 'Helen', reputation: 9100 },
+    content: 'I value the predictability more than the average time saved. Traveling with kids, predictable lines = sanity.'
+  },
+
+  // Q1047 1440p vs 4K
+  {
+    id: 5131,
+    questionId: 1047,
+    votes: 25,
+    isAccepted: true,
+    createdAt: '2025-08-02T13:00:00.000Z',
+    author: { name: 'Kevin', reputation: 6100 },
+    content: '1440p 144–240 Hz is still the sweet spot. You get high FPS for shooters, and single‑player looks great with upscaling. 4K is gorgeous but you’ll live in DLSS/FSR and still dip under 60 on newer titles.'
+  },
+  {
+    id: 5132,
+    questionId: 1047,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-02T13:45:00.000Z',
+    author: { name: 'Chris', reputation: 5200 },
+    content: 'If you mostly play indie/retro or sim racers, 4K can work. But for competitive shooters, frames > pixels.'
+  },
+
+  // Q1048 Bathroom paint
+  {
+    id: 5133,
+    questionId: 1048,
+    votes: 12,
+    isAccepted: false,
+    createdAt: '2025-08-01T18:00:00.000Z',
+    author: { name: 'Lisa', reputation: 2400 },
+    content: 'Modern satin labeled “bath” paints are fine. Semi‑gloss shows every roller mark in small rooms. Use a mildew‑resistant primer on trouble spots only.'
+  },
+  {
+    id: 5134,
+    questionId: 1048,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-01T18:40:00.000Z',
+    author: { name: 'Eric', reputation: 2100 },
+    content: 'Ventilation beats paint. Run a stronger fan and leave the door cracked after showers. Your paint will last longer regardless of sheen.'
+  },
+  {
+    id: 5135,
+    questionId: 1048,
+    votes: 17,
+    isAccepted: true,
+    createdAt: '2025-08-01T19:10:00.000Z',
+    author: { name: 'Amy', reputation: 2000 },
+    content: 'Primer: spot prime stains with a shellac or alkyd. Then two thin coats of quality satin (bath formula). Caulk gaps, and cut‑in with a sash brush for a clean line.'
+  },
+  {
+    id: 5136,
+    questionId: 1048,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-01T19:50:00.000Z',
+    author: { name: 'Tom', reputation: 3000 },
+    content: 'If the walls are glossy now, scuff sand first. Paint doesn’t stick to shine.'
+  },
+
+  // Q1049 Resource guarding
+  {
+    id: 5137,
+    questionId: 1049,
+    votes: 20,
+    isAccepted: false,
+    createdAt: '2025-07-31T09:00:00.000Z',
+    author: { name: 'Sarah', reputation: 3500 },
+    content: 'Start with trade‑up games: present a higher‑value treat, mark “yes,” and take the item calmly, then return it. Never chase; build trust that giving up stuff pays.'
+  },
+  {
+    id: 5138,
+    questionId: 1049,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-07-31T09:40:00.000Z',
+    author: { name: 'Rachel', reputation: 3900 },
+    content: 'Management: pick up bowls/toys when guests come. Feed behind a gate. Prevention is training too.'
+  },
+  {
+    id: 5139,
+    questionId: 1049,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-07-31T10:10:00.000Z',
+    author: { name: 'Nina', reputation: 2300 },
+    content: 'Teach “drop” and “leave it” separately. Practice with boring objects first, then move up the value ladder. Keep reps short.'
+  },
+  {
+    id: 5140,
+    questionId: 1049,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-07-31T10:40:00.000Z',
+    author: { name: 'Mike', reputation: 1800 },
+    content: 'Avoid punishment around food. You’ll make the guarding worse by teaching the dog that hands near the bowl = loss.'
+  },
+  {
+    id: 5141,
+    questionId: 1049,
+    votes: 26,
+    isAccepted: true,
+    createdAt: '2025-07-31T11:20:00.000Z',
+    author: { name: 'Alex', reputation: 3200 },
+    content: 'Protocol: \n1) Hand‑feed meals for 1–2 weeks.\n2) Toss higher‑value treats into the bowl while dog eats (approach → good things).\n3) Swap high‑value chews for a jackpot treat, then give chew back.\n4) Generalize with different people. If there’s a bite history, bring in a qualified behaviorist.'
+  },
+  {
+    id: 5142,
+    questionId: 1049,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-07-31T11:50:00.000Z',
+    author: { name: 'Paul', reputation: 4100 },
+    content: 'Vet check: rule out pain. Sudden guarding sometimes = dental or GI discomfort.'
+  },
+  {
+    id: 5143,
+    questionId: 1049,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-07-31T12:20:00.000Z',
+    author: { name: 'Jane', reputation: 1600 },
+    content: 'We had success with scatter‑feeding in the yard. It removed the “this is my bowl” mindset.'
+  },
+  {
+    id: 5144,
+    questionId: 1049,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-07-31T12:55:00.000Z',
+    author: { name: 'Elena', reputation: 1800 },
+    content: 'Don’t forget decompression. New rescues need weeks of calm before big training goals.'
+  },
+
+  // Q1050 Cold plunge science
+  {
+    id: 5145,
+    questionId: 1050,
+    votes: 17,
+    isAccepted: false,
+    createdAt: '2025-07-29T11:00:00.000Z',
+    author: { name: 'Helen', reputation: 9100 },
+    content: 'Meta‑analyses show small to moderate reductions in DOMS and perceived fatigue. Performance effects vary by sport. Big caveat: immediate cold may blunt hypertrophy signaling—delay 4–6 hours after lifting if muscle growth is a goal.'
+  },
+  {
+    id: 5146,
+    questionId: 1050,
+    votes: 31,
+    isAccepted: true,
+    createdAt: '2025-07-29T11:45:00.000Z',
+    author: { name: 'Priya', reputation: 4500 },
+    content: 'Protocol: 10–15°C (50–59°F) water, 5–10 minutes, 2–3×/week for general recovery. Avoid daily plunges post‑strength sessions if you’re prioritizing hypertrophy. Benefits: sleep onset and mood for some people; risks: cold‑shock, arrhythmias—talk to your doc if cardiac history.'
+  },
+  {
+    id: 5147,
+    questionId: 1050,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-07-29T12:10:00.000Z',
+    author: { name: 'Ryan', reputation: 2400 },
+    content: 'Placebo’s a thing, but if it helps you adhere to training and it’s safe, it’s fine. Don’t blow your budget on a tub; a cold shower + ice bags works.'
+  },
+  {
+    id: 5148,
+    questionId: 1050,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-07-29T12:40:00.000Z',
+    author: { name: 'Grace', reputation: 2600 },
+    content: 'Endurance athletes sometimes benefit more than lifters. Anecdotally I sleep better on plunge days.'
+  },
+  {
+    id: 5149,
+    questionId: 1050,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-07-29T13:05:00.000Z',
+    author: { name: 'Alex', reputation: 3200 },
+    content: 'Contraindications: Raynaud’s, uncontrolled hypertension. Start with hands/forearms first to test tolerance.'
+  },
+  {
+    id: 5150,
+    questionId: 1050,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-07-29T13:30:00.000Z',
+    author: { name: 'Jane', reputation: 1600 },
+    content: 'If you hate being cold, contrast showers (hot/cold) give some of the alertness benefit with less suffering.'
+  },
+
+  // Q1051 Mortgage points
+  {
+    id: 5151,
+    questionId: 1051,
+    votes: 14,
+    isAccepted: false,
+    createdAt: '2025-07-28T15:00:00.000Z',
+    author: { name: 'Paul', reputation: 4100 },
+    content: 'Buying points is prepaying interest. If you’ll refinance soon, you may not recoup. Compute breakeven months = cost of points / monthly savings, then add refi costs + time value of money.'
+  },
+  {
+    id: 5152,
+    questionId: 1051,
+    votes: 22,
+    isAccepted: true,
+    createdAt: '2025-07-28T15:40:00.000Z',
+    author: { name: 'Elena', reputation: 1800 },
+    content: 'Rule of thumb: if breakeven < planned stay AND you’re not cash‑constrained, points can work. Otherwise, take a lender credit and keep cash for reserves. Refi optionality is valuable when rates trend down.'
+  },
+  {
+    id: 5153,
+    questionId: 1051,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-07-28T16:10:00.000Z',
+    author: { name: 'Mike', reputation: 1800 },
+    content: 'Watch for builder‑tied lenders. Compare APR apples‑to‑apples and don’t ignore prepayment penalties.'
   },
 ];
 
