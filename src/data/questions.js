@@ -268,7 +268,7 @@ function makeAnswerContent(title) {
 }
 
 // Hand-crafted data: first batch of 20 high-quality Q&As
-const questions = [
+let questions = [
   {
     id: 1001,
     slug: 'is-it-worth-upgrading-to-wifi-7-at-home',
@@ -1093,6 +1093,156 @@ const questions = [
     createdAt: '2025-08-01T16:25:00.000Z',
     isAnswered: true,
     acceptedAnswer: 5212,
+  },
+  {
+    id: 1062,
+    slug: 'is-bun-ready-for-production-in-2025',
+    title: 'Is Bun ready for production as a Node.js replacement in 2025?',
+    content: 'Considering moving some Node services to Bun for speed and lower memory. What are the real-world gotchas (compat, tooling, hosting) before I try it in prod?',
+    author: { name: 'Priya Singh', reputation: 4100 },
+    votes: 28,
+    answers: 7,
+    views: 3520,
+    tags: ['programming', 'bun', 'nodejs'],
+    category: 'technology-programming',
+    createdAt: '2025-08-06T12:15:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5216,
+  },
+  {
+    id: 1063,
+    slug: 'are-target-date-funds-still-good-in-2025',
+    title: 'Are target‑date funds still a good default in 2025 now that rates are higher?',
+    content: 'I’m auto‑investing in a 2055 target‑date fund. With higher interest rates and better Treasury yields, is it still smart to keep everything in a TDF, or roll my own mix?',
+    author: { name: 'Luca', reputation: 1500 },
+    votes: 19,
+    answers: 4,
+    views: 2870,
+    tags: ['investing', 'retirement', 'index-funds'],
+    category: 'investing',
+    createdAt: '2025-08-06T09:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5222,
+  },
+  {
+    id: 1064,
+    slug: 'stop-puppy-biting-12-weeks',
+    title: 'Best way to stop puppy biting at 12 weeks?',
+    content: 'New herding‑breed pup. Lots of nipping at hands and pants. I’m consistent with redirection but it’s relentless. What training steps work quickly without scaring the dog?',
+    author: { name: 'Jessica', reputation: 900 },
+    votes: 22,
+    answers: 6,
+    views: 3390,
+    tags: ['pets', 'dogs', 'training'],
+    category: 'pets',
+    createdAt: '2025-08-05T18:30:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5228,
+  },
+  {
+    id: 1065,
+    slug: 'ultralight-backpacking-stove-canister-vs-alcohol-vs-solid-fuel',
+    title: 'Ultralight backpacking stove: canister vs alcohol vs solid fuel?',
+    content: 'Doing a 5‑day section hike. I care about weight, boil time, and wind performance. Between canister stoves, alcohol burners, or Esbit tabs—what’s the best trade‑off in 2025?',
+    author: { name: 'Ryan', reputation: 2000 },
+    votes: 17,
+    answers: 9,
+    views: 2640,
+    tags: ['outdoors', 'backpacking', 'gear'],
+    category: 'outdoors',
+    createdAt: '2025-08-05T07:55:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5235,
+  },
+  {
+    id: 1066,
+    slug: 'calibrate-monitor-for-print-at-home',
+    title: 'How do I calibrate my monitor for accurate prints at home?',
+    content: 'My photo prints come out darker/warmer than the screen. I don’t own a pro calibrator yet. Steps to get close at home and what affordable hardware/software is worth it?',
+    author: { name: 'Anna', reputation: 1750 },
+    votes: 24,
+    answers: 3,
+    views: 1990,
+    tags: ['art-design', 'photography', 'color'],
+    category: 'art-design',
+    createdAt: '2025-08-04T13:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5240,
+  },
+  {
+    id: 1067,
+    slug: 'first-one-on-ones-as-new-manager',
+    title: 'How should I run my first 1:1s as a brand‑new manager?',
+    content: 'Promoted from IC to manager of 7 engineers. I want to earn trust and not waste time. What agenda, cadence, and note‑taking approach worked best for your first month?',
+    author: { name: 'Mark', reputation: 4200 },
+    votes: 31,
+    answers: 12,
+    views: 5220,
+    tags: ['career', 'management', 'leadership'],
+    category: 'career',
+    createdAt: '2025-08-04T09:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5249,
+  },
+  {
+    id: 1068,
+    slug: 'sourdough-in-hot-humid-apartment',
+    title: 'How do you make sourdough in a hot, humid apartment without over‑proofing?',
+    content: 'No AC, summer kitchen at 28–30°C. Dough races during bulk and turns slack. What workflow (starter schedule, water temp, cold retard) actually works in these conditions?',
+    author: { name: 'Grace', reputation: 2600 },
+    votes: 27,
+    answers: 5,
+    views: 3450,
+    tags: ['food', 'baking', 'sourdough'],
+    category: 'food',
+    createdAt: '2025-08-03T21:40:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5257,
+  },
+  {
+    id: 1069,
+    slug: 'why-did-rome-adopt-christianity',
+    title: 'Why did the Roman Empire adopt Christianity?',
+    content: 'What political, social, and theological factors explain the shift from persecution to imperial adoption? Pointers to primary sources welcome.',
+    author: { name: 'Lee F', reputation: 1800 },
+    votes: 15,
+    answers: 2,
+    views: 2310,
+    tags: ['history', 'rome', 'religion'],
+    category: 'history',
+    createdAt: '2025-08-03T12:25:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5260,
+  },
+  {
+    id: 1070,
+    slug: 'is-120hz-worth-on-handheld-gaming-pcs',
+    title: 'Is 120 Hz actually worth it on handheld gaming PCs?',
+    content: 'Looking at the new wave of handheld PCs with 120 Hz panels. Between battery life, APU limits, and motion clarity—does 120 Hz provide real value or is 60 Hz fine?',
+    author: { name: 'Eric', reputation: 2400 },
+    votes: 18,
+    answers: 8,
+    views: 2980,
+    tags: ['gaming', 'hardware', 'performance'],
+    category: 'gaming',
+    createdAt: '2025-08-02T23:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5265,
+  },
+  {
+    id: 1071,
+    slug: 'stick-to-time-blocking-for-real',
+    title: 'How do you actually stick to time‑blocking instead of abandoning it after a week?',
+    content: 'I love the idea; the reality is calendar Tetris and then chaos. What behaviors, guardrails, and review loops turned time‑blocking from fantasy to a habit for you?',
+    author: { name: 'Rachel', reputation: 2100 },
+    votes: 29,
+    answers: 1,
+    views: 2600,
+    tags: ['productivity', 'habits', 'planning'],
+    category: 'productivity',
+    createdAt: '2025-08-02T08:45:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5269,
   },
 ];
 
@@ -3125,7 +3275,593 @@ const answers = [
     author: { name: 'Greta', reputation: 2800 },
     content: 'Be kind, specific, and brief. Anchor with comps, propose a number, and give them an easy yes. The relationship is the win.'
   },
+  {
+    id: 5213,
+    questionId: 1062,
+    votes: 14,
+    isAccepted: false,
+    createdAt: '2025-08-06T12:45:00.000Z',
+    author: { name: 'Tom', reputation: 1900 },
+    content: 'Compatibility is the main gotcha. Many packages assume Node’s internals (OpenSSL, fs semantics, native addons). If you touch native modules, test on Bun per‑module; sometimes it works, sometimes it breaks in weird edge cases.'
+  },
+  {
+    id: 5214,
+    questionId: 1062,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-08-06T13:05:00.000Z',
+    author: { name: 'Nina', reputation: 1600 },
+    content: 'Bun’s test runner is genuinely fast and the HTTP server is snappy, but watch for tooling gaps: fewer production‑grade middlewares, smaller ecosystem, CI images are less mature. If you’re ops‑light, that friction matters.'
+  },
+  {
+    id: 5215,
+    questionId: 1062,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-06T13:20:00.000Z',
+    author: { name: 'Alex', reputation: 2200 },
+    content: 'Packaging: smaller Alpine images sometimes fail because Bun bundles more system libs. Use Debian/Ubuntu base or verify GLIBC; also pin Bun version—minor bumps have broken our builds before.'
+  },
+  {
+    id: 5216,
+    questionId: 1062,
+    votes: 33,
+    isAccepted: true,
+    createdAt: '2025-08-06T13:40:00.000Z',
+    author: { name: 'Priya Singh', reputation: 4100 },
+    content: 'Prod plan: (1) start with a sidecar service (edge cache, image resize) not core API, (2) freeze deps and add canary deploys, (3) log parity vs Node for 2 weeks, (4) set a clear rollback knob. Bun is fast, but treat it as a new runtime with risk controls.'
+  },
+  {
+    id: 5217,
+    questionId: 1062,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-06T14:00:00.000Z',
+    author: { name: 'Kevin', reputation: 1300 },
+    content: 'ESM/CJS quirks still bite. We had a mono‑repo where tsconfig path aliases worked under Node+ts‑node, but Bun resolved differently. Fixable, yeah—but it ate a day.'
+  },
+  {
+    id: 5218,
+    questionId: 1062,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-06T14:20:00.000Z',
+    author: { name: 'Jane', reputation: 1750 },
+    content: 'Hosting: most PaaS support Bun now, but rough edges in metrics and profiling. On bare metal, systemd + a basic process supervisor works fine; PM2 is Node‑centric.'
+  },
+  {
+    id: 5219,
+    questionId: 1062,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-06T14:35:00.000Z',
+    author: { name: 'Eric', reputation: 2400 },
+    content: 'TL;DR don’t rewrite your core. Ship one well‑bounded Bun service, measure, and expand if it proves itself. Speed alone is not a strategy.'
+  },
+  {
+    id: 5220,
+    questionId: 1063,
+    votes: 12,
+    isAccepted: false,
+    createdAt: '2025-08-06T09:25:00.000Z',
+    author: { name: 'Amy', reputation: 2100 },
+    content: 'Target‑date funds remain a great default: automatic rebalancing, glide path discipline, behavior guardrails. You’re paying for “do nothing and still be mostly right.”'
+  },
+  {
+    id: 5221,
+    questionId: 1063,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-06T09:40:00.000Z',
+    author: { name: 'Paul', reputation: 950 },
+    content: 'Check fees and glide path. Some TDFs still use higher‑cost active sleeves. If ER > 0.15% and you’re comfortable, a DIY 3‑fund (US total, global ex‑US, bonds) can be cheaper.'
+  },
+  {
+    id: 5222,
+    questionId: 1063,
+    votes: 21,
+    isAccepted: true,
+    createdAt: '2025-08-06T10:00:00.000Z',
+    author: { name: 'Steve', reputation: 2700 },
+    content: 'A hybrid works: keep the TDF for simplicity in tax‑advantaged accounts, but siphon new money into Treasuries/TIPS in taxable to lock current yields. Rebalance once a year. You get better after‑tax yield without micromanaging.'
+  },
+  {
+    id: 5223,
+    questionId: 1063,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-06T10:20:00.000Z',
+    author: { name: 'Maya Patel', reputation: 4800 },
+    content: 'Mind taxes: TDF in taxable throws off international dividends and cap gains. If you have ESOP/RSUs, treat them as part of equities when choosing a TDF vintage—don’t double up on risk.'
+  },
+  {
+    id: 5224,
+    questionId: 1064,
+    votes: 16,
+    isAccepted: false,
+    createdAt: '2025-08-05T18:45:00.000Z',
+    author: { name: 'Dan', reputation: 1200 },
+    content: 'Management first: tether or playpen so the pup can’t rehearse biting. 2–3 minute focused play with a tug, then swap for a chew. If arousal spikes, pause—no shame crate nap.'
+  },
+  {
+    id: 5225,
+    questionId: 1064,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-05T19:00:00.000Z',
+    author: { name: 'Lisa', reputation: 1350 },
+    content: 'When teeth touch skin: freeze, soft "ow" (not a scream), withdraw attention for 5–10s. Then offer a toy. Repeat. It’s boring but puppies learn fast.'
+  },
+  {
+    id: 5226,
+    questionId: 1064,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-08-05T19:20:00.000Z',
+    author: { name: 'Alex', reputation: 2200 },
+    content: 'Most biters are overtired. Check your day: naps every 60–90 minutes, short training, scatter feeding. A calm pup bites less—magic.'
+  },
+  {
+    id: 5227,
+    questionId: 1064,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-05T19:40:00.000Z',
+    author: { name: 'Sarah', reputation: 2000 },
+    content: 'Teach a marker cue ("gentle"): reinforce tongue touches/soft mouth on treats; no reward for hard grabs. It transfers.'
+  },
+  {
+    id: 5228,
+    questionId: 1064,
+    votes: 25,
+    isAccepted: true,
+    createdAt: '2025-08-05T20:05:00.000Z',
+    author: { name: 'Rachel', reputation: 2100 },
+    content: 'Protocol: predict the bite windows (post‑zoomies, pre‑nap), pre‑load chews, interrupt with low energy, reward calm chewing, and log triggers for a week. No muzzle, no shouting. It fades in ~2–3 weeks with consistency.'
+  },
+  {
+    id: 5229,
+    questionId: 1064,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-05T20:20:00.000Z',
+    author: { name: 'Mike', reputation: 1600 },
+    content: 'Don’t punish mouthy play. You’ll suppress warning signals and create a sneaky biter. Redirect and manage; that’s the game.'
+  },
+  {
+    id: 5230,
+    questionId: 1065,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-05T08:10:00.000Z',
+    author: { name: 'Omar', reputation: 1200 },
+    content: 'Canister wins most trips: lights fast, simmers, handles wind with a proper shield. Alcohol is zen but fussy in breeze; Esbit is ultralight but stinky and sooty.'
+  },
+  {
+    id: 5231,
+    questionId: 1065,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-05T08:25:00.000Z',
+    author: { name: 'Janel', reputation: 900 },
+    content: 'Check land rules: some parks ban alcohol/solid fuel during fire restrictions, while canister is allowed. That alone decides for me in late summer.'
+  },
+  {
+    id: 5232,
+    questionId: 1065,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-05T08:40:00.000Z',
+    author: { name: 'Greta', reputation: 2800 },
+    content: 'Esbit pro: absurdly light for short trips. Con: residue on pots and a fishy smell. I only use it with a dedicated pot + solid windscreen.'
+  },
+  {
+    id: 5233,
+    questionId: 1065,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-05T08:55:00.000Z',
+    author: { name: 'Moises', reputation: 1500 },
+    content: 'Cold weather? Invert the canister with a remote canister stove, or alcohol will outperform below freezing. White gas is overkill for your use.'
+  },
+  {
+    id: 5234,
+    questionId: 1065,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-05T09:10:00.000Z',
+    author: { name: 'Kate', reputation: 1400 },
+    content: 'Pot choice matters more than people think: narrow pots waste fuel; wide pots + tight lids + a half‑wrap windscreen cut boil time regardless of stove.'
+  },
+  {
+    id: 5235,
+    questionId: 1065,
+    votes: 18,
+    isAccepted: true,
+    createdAt: '2025-08-05T09:30:00.000Z',
+    author: { name: 'Ryan', reputation: 2000 },
+    content: 'Pick by context: short solo fair‑weather—alcohol or Esbit; shoulder season or wind—canister with a solid shield; group cooking—canister every time. Carry matches + mini Bic and you’re set.'
+  },
+  {
+    id: 5236,
+    questionId: 1065,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-05T09:45:00.000Z',
+    author: { name: 'Anna', reputation: 1750 },
+    content: 'Safety PSA: store alcohol fuel in HDPE bottles, not a random soda bottle; label it. Esbit crumbs will crumble in your pack—zip‑lock them.'
+  },
+  {
+    id: 5237,
+    questionId: 1065,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:00:00.000Z',
+    author: { name: 'Mark', reputation: 4200 },
+    content: 'Rainy week? I bring a canister regardless. Alcohol + wind + rain is a frustration recipe. Ten grams saved isn’t worth a cold dinner.'
+  },
+  {
+    id: 5238,
+    questionId: 1065,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-05T10:15:00.000Z',
+    author: { name: 'Jane', reputation: 1750 },
+    content: 'Weights, actual: 100g canister + PocketRocket Deluxe (83g) ~ 183g; alcohol cat stove + 60ml fuel + windscreen ~ ~120–140g depending on pot. It’s close.'
+  },
+  {
+    id: 5239,
+    questionId: 1066,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-04T13:25:00.000Z',
+    author: { name: 'Grace', reputation: 2600 },
+    content: 'Quick fix today: set monitor to sRGB mode, drop brightness to ~90–110 nits (roughly 20–30% on many panels), and raise gamma slightly. Soft‑proof with the lab’s ICC profile if they provide one.'
+  },
+  {
+    id: 5240,
+    questionId: 1066,
+    votes: 22,
+    isAccepted: true,
+    createdAt: '2025-08-04T13:45:00.000Z',
+    author: { name: 'Anna', reputation: 1750 },
+    content: 'Buy a colorimeter (X‑Rite/Calibrite or Spyder). Run DisplayCAL, target D65, gamma 2.2, 120 nits. Recal monthly. It’s the only way to get repeatable screen‑to‑print without guessing.'
+  },
+  {
+    id: 5241,
+    questionId: 1066,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-04T14:00:00.000Z',
+    author: { name: 'Lee F', reputation: 1800 },
+    content: 'Soft‑proof in Lightroom/Photoshop, select the actual paper profile, and simulate black ink. Matte stocks clip shadows—raise exposure +0.2 and add a touch of contrast.'
+  },
+  {
+    id: 5242,
+    questionId: 1067,
+    votes: 16,
+    isAccepted: false,
+    createdAt: '2025-08-04T09:35:00.000Z',
+    author: { name: 'Jessica', reputation: 900 },
+    content: 'First 1:1s = listening tour. Ask what’s working, what’s not, and how they want to grow. End with “what should I stop/start/continue?”—it builds trust fast.'
+  },
+  {
+    id: 5243,
+    questionId: 1067,
+    votes: 10,
+    isAccepted: false,
+    createdAt: '2025-08-04T09:55:00.000Z',
+    author: { name: 'Chris', reputation: 2100 },
+    content: 'Agenda that works: personal check‑in (2m), top priorities (8m), blockers (5m), feedback both ways (5m), commitments (3m). Tight beats rambly.'
+  },
+  {
+    id: 5244,
+    questionId: 1067,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-04T10:10:00.000Z',
+    author: { name: 'Mark', reputation: 4200 },
+    content: 'Avoid “status meeting” syndrome. Status goes in a doc or tool; the 1:1 is about them, not Jira tickets. Coaching > reporting.'
+  },
+  {
+    id: 5245,
+    questionId: 1067,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-04T10:25:00.000Z',
+    author: { name: 'Rachel', reputation: 2100 },
+    content: 'Take notes in a shared doc they can see. It signals transparency and helps both remember commitments. Small thing, big trust.'
+  },
+  {
+    id: 5246,
+    questionId: 1067,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-04T10:40:00.000Z',
+    author: { name: 'Paul', reputation: 950 },
+    content: 'Follow‑ups make you credible. If they mention a broken laptop, check back in 2 days. If they ask for a growth plan, draft a first pass and iterate.'
+  },
+  {
+    id: 5247,
+    questionId: 1067,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-04T10:55:00.000Z',
+    author: { name: 'Nina', reputation: 1600 },
+    content: 'Big anti‑pattern: jumping into solutions. Ask 2–3 clarifying questions first. People want to be heard; then you co‑design the fix.'
+  },
+  {
+    id: 5248,
+    questionId: 1067,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-04T11:10:00.000Z',
+    author: { name: 'Kevin', reputation: 1300 },
+    content: 'Skip‑levels are good, but don’t undermine your leads. Set a cadence and share notes back. Surprises erode trust.'
+  },
+  {
+    id: 5249,
+    questionId: 1067,
+    votes: 24,
+    isAccepted: true,
+    createdAt: '2025-08-04T11:30:00.000Z',
+    author: { name: 'Anna', reputation: 1750 },
+    content: 'Month 1 template: wk1 listening + goals; wk2 expectations doc + 30/60/90; wk3 early wins unblock; wk4 feedback both ways + calibrate workload. Keep it light but consistent.'
+  },
+  {
+    id: 5250,
+    questionId: 1067,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-04T11:45:00.000Z',
+    author: { name: 'Greta', reputation: 2800 },
+    content: 'Remote team? Camera optional, async notes mandatory. Respect time zones; rotate slots so one person isn’t always 7am.'
+  },
+  {
+    id: 5251,
+    questionId: 1067,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-04T12:00:00.000Z',
+    author: { name: 'Eric', reputation: 2400 },
+    content: 'Calibrate expectations doc: “what I expect from you / what you can expect from me.” Write it, share it, refer to it. Removes tons of ambiguity.'
+  },
+  {
+    id: 5252,
+    questionId: 1067,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-04T12:15:00.000Z',
+    author: { name: 'Kate', reputation: 1400 },
+    content: 'Time‑box the 1:1 to 30 minutes. If you always need 60, you’re not doing ad‑hoc coaching between meetings. The work happens outside, not in the 1:1.'
+  },
+  {
+    id: 5253,
+    questionId: 1067,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-04T12:30:00.000Z',
+    author: { name: 'Omar', reputation: 1200 },
+    content: 'Close with “anything else on your mind?” People raise the real issue at the end. Leave 3 minutes for it.'
+  },
+  {
+    id: 5254,
+    questionId: 1068,
+    votes: 11,
+    isAccepted: false,
+    createdAt: '2025-08-03T21:55:00.000Z',
+    author: { name: 'Grace', reputation: 2600 },
+    content: 'Use 4–6°C water and chill the bowl; aim dough temp ~23–24°C post‑mix. Shorter bulk (maybe 60–90m), then cold retard. Heat is the enemy, slow it down.'
+  },
+  {
+    id: 5255,
+    questionId: 1068,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-03T22:10:00.000Z',
+    author: { name: 'Jane', reputation: 1750 },
+    content: 'Add salt earlier (post‑autolyse) and mix to medium gluten fast; less time for enzymes to run wild in the heat. Skip long open‑air bench rests.'
+  },
+  {
+    id: 5256,
+    questionId: 1068,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-03T22:25:00.000Z',
+    author: { name: 'Eric', reputation: 2400 },
+    content: 'Retard earlier: shape at ~50% rise, straight to fridge for 12–18h. Bake from cold. You’ll get tighter crumb but far fewer blowouts.'
+  },
+  {
+    id: 5257,
+    questionId: 1068,
+    votes: 19,
+    isAccepted: true,
+    createdAt: '2025-08-03T22:45:00.000Z',
+    author: { name: 'Ryan', reputation: 2000 },
+    content: 'Simple schedule: feed starter at night in the fridge, mix in the morning with cold water, bulk 60m with two gentle folds, shape and fridge. Bake next morning. It just works in summer.'
+  },
+  {
+    id: 5258,
+    questionId: 1068,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-03T23:00:00.000Z',
+    author: { name: 'Maya Patel', reputation: 4800 },
+    content: 'Starter care: if your kitchen is a sauna, keep the mother in the fridge and only pull a levain when baking. Fewer feedings, less acid soup.'
+  },
+  {
+    id: 5259,
+    questionId: 1069,
+    votes: 9,
+    isAccepted: false,
+    createdAt: '2025-08-03T12:40:00.000Z',
+    author: { name: 'Lee F', reputation: 1800 },
+    content: 'Constantine’s calculus: unify a diverse empire with a single faith, co‑opt Christian networks, and stabilize succession. The Edict of Milan is politics, not sudden piety.'
+  },
+  {
+    id: 5260,
+    questionId: 1069,
+    votes: 17,
+    isAccepted: true,
+    createdAt: '2025-08-03T13:00:00.000Z',
+    author: { name: 'Anna', reputation: 1750 },
+    content: 'Mix of factors: urban Christian charity networks, intellectual synthesis (Justin, Origen), and imperial utility. Primary sources: Lactantius, Eusebius, the Theodosian Code. No single cause—accumulation over a century.'
+  },
+  {
+    id: 5261,
+    questionId: 1070,
+    votes: 8,
+    isAccepted: false,
+    createdAt: '2025-08-02T23:20:00.000Z',
+    author: { name: 'Kevin', reputation: 1300 },
+    content: '120 Hz helps UI feel buttery and reduces perceived blur, but it does hit battery. With VRR, you can cap to 90 and get a nice middle ground.'
+  },
+  {
+    id: 5262,
+    questionId: 1070,
+    votes: 7,
+    isAccepted: false,
+    createdAt: '2025-08-02T23:35:00.000Z',
+    author: { name: 'Nina', reputation: 1600 },
+    content: 'Indie/2D titles benefit the most. Big AAA games on handheld APUs rarely sustain 120 fps; 60–90 Hz is where the real world lands.'
+  },
+  {
+    id: 5263,
+    questionId: 1070,
+    votes: 6,
+    isAccepted: false,
+    createdAt: '2025-08-02T23:50:00.000Z',
+    author: { name: 'Alex', reputation: 2200 },
+    content: 'Motion clarity is not just FPS, it’s pixel response and overdrive. Some panels smear at 60 and look much nicer at 90/120 even at lower FPS.'
+  },
+  {
+    id: 5264,
+    questionId: 1070,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-03T00:05:00.000Z',
+    author: { name: 'Jane', reputation: 1750 },
+    content: 'Reality check: many games use 30–60 fps with FSR. The extra refresh helps inputs/scrolling, not miracles for low FPS titles.'
+  },
+  {
+    id: 5265,
+    questionId: 1070,
+    votes: 13,
+    isAccepted: true,
+    createdAt: '2025-08-03T00:20:00.000Z',
+    author: { name: 'Eric', reputation: 2400 },
+    content: 'Run 120 Hz only for games that can hold >80–90 fps; otherwise set 60–90 Hz + frame cap. That combination preserves battery and keeps input smooth.'
+  },
+  {
+    id: 5266,
+    questionId: 1070,
+    votes: 4,
+    isAccepted: false,
+    createdAt: '2025-08-03T00:35:00.000Z',
+    author: { name: 'Omar', reputation: 1200 },
+    content: 'Testing method: same scene, same graphics preset, log FPS and watt draw at 60 vs 120. Measure, don’t vibe.'
+  },
+  {
+    id: 5267,
+    questionId: 1070,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-03T00:50:00.000Z',
+    author: { name: 'Kate', reputation: 1400 },
+    content: 'UI/desktop mode is nicer at 120 Hz—text scrolls are just easier on the eyes. I switch down in games that don’t need it.'
+  },
+  {
+    id: 5268,
+    questionId: 1070,
+    votes: 3,
+    isAccepted: false,
+    createdAt: '2025-08-03T01:05:00.000Z',
+    author: { name: 'Greta', reputation: 2800 },
+    content: 'Driver maturity matters. Keep BIOS/GPU drivers current; early firmware on my handheld had 120 Hz flicker that a later patch fixed.'
+  },
+  {
+    id: 5269,
+    questionId: 1071,
+    votes: 20,
+    isAccepted: true,
+    createdAt: '2025-08-02T09:00:00.000Z',
+    author: { name: 'Rachel', reputation: 2100 },
+    content: 'Make it a behavior, not a template. Start with just 2 blocks/day, include slack buffers, and do a 5‑minute retro at day’s end. If a block blows up, move it—not delete it. Two boring weeks beats one perfect spreadsheet.'
+  },
 ];
+
+// Augment answers to ensure varied counts per question (0–20) with diverse styles
+// Keep the special HearDirectClub question unchanged.
+(function augmentAnswers() {
+  const SPECIAL_SLUG = 'heardirectclubs-nova-hearing-aid-any-good';
+
+  // Helper to generate more varied content styles
+  const makeVariedAnswerContent = (title) => {
+    const r = rng();
+    if (r < 0.3) {
+      // Short, casual take
+      const opener = pick(['IMO,', 'FWIW,', 'Quick take:', 'In plain terms:', 'TL;DR:']);
+      return `${opener} ${pick([
+        'start simple and keep it consistent.',
+        'opt for the smallest next step.',
+        'avoid over‑optimizing; ship something.',
+        'measure weekly, not daily.',
+        'don’t chase hacks—fix the basics first.'
+      ])} Re: "${title}"`;
+    }
+    if (r < 0.8) {
+      // Normal structured answer
+      return makeAnswerContent(title);
+    }
+    // Longer, more detailed response
+    const p1 = makeAnswerContent(title);
+    const p2 = makeAnswerContent(title);
+    const closer = pick([
+      'YMMV, but this balances momentum with sanity.',
+      'The boring path tends to win over time.',
+      'Focus on repeatable habits, not one‑off bursts.'
+    ]);
+    return `${p1} ${p2} ${closer}`;
+  };
+
+  // Compute current max answer id
+  let maxAnswerId = answers.reduce((m, a) => Math.max(m, a.id), 0);
+
+  // Build a quick lookup for slug by id
+  const slugById = new Map(questions.map(q => [q.id, q.slug]));
+
+  // For each question, decide a target answer count and add missing answers
+  questions = questions.map((q) => {
+    if (q.slug === SPECIAL_SLUG) {
+      // Do not modify counts or answers for the special question
+      return q;
+    }
+
+    const existingCount = answers.filter(a => a.questionId === q.id).length;
+    // Pick a target between 0 and 20; never reduce below existing
+    const target = Math.max(existingCount, randInt(0, 20));
+    const toAdd = Math.max(0, target - existingCount);
+
+    for (let i = 0; i < toAdd; i++) {
+      maxAnswerId += 1;
+      const author = makeAuthor();
+      answers.push({
+        id: maxAnswerId,
+        questionId: q.id,
+        votes: randInt(0, 60),
+        isAccepted: false,
+        // createdAt will be regenerated consistently later
+        createdAt: daysAgo(randInt(1, 150)),
+        author,
+        content: makeVariedAnswerContent(q.title),
+      });
+    }
+
+    // Update the question's answers count to reflect final number
+    const finalCount = answers.filter(a => a.questionId === q.id).length;
+    return { ...q, answers: finalCount };
+  });
+})();
 
 // Process answers with generated dates
 const processAnswersWithGeneratedDates = () => {

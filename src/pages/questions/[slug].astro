@@ -27,6 +27,24 @@ const rootAnswers = allAnswers
   .filter(a => !("parentAnswerId" in (a as any)))
   .sort((a, b) => b.votes - a.votes);
 
+// Build a safe, SEO-friendly meta description from the question content
+function toMetaDescription(text: string, maxLen = 155): string {
+  if (!text) return '';
+  // Strip any HTML (defensive) and normalize whitespace
+  const clean = String(text)
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    // Avoid raw double quotes in HTML attributes
+    .replace(/"/g, "'");
+  if (clean.length <= maxLen) return clean;
+  // Truncate on word boundary
+  const slice = clean.slice(0, maxLen + 1);
+  const lastSpace = slice.lastIndexOf(' ');
+  const base = lastSpace > 0 ? slice.slice(0, lastSpace) : clean.slice(0, maxLen);
+  return `${base}…`;
+}
+
 function formatDate(dateString: string) {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', { 
@@ -40,6 +58,10 @@ function formatDate(dateString: string) {
 
 // SEO: Build QAPage JSON-LD from the question and top-level answers
 const pageUrl = new URL(`/questions/${question.slug}/`, Astro.site);
+// Determine accepted answer if present
+const acceptedAnswerId = (question as any)?.acceptedAnswer as number | undefined;
+const accepted = acceptedAnswerId ? rootAnswers.find(a => a.id === acceptedAnswerId) : undefined;
+
 const qaJsonLd: any = {
   "@context": "https://schema.org",
   "@type": "QAPage",
@@ -52,7 +74,17 @@ const qaJsonLd: any = {
     "author": { "@type": "Person", "name": (question as any)?.author?.name ?? "Anonymous", "url": `${pageUrl.toString()}#question-author` },
     "upvoteCount": question.votes,
     "url": pageUrl.toString(),
-    "suggestedAnswer": rootAnswers.map((a) => ({
+    ...(accepted ? { "acceptedAnswer": ({
+      "@type": "Answer",
+      "url": `${pageUrl.toString()}#answer-${accepted.id}`,
+      "text": accepted.content,
+      "dateCreated": accepted.createdAt,
+      "upvoteCount": accepted.votes,
+      "author": { "@type": "Person", "name": (accepted as any)?.author?.name ?? "Anonymous", "url": `${pageUrl.toString()}#answer-${accepted.id}-author` }
+    }) } : {}),
+    "suggestedAnswer": rootAnswers
+      .filter((a) => !accepted || a.id !== accepted.id)
+      .map((a) => ({
       "@type": "Answer",
       "url": `${pageUrl.toString()}#answer-${a.id}`,
       "text": a.content,
@@ -69,7 +101,7 @@ const encodedText = encodeURIComponent(question.title);
 
 <BaseLayout 
   title={`${question.title} - Quistra`}
-  description={question.content.substring(0, 160)}
+  description={toMetaDescription(question.content, 155)}
   canonical={`/questions/${question.slug}/`}
 >
   <Fragment slot="head">
@@ -457,7 +489,7 @@ const encodedText = encodeURIComponent(question.title);
         <!-- Answer Form -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Leave a Reply</h3>
-          <form class="space-y-4">
+          <form class="space-y-4" onsubmit="event.preventDefault(); alert('You must be signed up or registered to post a reply.');">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
               <input 
@@ -465,14 +497,6 @@ const encodedText = encodeURIComponent(question.title);
                 id="name"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coral-500 focus:border-transparent"
                 required
-              >
-            </div>
-            <div>
-              <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website</label>
-              <input 
-                type="url" 
-                id="website"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-coral-500 focus:border-transparent"
               >
             </div>
             <div>
