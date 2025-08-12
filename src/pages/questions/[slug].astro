@@ -268,7 +268,7 @@ const encodedText = encodeURIComponent(question.title);
             <div>
               <div id="answers-container" class="space-y-6">
                 {rootAnswers.slice(0, 5).map((answer, idx) => (
-                <article id={`answer-${answer.id}`} class={`bg-white rounded-lg shadow-sm border p-6 ${idx === 0 ? 'relative border-emerald-500 ring-1 ring-emerald-300' : 'border-gray-200'}`}>
+                <article id={`answer-${answer.id}`} class={`bg-white rounded-lg shadow-sm border px-4 py-6 sm:px-6 ${idx === 0 ? 'relative border-emerald-500 ring-1 ring-emerald-300' : 'border-gray-200'}`}>
                   {idx === 0 && (
                     <div class="absolute -top-3 left-4">
                       <span class="inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-700 border border-emerald-300">
@@ -416,7 +416,7 @@ const encodedText = encodeURIComponent(question.title);
                   {childrenByParent.has(answer.id) ? (
                     <div class="ml-16 mt-6 space-y-4">
                       {childrenByParent.get(answer.id)?.map(child => (
-                        <article class="bg-gray-50 rounded-lg border border-gray-200 p-4">
+                        <article class="bg-gray-50 rounded-lg border border-gray-200 px-3 py-4 sm:px-4">
                           <div class="flex gap-4">
                             <div class="flex flex-col items-center space-y-2 min-w-[50px]">
                               <button class="vote-button text-sm">
