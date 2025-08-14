@@ -1244,6 +1244,186 @@ let questions = [
     isAnswered: true,
     acceptedAnswer: 5269,
   },
+  {
+    id: 1072,
+    slug: 'low-light-indoor-plants-that-wont-die',
+    title: "Low-light indoor plants that won't die?",
+    content: 'North-facing apartment with tiny windows. Looking for truly low-light plants that are forgiving for beginners. Any care tips to keep them alive?',
+    author: { name: 'Nora', reputation: 1300 },
+    votes: 12,
+    answers: 6,
+    views: 980,
+    tags: ['home-diy', 'plants', 'beginner'],
+    category: 'home-diy',
+    createdAt: '2025-08-10T10:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5275,
+  },
+  {
+    id: 1073,
+    slug: 'best-free-tools-to-track-monthly-budget-2025',
+    title: 'Best free tools to track a monthly budget in 2025?',
+    content: 'Not paying a subscription. Want something simple I’ll actually use. Spreadsheet templates or apps welcome.',
+    author: { name: 'Miguel', reputation: 1900 },
+    votes: 22,
+    answers: 5,
+    views: 1650,
+    tags: ['personal-finance', 'budgeting', 'tools'],
+    category: 'personal-finance',
+    createdAt: '2025-08-11T09:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5283,
+  },
+  {
+    id: 1074,
+    slug: 'learn-basic-italian-in-6-weeks-for-trip',
+    title: 'How to learn basic Italian in 6 weeks for a trip?',
+    content: 'Just need travel fluency: ordering, directions, niceties. What’s a realistic plan with 20–30 mins/day?',
+    author: { name: 'Aisha', reputation: 1600 },
+    votes: 17,
+    answers: 6,
+    views: 1120,
+    tags: ['language', 'travel', 'learning'],
+    category: 'language',
+    createdAt: '2025-08-11T20:40:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5290,
+  },
+  {
+    id: 1075,
+    slug: 'cheap-ways-to-make-apartment-quieter',
+    title: 'Cheap ways to make an apartment quieter?',
+    content: 'Thin walls. Upstairs footsteps + street noise. I rent, so nothing permanent. Any hacks that actually help?',
+    author: { name: 'Leo', reputation: 900 },
+    votes: 14,
+    answers: 8,
+    views: 1340,
+    tags: ['home-diy', 'soundproofing', 'renting'],
+    category: 'home-diy',
+    createdAt: '2025-08-12T08:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5298,
+  },
+  {
+    id: 1076,
+    slug: 'beginner-strength-plan-with-2-dumbbells-only',
+    title: 'Beginner strength plan with 2 dumbbells only?',
+    content: 'Apartment gym only has a pair of adjustable dumbbells. Want a 3x/week routine that’s safe and works.',
+    author: { name: 'Priya', reputation: 1400 },
+    votes: 19,
+    answers: 7,
+    views: 1760,
+    tags: ['fitness', 'strength', 'beginner'],
+    category: 'fitness',
+    createdAt: '2025-08-12T10:25:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5307,
+  },
+  {
+    id: 1077,
+    slug: 'move-from-photos-app-to-nas-without-chaos',
+    title: 'How to move from Apple Photos to a NAS without chaos?',
+    content: 'Family Photos library ~500 GB. Want local NAS + backups, but keep sharing and search sane. What’s the clean path?',
+    author: { name: 'Chris', reputation: 2200 },
+    votes: 25,
+    answers: 6,
+    views: 2010,
+    tags: ['technology', 'photos', 'storage'],
+    category: 'technology',
+    createdAt: '2025-08-12T13:40:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5316,
+  },
+  {
+    id: 1078,
+    slug: 'teach-dog-not-to-bark-at-door',
+    title: 'Teach a dog not to bark at the door?',
+    content: 'Rescue shepherd mix alerts at every knock/doorbell. Humane training that actually sticks?',
+    author: { name: 'Janet', reputation: 1800 },
+    votes: 13,
+    answers: 4,
+    views: 1180,
+    tags: ['pets', 'training', 'behavior'],
+    category: 'pets',
+    createdAt: '2025-08-12T18:05:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5323,
+  },
+  {
+    id: 1079,
+    slug: 'cheap-healthy-dinners-for-busy-weeknights',
+    title: 'Cheap healthy dinners for busy weeknights?',
+    content: 'Cooking for 2, 30 minutes max, prefer minimal cleanup. What are your go-to meals?',
+    author: { name: 'Sam', reputation: 1200 },
+    votes: 21,
+    answers: 5,
+    views: 1590,
+    tags: ['food', 'cooking', 'budget'],
+    category: 'food',
+    createdAt: '2025-08-12T19:20:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5330,
+  },
+  {
+    id: 1080,
+    slug: 'keep-laptop-battery-healthy-2025',
+    title: 'How do you keep a laptop battery healthy in 2025?',
+    content: 'Modern Mac/Windows laptops with USB‑C. Should I cap charge? Leave plugged? Avoid fast charge?',
+    author: { name: 'Owen', reputation: 2600 },
+    votes: 27,
+    answers: 10,
+    views: 2440,
+    tags: ['technology', 'hardware', 'battery'],
+    category: 'technology',
+    createdAt: '2025-08-12T21:30:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5342,
+  },
+  {
+    id: 1081,
+    slug: 'resume-bullets-that-actually-get-interviews',
+    title: 'Resume bullets that actually get interviews?',
+    content: 'Mid‑level IC in product analytics. Struggling to make bullets pop without fluff. Any patterns that work?',
+    author: { name: 'Lily', reputation: 3100 },
+    votes: 18,
+    answers: 3,
+    views: 1370,
+    tags: ['career', 'resume', 'job-search'],
+    category: 'career',
+    createdAt: '2025-08-13T08:00:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5350,
+  },
+  {
+    id: 1082,
+    slug: 'get-over-gym-anxiety-as-a-beginner',
+    title: 'How to get over gym anxiety as a beginner?',
+    content: 'Every machine feels intimidating. I want a plan to feel competent in 2 weeks without a trainer.',
+    author: { name: 'Tanya', reputation: 900 },
+    votes: 24,
+    answers: 7,
+    views: 1880,
+    tags: ['fitness', 'motivation', 'beginner'],
+    category: 'fitness',
+    createdAt: '2025-08-13T09:10:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5359,
+  },
+  {
+    id: 1083,
+    slug: 'get-better-sleep-without-meds',
+    title: 'How to get better sleep without meds?',
+    content: 'Falling asleep is fine; staying asleep is not. Practical habits or environment tweaks that actually work?',
+    author: { name: 'Yasmin', reputation: 1700 },
+    votes: 29,
+    answers: 6,
+    views: 2210,
+    tags: ['health', 'sleep', 'habits'],
+    category: 'health',
+    createdAt: '2025-08-13T10:30:00.000Z',
+    isAnswered: true,
+    acceptedAnswer: 5367,
+  },
 ];
 
 const answers = [
@@ -2200,6 +2380,15 @@ const answers = [
     createdAt: '2025-08-09T23:29:00.000Z',
     author: { name: 'Susan L', reputation: 0 },
     content: 'Got these for my 88 year old dad who has hearing loss from age and Chemotherapy...unequal (more in one ear than the other). He has used them for over 1 year now. Here are the pros/cons:\n\nPROS\n- Very simple to use\n- Great sound quality\n- Battery charging easy (nice little case and magnetic dock)\n- Cleaning and maintenance pretty easy (order the little kit with brush, extra ear domes, wax guards)\n- Support is fast and friendly and seem to be US based\n\nCons\n- I wish there were an app to control the settings but can\'t complain for the price\n- It took some trial error to find the right ear domes that fit comfortably\n\nOverall they\'re great little hearing aids'
+  },
+  {
+    id: 5268,
+    questionId: 1041,
+    votes: 5,
+    isAccepted: false,
+    createdAt: '2025-08-09T23:40:00.000Z',
+    author: { name: 'Terry', reputation: 0 },
+    content: 'I purchased mine from Hear Direct Club and love them. I\'ve had the same pair for almost a year now and haven\'t had any issues. Great sound quality for the price. I also haven\'t tried any of the expensive brands.'
   },
   // Q1042 Next.js migration
   {
@@ -3788,12 +3977,116 @@ const answers = [
     author: { name: 'Rachel', reputation: 2100 },
     content: 'Make it a behavior, not a template. Start with just 2 blocks/day, include slack buffers, and do a 5‑minute retro at day’s end. If a block blows up, move it—not delete it. Two boring weeks beats one perfect spreadsheet.'
   },
+  // Q1072 Low-light plants
+  { id: 5271, questionId: 1072, votes: 21, isAccepted: true, createdAt: '2025-08-10T10:20:00.000Z', author: { name: 'GreenThumb', reputation: 2400 }, content: 'ZZ plant, snake plant, pothos. Water less than you think. If you can read a book where it sits, it can probably live there. Rotate monthly, dust leaves.' },
+  { id: 5272, questionId: 1072, votes: 8, isAccepted: false, createdAt: '2025-08-10T10:40:00.000Z', author: { name: 'Luca', reputation: 1250 }, content: 'My snake plant survived a windowless office for two years. I watered it when I remembered (bad!). It still lives. Indestructible.' },
+  { id: 5273, questionId: 1072, votes: 5, isAccepted: false, createdAt: '2025-08-10T11:05:00.000Z', author: { name: 'Maya', reputation: 800 }, content: 'Add a cheap grow bulb on a clamp lamp, 6–8 hrs/day. Game changer. Also bottom‑water 20 mins, then drain.' },
+  { id: 5274, questionId: 1072, votes: 3, isAccepted: false, createdAt: '2025-08-10T11:20:00.000Z', author: { name: 'Jess', reputation: 1400 }, content: 'Don’t baby them—overwatering is the real killer. Stick a finger in the soil; if it’s cool/damp, wait.' },
+  { id: 5275, questionId: 1072, votes: 13, isAccepted: true, createdAt: '2025-08-10T11:35:00.000Z', author: { name: 'Samir', reputation: 2100 }, content: 'Pothos + a trailing shelf = instant win. Prop it in water when it gets leggy; you’ll have backups. Zero‑drama plant.' },
+
+  // Q1073 Budget tools
+  { id: 5276, questionId: 1073, votes: 26, isAccepted: true, createdAt: '2025-08-11T09:40:00.000Z', author: { name: 'CPA_J', reputation: 5200 }, content: 'Google Sheets + Tiller‑style template (DIY). Categories on rows, months on columns, notes cell per month. Manual entry = awareness.' },
+  { id: 5277, questionId: 1073, votes: 7, isAccepted: false, createdAt: '2025-08-11T10:00:00.000Z', author: { name: 'Ava', reputation: 900 }, content: 'Monarch is paid but worth it for me. If you want free, Sheets + monthly review. Don’t overcomplicate.' },
+  { id: 5278, questionId: 1073, votes: 5, isAccepted: false, createdAt: '2025-08-11T10:15:00.000Z', author: { name: 'Dan', reputation: 4300 }, content: 'If you won’t open a spreadsheet, try Buckets (one‑time) or just the bank’s app. The best tool is the one you’ll use.' },
+  { id: 5279, questionId: 1073, votes: 4, isAccepted: false, createdAt: '2025-08-11T10:35:00.000Z', author: { name: 'Riley', reputation: 600 }, content: 'Old‑school: cash envelopes for problem categories (eating out, rideshare). Physical limits help.' },
+  { id: 5280, questionId: 1073, votes: 3, isAccepted: false, createdAt: '2025-08-11T10:55:00.000Z', author: { name: 'Nick', reputation: 1200 }, content: 'Don’t forget yearly/irregulars: insurance, gifts, car stuff. Sinking funds column saves “surprises.”' },
+  { id: 5281, questionId: 1073, votes: 2, isAccepted: false, createdAt: '2025-08-11T11:15:00.000Z', author: { name: 'Grace', reputation: 4800 }, content: 'If you’re partnered, weekly 15‑minute money meeting. Agenda: spending, upcoming, one improvement.' },
+  { id: 5283, questionId: 1073, votes: 12, isAccepted: true, createdAt: '2025-08-11T11:35:00.000Z', author: { name: 'Hank', reputation: 2200 }, content: 'Template: Income – Bills – Weekly cash – Sinking funds – Leftover to savings. One page.' },
+
+  // Q1074 Learn Italian
+  { id: 5284, questionId: 1074, votes: 18, isAccepted: true, createdAt: '2025-08-11T20:55:00.000Z', author: { name: 'Gianni', reputation: 2700 }, content: 'Phrase deck + 10‑minute shadowing daily. Focus on “I need / where is / can I have”. Record yourself. Smoothness over grammar.' },
+  { id: 5285, questionId: 1074, votes: 6, isAccepted: false, createdAt: '2025-08-11T21:10:00.000Z', author: { name: 'Sara N', reputation: 1500 }, content: 'Watch Easy Italian on YouTube with subtitles, then shadow lines. It’s fun so you’ll keep going.' },
+  { id: 5286, questionId: 1074, votes: 4, isAccepted: false, createdAt: '2025-08-11T21:25:00.000Z', author: { name: 'Tom', reputation: 1200 }, content: 'Tiny drill: say “Vorrei + [thing]” 20 ways. Restaurants, tickets, coffee, gelato. Plug anything in.' },
+  { id: 5287, questionId: 1074, votes: 3, isAccepted: false, createdAt: '2025-08-11T21:40:00.000Z', author: { name: 'Elena', reputation: 900 }, content: 'Bring a note card with must‑say phrases. Panic brain goes blank; the card saves you.' },
+  { id: 5288, questionId: 1074, votes: 2, isAccepted: false, createdAt: '2025-08-11T21:55:00.000Z', author: { name: 'Marco', reputation: 800 }, content: 'Grammar later. Smile first. Italians will help if you try.' },
+  { id: 5290, questionId: 1074, votes: 9, isAccepted: true, createdAt: '2025-08-11T22:25:00.000Z', author: { name: 'Alex', reputation: 3200 }, content: 'Do 2x15 minutes a day. AM = listen + shadow. PM = phrase deck. Speak to people day 1, even if broken.' },
+
+  // Q1075 Quieter apartment
+  { id: 5291, questionId: 1075, votes: 17, isAccepted: true, createdAt: '2025-08-12T08:25:00.000Z', author: { name: 'Lee F', reputation: 2100 }, content: 'Door sweep + heavy curtains + bookcases against shared walls. White noise at night. It won’t be silent, but the combo helps.' },
+  { id: 5292, questionId: 1075, votes: 6, isAccepted: false, createdAt: '2025-08-12T08:35:00.000Z', author: { name: 'Amy', reputation: 1200 }, content: 'Rug pads. Surprisingly effective for footsteps above.' },
+  { id: 5293, questionId: 1075, votes: 4, isAccepted: false, createdAt: '2025-08-12T08:50:00.000Z', author: { name: 'Pavel', reputation: 800 }, content: 'Ask the landlord nicely about soft‑close on the building door. Sometimes they’ll do it.' },
+  { id: 5294, questionId: 1075, votes: 3, isAccepted: false, createdAt: '2025-08-12T09:00:00.000Z', author: { name: 'Greta', reputation: 2800 }, content: 'Skip foam panels. They look cool and do almost nothing for neighbor noise.' },
+  { id: 5295, questionId: 1075, votes: 2, isAccepted: false, createdAt: '2025-08-12T09:15:00.000Z', author: { name: 'Mo', reputation: 900 }, content: 'If street side, a $30 box fan on low makes traffic noise fade into the background.' },
+  { id: 5298, questionId: 1075, votes: 10, isAccepted: true, createdAt: '2025-08-12T10:05:00.000Z', author: { name: 'Ivy', reputation: 2100 }, content: 'If you can swing it, add a freestanding bookshelf filled with books on the wall that shares noise. Mass matters.' },
+
+  // Q1076 Dumbbells only
+  { id: 5299, questionId: 1076, votes: 24, isAccepted: true, createdAt: '2025-08-12T10:35:00.000Z', author: { name: 'Coach K', reputation: 4100 }, content: 'Program: A/B split 3x/week. A: goblet squat, push press, row. B: RDL, floor press, split squat. 3x8–12, last set near failure.' },
+  { id: 5300, questionId: 1076, votes: 7, isAccepted: false, createdAt: '2025-08-12T10:50:00.000Z', author: { name: 'Priya', reputation: 1400 }, content: '3 days: Mon/Wed/Fri. 45 minutes. Warm‑up, main lifts, 5‑minute walk. Done. Consistency > spice.' },
+  { id: 5301, questionId: 1076, votes: 5, isAccepted: false, createdAt: '2025-08-12T11:05:00.000Z', author: { name: 'Dan', reputation: 4300 }, content: 'Track reps in a notebook. Add 1–2 reps each session until you hit the top of the range, then bump weight.' },
+  { id: 5302, questionId: 1076, votes: 3, isAccepted: false, createdAt: '2025-08-12T11:20:00.000Z', author: { name: 'Maya', reputation: 800 }, content: 'If space is tight, floor press > bench. Also hip hinge with RDLs is king for posterior chain.' },
+  { id: 5307, questionId: 1076, votes: 11, isAccepted: true, createdAt: '2025-08-12T11:40:00.000Z', author: { name: 'Alex', reputation: 3200 }, content: 'Deload every 6–8 weeks. Sleep + protein matter more than “perfect” exercise selection.' },
+
+  // Q1077 Photos to NAS — 6 answers (accepted 5316)
+  { id: 5308, questionId: 1077, votes: 19, isAccepted: false, createdAt: '2025-08-12T14:10:00.000Z', author: { name: 'Maya Patel', reputation: 4800 }, content: 'Export Originals from Photos (File → Export → Export Unmodified Originals). Preserve metadata via sidecar .AAE files. Keep the Photos library intact as a separate archive; don’t tear it apart.' },
+  { id: 5309, questionId: 1077, votes: 7,  isAccepted: false, createdAt: '2025-08-12T14:40:00.000Z', author: { name: 'Luca', reputation: 1400 }, content: 'Put them on the NAS as YYYY/MM/ folders. Synology Moments/Photos or Immich can reindex faces on the server. Time Machine + Backblaze on the NAS for 3‑2‑1 backup.' },
+  { id: 5310, questionId: 1077, votes: 4,  isAccepted: false, createdAt: '2025-08-12T15:05:00.000Z', author: { name: 'Sarah', reputation: 2100 }, content: 'For sharing: enable an auto‑upload from phones to NAS app, but keep iCloud Shared Albums alive for casual family share links.' },
+  { id: 5311, questionId: 1077, votes: 12, isAccepted: false, createdAt: '2025-08-12T15:45:00.000Z', author: { name: 'Dan', reputation: 1900 }, content: 'Do a one‑time dedupe pass before import (dupeGuru). Then hash files on NAS so future imports dedupe by checksum, not name.' },
+  { id: 5312, questionId: 1077, votes: 3,  isAccepted: false, createdAt: '2025-08-12T16:20:00.000Z', author: { name: 'Priya Singh', reputation: 3500 }, content: 'Search: rely on server‑side index (faces, objects). Keep simple folder names so you aren’t stuck with a single app.' },
+  { id: 5316, questionId: 1077, votes: 26, isAccepted: true,  createdAt: '2025-08-12T17:10:00.000Z', author: { name: 'Chris', reputation: 2200 }, content: 'Clean path: 1) Export Originals to temp SSD; 2) Deduplicate; 3) Import to NAS app (Synology Photos/Immich) with YYYY/MM; 4) Archive the Photos library; 5) Turn on phone auto‑upload; 6) 3‑2‑1 backups (NAS RAID ≠ backup, add cloud). Keeps sharing/search sane without vendor lock‑in.' },
+
+  // Q1078 Dog barking — 4 answers (accepted 5323)
+  { id: 5313, questionId: 1078, votes: 14, isAccepted: false, createdAt: '2025-08-12T18:20:00.000Z', author: { name: 'Jessica', reputation: 1700 }, content: 'Teach an incompatible behavior: 1) Knock → cue "place" → treat when quiet. 2) Add doorbell sound at low volume, reward silence. 3) Generalize with friends. No yelling—it reinforces arousal.' },
+  { id: 5314, questionId: 1078, votes: 6,  isAccepted: false, createdAt: '2025-08-12T18:50:00.000Z', author: { name: 'Tom', reputation: 1100 }, content: 'Management matters: frost window film, white noise, and a baby gate to reduce the “job.”' },
+  { id: 5315, questionId: 1078, votes: 3,  isAccepted: false, createdAt: '2025-08-12T19:10:00.000Z', author: { name: 'Anna', reputation: 1600 }, content: 'Practice calm greetings with a mat near the door. Reward latency—the first 3 seconds of quiet gets a jackpot.' },
+  { id: 5323, questionId: 1078, votes: 22, isAccepted: true,  createdAt: '2025-08-12T19:40:00.000Z', author: { name: 'Lee F', reputation: 2000 }, content: 'Protocol that sticks: desensitize to the doorbell (YouTube loop at low volume), pair with treats, then add distance + mock visitors. Over a week, raise volume/frequency. Mark & reward silence; reset if barking triggers. Consistency > intensity.' },
+
+  // Q1079 Cheap healthy dinners — 5 answers (accepted 5330)
+  { id: 5317, questionId: 1079, votes: 17, isAccepted: false, createdAt: '2025-08-12T19:30:00.000Z', author: { name: 'Kate', reputation: 1500 }, content: 'Sheet‑pan chicken thighs + frozen veg + spice mix. Toss, roast 25 min at 220°C. One pan, done.' },
+  { id: 5318, questionId: 1079, votes: 9,  isAccepted: false, createdAt: '2025-08-12T19:55:00.000Z', author: { name: 'Ryan', reputation: 980 }, content: 'Lentil tacos: brown onion, add canned lentils + taco seasoning, top with slaw + hot sauce.' },
+  { id: 5319, questionId: 1079, votes: 5,  isAccepted: false, createdAt: '2025-08-12T20:15:00.000Z', author: { name: 'Nina', reputation: 1230 }, content: 'Egg fried rice with frozen peas and whatever veg, sesame oil at the end. 10 minutes.' },
+  { id: 5320, questionId: 1079, votes: 4,  isAccepted: false, createdAt: '2025-08-12T20:35:00.000Z', author: { name: 'Eric', reputation: 2100 }, content: 'White bean pasta: sauté garlic/chili, mash beans with pasta water, lemon, parsley.' },
+  { id: 5330, questionId: 1079, votes: 28, isAccepted: true,  createdAt: '2025-08-12T21:00:00.000Z', author: { name: 'Sam', reputation: 1200 }, content: 'Batch a base: roast a big tray of veg + protein on Sundays; turn into wraps, bowls, and salads through the week. 30 mins on weeknights because the heavy lifting is prepped.' },
+
+  // Q1080 Laptop battery — 10 answers (accepted 5342)
+  { id: 5321, questionId: 1080, votes: 31, isAccepted: false, createdAt: '2025-08-12T21:40:00.000Z', author: { name: 'Mark', reputation: 2700 }, content: 'Keep average state of charge ~40–80%. Enable “Optimized Charging” on macOS/Windows OEM tools.' },
+  { id: 5322, questionId: 1080, votes: 12, isAccepted: false, createdAt: '2025-08-12T22:00:00.000Z', author: { name: 'Amy', reputation: 1300 }, content: 'Avoid heat: don’t block vents, limit gaming on soft surfaces. Heat ages cells fastest.' },
+  { id: 5324, questionId: 1080, votes: 7,  isAccepted: false, createdAt: '2025-08-12T22:25:00.000Z', author: { name: 'Paul', reputation: 1800 }, content: 'Occasional full cycle is fine for calibration, not as routine. Partial cycles are healthier.' },
+  { id: 5325, questionId: 1080, votes: 6,  isAccepted: false, createdAt: '2025-08-12T22:50:00.000Z', author: { name: 'Rachel', reputation: 1600 }, content: 'Fast charge is okay if temps stay moderate. If battery gets hot, slow it down.' },
+  { id: 5326, questionId: 1080, votes: 5,  isAccepted: false, createdAt: '2025-08-12T23:10:00.000Z', author: { name: 'Steve', reputation: 1900 }, content: 'If docked most days, schedule charge caps (80%) and once a month let it run on battery to 40–50%.' },
+  { id: 5327, questionId: 1080, votes: 4,  isAccepted: false, createdAt: '2025-08-12T23:35:00.000Z', author: { name: 'Anna', reputation: 1600 }, content: 'USB‑C PD is fine; cheap bricks can be noisy. Use reputable chargers/cables.' },
+  { id: 5328, questionId: 1080, votes: 3,  isAccepted: false, createdAt: '2025-08-13T00:00:00.000Z', author: { name: 'Mike', reputation: 1750 }, content: 'Store long‑term around 50% charge in a cool room if unused for weeks.' },
+  { id: 5329, questionId: 1080, votes: 2,  isAccepted: false, createdAt: '2025-08-13T00:20:00.000Z', author: { name: 'Jane', reputation: 1450 }, content: 'Background: lithium‑ion stress = high voltage + high temp. Your job is to reduce both.' },
+  { id: 5341, questionId: 1080, votes: 2,  isAccepted: false, createdAt: '2025-08-13T00:45:00.000Z', author: { name: 'Kevin', reputation: 1550 }, content: 'Don’t obsess over exact %—automation beats micromanagement. Turn on the OS features and move on.' },
+  { id: 5342, questionId: 1080, votes: 39, isAccepted: true,  createdAt: '2025-08-13T01:10:00.000Z', author: { name: 'Owen', reputation: 2600 }, content: 'Modern guidance: keep it cool, avoid sitting at 100% for days, enable charge caps/learned charging, and don’t worry about occasional fast charges. You’ll lose some capacity over years no matter what—minimize heat and high voltage to slow it.' },
+
+  // Q1081 Resume bullets — 3 answers (accepted 5350)
+  { id: 5331, questionId: 1081, votes: 16, isAccepted: false, createdAt: '2025-08-13T08:20:00.000Z', author: { name: 'Grace', reputation: 2300 }, content: 'Use verb + scope + metric + impact: “Launched cohort analysis for 8MM MAUs; cut activation time 18%.”' },
+  { id: 5332, questionId: 1081, votes: 6,  isAccepted: false, createdAt: '2025-08-13T08:40:00.000Z', author: { name: 'John', reputation: 2000 }, content: 'Mirror target JD keywords. Keep 1–2 lines per bullet. Kill filler like “responsible for.”' },
+  { id: 5350, questionId: 1081, votes: 21, isAccepted: true,  createdAt: '2025-08-13T09:00:00.000Z', author: { name: 'Lily', reputation: 3100 }, content: 'Pattern that works: outline business problem → what you built → quantified outcome → tool names at end. Recruiters skim outcomes first.' },
+
+  // Q1082 Gym anxiety — 7 answers (accepted 5359)
+  { id: 5333, questionId: 1082, votes: 23, isAccepted: false, createdAt: '2025-08-13T09:20:00.000Z', author: { name: 'Amy', reputation: 1300 }, content: 'Week 1: machines only (fixed path), 30 min circuits. Week 2: add 2 dumbbell lifts. Same days/times to build habit.' },
+  { id: 5334, questionId: 1082, votes: 9,  isAccepted: false, createdAt: '2025-08-13T09:40:00.000Z', author: { name: 'Paul', reputation: 1800 }, content: 'Wear headphones, pre‑write plan, and film your form (private). You’ll look confident because you have a script.' },
+  { id: 5335, questionId: 1082, votes: 7,  isAccepted: false, createdAt: '2025-08-13T10:00:00.000Z', author: { name: 'Rachel', reputation: 1600 }, content: 'Pick off‑peak hours. Staff are happy to demo a machine—ask once and you’re set.' },
+  { id: 5336, questionId: 1082, votes: 6,  isAccepted: false, createdAt: '2025-08-13T10:20:00.000Z', author: { name: 'Steve', reputation: 1900 }, content: 'Template: push, pull, legs, core, 2 sets each. Same order every time to reduce decision load.' },
+  { id: 5337, questionId: 1082, votes: 4,  isAccepted: false, createdAt: '2025-08-13T10:40:00.000Z', author: { name: 'Nina', reputation: 1230 }, content: 'Join with a friend for 2 weeks. Accountability kills anxiety faster than any “hack.”' },
+  { id: 5338, questionId: 1082, votes: 3,  isAccepted: false, createdAt: '2025-08-13T11:00:00.000Z', author: { name: 'Kevin', reputation: 1550 }, content: 'If someone stares, it’s usually because they’re waiting on the machine. Share sets—it’s normal.' },
+  { id: 5359, questionId: 1082, votes: 28, isAccepted: true,  createdAt: '2025-08-13T11:20:00.000Z', author: { name: 'Tanya', reputation: 900 }, content: '2‑week plan: Wk1 machines circuit 3×/wk, Wk2 add dumbbells (goblet squat, incline press, one‑arm row). Same playlist, same time slot. Keep it boring and you’ll keep going.' },
+
+  // Q1083 Sleep without meds — 6 answers (accepted 5367)
+  { id: 5339, questionId: 1083, votes: 27, isAccepted: false, createdAt: '2025-08-13T11:40:00.000Z', author: { name: 'Maya Patel', reputation: 4800 }, content: 'Set a consistent wake time 7 days a week. Your sleep follows your wake.' },
+  { id: 5340, questionId: 1083, votes: 8,  isAccepted: false, createdAt: '2025-08-13T12:00:00.000Z', author: { name: 'Eric', reputation: 2100 }, content: 'Dark, cool, quiet. Block light (including LEDs), 17–19°C if possible, and white noise.' },
+  { id: 5343, questionId: 1083, votes: 6,  isAccepted: false, createdAt: '2025-08-13T12:20:00.000Z', author: { name: 'Jessica', reputation: 1700 }, content: 'Caffeine curfew: nothing after noon if sleep is fragile. Alcohol fragments sleep—limit it.' },
+  { id: 5344, questionId: 1083, votes: 5,  isAccepted: false, createdAt: '2025-08-13T12:40:00.000Z', author: { name: 'Tom', reputation: 1100 }, content: 'If you wake at night, don’t clock‑watch. Get up, low light, read paper pages, back to bed when sleepy.' },
+  { id: 5345, questionId: 1083, votes: 4,  isAccepted: false, createdAt: '2025-08-13T13:00:00.000Z', author: { name: 'Anna', reputation: 1600 }, content: 'Wind‑down cue: 60 min before bed, dim lights, stretch, and write a 3‑line tomorrow plan.' },
+  { id: 5367, questionId: 1083, votes: 32, isAccepted: true,  createdAt: '2025-08-13T13:20:00.000Z', author: { name: 'Yasmin', reputation: 1700 }, content: 'Sleep hygiene that actually works: fixed wake time, light in the morning, screens off 60 min before bed, cooler room, and reserve bed for sleep only. Track trends weekly, not nightly.' },
 ];
 
 // Augment answers to ensure varied counts per question (0–20) with diverse styles
 // Keep the special HearDirectClub question unchanged.
 (function augmentAnswers() {
   const SPECIAL_SLUG = 'heardirectclubs-nova-hearing-aid-any-good';
+  // Manually authored questions that should not be augmented
+  const MANUAL_SLUGS = new Set([
+    // Newly added batch 1077–1083
+    'move-from-photos-app-to-nas-without-chaos',
+    'teach-dog-not-to-bark-at-door',
+    'cheap-healthy-dinners-for-busy-weeknights',
+    'keep-laptop-battery-healthy-2025',
+    'resume-bullets-that-actually-get-interviews',
+    'get-over-gym-anxiety-as-a-beginner',
+    'get-better-sleep-without-meds',
+  ]);
 
   // Helper to generate more varied content styles
   const makeVariedAnswerContent = (title) => {
@@ -3832,7 +4125,7 @@ const answers = [
 
   // For each question, decide a target answer count and add missing answers
   questions = questions.map((q) => {
-    if (q.slug === SPECIAL_SLUG) {
+    if (q.slug === SPECIAL_SLUG || MANUAL_SLUGS.has(q.slug)) {
       // Do not modify counts or answers for the special question
       return q;
     }
